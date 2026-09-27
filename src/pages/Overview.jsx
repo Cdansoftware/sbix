@@ -160,6 +160,8 @@ const EventOverview = () => {
         </div>
       </section>
 
+      {/* <hr className="border-white/10" /> */}
+
       {/* 2. Challenge Categories Section */}
       <section
         id="tracks"

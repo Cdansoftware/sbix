@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaRegUserCircle, FaMapMarkerAlt, FaDirections } from "react-icons/fa";
+import UserIcons from "../assets/userr.png";
+import FeUser from "../assets/feuser.png";
+import { TfiEmail } from "react-icons/tfi";
+import Gmail from "../assets/gmicon.png";
 
 const Contact = () => {
   const mapLink = "https://maps.app.goo.gl/f2LRfZySJPFA3FGn7";
@@ -22,7 +26,10 @@ const Contact = () => {
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Page Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12" data-aos="fade-down">
+        <div
+          className="text-center max-w-2xl mx-auto mb-12"
+          data-aos="fade-down"
+        >
           <span className="inline-block px-4 py-1.5 bg-red-500/10 text-red-400 font-bold text-xs tracking-widest uppercase rounded-full border border-red-500/20 mb-4">
             Get In Touch
           </span>
@@ -30,28 +37,40 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Have queries regarding SBIX 1.0 submissions, rules, or event schedules? Reach out to our Event Leadership directly or visit our event venue.
+            Have queries regarding SBIX 1.0 submissions, rules, or event
+            schedules? Reach out to our Event Leadership directly or visit our
+            event venue.
           </p>
         </div>
 
         {/* Leadership Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-aos="fade-up">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
+          data-aos="fade-up"
+        >
           {/* Chandan Prajapati Card */}
           <div className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-xl relative overflow-hidden group hover:border-red-500/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform">
-                  <FaRegUserCircle />
+                <div className="w-24 h-28 rounded-2xl bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform">
+                  <img
+                    src={UserIcons}
+                    alt="Chandan Prajapati"
+                    className="w-auto h-28 object-cover"
+                  />
                 </div>
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-red-400 bg-red-500/10 px-2.5 py-0.5 rounded-full border border-red-500/20">
                     Event Head
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Chandan Prajapati</h3>
+                  <h3 className="text-xl font-bold text-white mt-1">
+                    Chandan Prajapati
+                  </h3>
                 </div>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed mb-6">
-                Incharge of Overall Management, Technical Design & Display across all event tracks.
+                Incharge of Overall Management, Technical Design & Display
+                across all event tracks.
               </p>
             </div>
 
@@ -68,18 +87,25 @@ const Contact = () => {
           <div className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-xl relative overflow-hidden group hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform">
-                  <FaRegUserCircle />
+                <div className="w-24 h-28 rounded-2xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform">
+                  <img
+                    src={FeUser}
+                    alt="Dhanjeet Kaur"
+                    className="w-auto h-28 object-cover"
+                  />
                 </div>
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
                     Event Co-Head
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">Dhanjeet Kaur</h3>
+                  <h3 className="text-xl font-bold text-white mt-1">
+                    Dhanjeet Kaur
+                  </h3>
                 </div>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed mb-6">
-                Incharge of Registration, Guidance, & Student Queries for participating schools.
+                Incharge of Registration, Guidance, & Student Queries for
+                participating schools.
               </p>
             </div>
 
@@ -144,13 +170,21 @@ const Contact = () => {
           data-aos="zoom-in"
           className="p-8 rounded-3xl bg-gradient-to-br from-red-500/10 via-white/5 to-white/5 backdrop-blur-2xl border border-red-500/20 text-center shadow-2xl relative overflow-hidden"
         >
-          <div className="w-16 h-16 rounded-2xl bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-3xl mx-auto mb-4">
-            📧
-          </div>
+          <img
+            src={Gmail}
+            alt="Gmail"
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            className="w-auto h-20 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 hover:scale-105 transition-transform duration-300 cursor-pointer"
+          />
 
-          <h3 className="text-2xl font-bold text-white mb-2">Official Email ID</h3>
+          <h3 className="text-2xl font-bold text-white mb-2">
+            Official Email ID
+          </h3>
           <p className="text-xs sm:text-sm text-slate-400 mb-6 max-w-md mx-auto">
-            Send your queries, project ideas, or registration confirmations directly to our official robotics department email.
+            Send your queries, project ideas, or registration confirmations
+            directly to our official robotics department email.
           </p>
 
           <a
