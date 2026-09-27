@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import innovationQr from "../assets/Innovation_QR.png";
 import otherEventQr from "../assets/other_event_QR.png";
+import InnovationChallengePPT from "../assets/Innovation_challenge_ppt_formate.pdf"; // Import the PDF file
 
 const Registration = () => {
   const [loading, setLoading] = useState(false);
@@ -16,31 +17,14 @@ const Registration = () => {
     });
   }, []);
 
-  const downloadFileProgrammatically = async (fileUrl, fileName) => {
-    try {
-      setLoading(true);
-      const response = await fetch(fileUrl);
-      if (!response.ok) throw new Error("File download failed");
-
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      
-      // Cleanup
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Download Error:", error);
-      alert("Failed to download file. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const handleDownloadPPT = () => {
+     const link = document.createElement("a");
+        link.href = InnovationChallengePPT;
+        link.download = "Innovation-Challenge-Presentation-Format.pptx";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+  }
 
   const innovationFormUrl =
     "https://docs.google.com/forms/d/e/1FAIpQLSc44SSWC0-9EnfkBmZKE7K0Q-NV6G7N8o-b3QMxSKSI8dYX9A/viewform?pli=1&authuser=0";
@@ -175,12 +159,7 @@ const Registration = () => {
                     <button
                       type="button"
                       disabled={loading}
-                      onClick={() =>
-                        downloadFileProgrammatically(
-                          "../assets/Innovation_challenge_ppt_formate.pdf", // URL/Path to file
-                          "Innovation-Idea-Submission-Format.pptx",
-                        )
-                      }
+                      onClick={handleDownloadPPT}
                       className="cursor-pointer inline-flex items-center gap-1.5 ml-1 px-3 py-1 rounded-md text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 transition-all disabled:opacity-50"
                     >
                       {loading ? "⏳ Downloading..." : "📥 Download PPT Format"}
