@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useRef} from "react";
 import { Link } from "react-router-dom";
 
-
 // Replace or add your actual video file imports/URLs here
-import promoVideo1 from "../assets/carousel.mp4"; 
+import promoVideo1 from "../assets/carousel.mp4";
 
 const Home = () => {
   // Video array for the carousel
@@ -11,6 +10,15 @@ const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   // Automatically switch video when current video finishes
+  const videoRef = useRef(null);
+
+  // 2. Set slow motion speed on mount & video change
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.6; // Change to 0.5 for half speed, 0.75 for mild slow-mo
+    }
+  }, [currentVideoIndex]);
+
   const handleVideoEnded = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
   };
@@ -132,6 +140,7 @@ const Home = () => {
         >
           <div className="relative w-full aspect-video rounded-3xl overflow-hidden border-4 border-gray-100 shadow-2xl bg-black group">
             <video
+              ref={videoRef}
               key={videos[currentVideoIndex]}
               src={videos[currentVideoIndex]}
               autoPlay
@@ -140,22 +149,6 @@ const Home = () => {
               onEnded={handleVideoEnded}
               className="w-full h-full object-cover transition-all duration-500"
             />
-
-            {/* Video Controls / Navigation Indicators */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full z-10">
-              {videos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentVideoIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    currentVideoIndex === index
-                      ? "w-6 bg-red-500"
-                      : "w-2 bg-white/50 hover:bg-white"
-                  }`}
-                  aria-label={`Go to video ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </div>

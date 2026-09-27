@@ -177,7 +177,7 @@ const Registration = () => {
                       disabled={loading}
                       onClick={() =>
                         downloadFileProgrammatically(
-                          "/assets/Innovation_challenge_ppt_formate.pdf", // URL/Path to file
+                          "../assets/Innovation_challenge_ppt_formate.pdf", // URL/Path to file
                           "Innovation-Idea-Submission-Format.pptx",
                         )
                       }

@@ -31,7 +31,7 @@ const ChallengeGuidelines = () => {
     },
     {
       title: "Code of Conduct",
-      desc: "Fair play and ethical behavior are required. Any form of plagiarism or unsportsmanlike conduct will result in ejection.",
+      desc: "Fair play and ethical behavior are required. Any form of plagiarism or unsportsmanlike conduct will result in Rejection.",
       icon: "🤝",
     },
     {
