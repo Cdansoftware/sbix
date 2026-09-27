@@ -1,21 +1,21 @@
-import React, { useState, useEffect , useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-// Replace or add your actual video file imports/URLs here
+// Video and Logo imports
 import promoVideo1 from "../assets/carousel.mp4";
+import sbixLogo from "../assets/logo_sbix.png";
+import bhartiAirtelLogo from "../assets/bharti-airtel.png";
+import satyaBhartiLogo from "../assets/Satya-bharti.png"; 
 
 const Home = () => {
-  // Video array for the carousel
   const videos = [promoVideo1];
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  // Automatically switch video when current video finishes
   const videoRef = useRef(null);
 
-  // 2. Set slow motion speed on mount & video change
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6; // Change to 0.5 for half speed, 0.75 for mild slow-mo
+      videoRef.current.playbackRate = 0.6;
     }
   }, [currentVideoIndex]);
 
@@ -24,18 +24,32 @@ const Home = () => {
   };
 
   return (
-    <section className="text-gray-800 body-font bg-white min-h-screen flex items-center justify-center">
+    <section className="text-gray-800 body-font bg-white min-h-screen flex items-center justify-center py-8">
       <div className="container mx-auto flex px-5 py-5 md:py-10 flex-col-reverse md:flex-row items-center">
-        {/* Left Content (Text Details) */}
+        {/* Left Content (Text Details & Partner Logos) */}
         <div
           data-aos="fade-right"
           className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left items-center text-center mt-8 md:mt-0"
         >
-          {/* Badge */}
-          <div className="mb-5">
-            <span className="inline-flex items-center px-4 py-2 rounded-full bg-red-50 text-red-600 text-sm font-semibold border border-red-100">
+          {/* Top Logos & Badge Row */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6">
+            <span className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-semibold border border-red-100">
               SBIX 1.0 • 2026
             </span>
+
+            {/* In Association With Logos Header */}
+            <div className="flex items-center gap-3 pl-2 border-l-2 border-gray-200">
+              <img
+                src={bhartiAirtelLogo}
+                alt="Bharti Airtel Foundation"
+                className="h-18 w-auto object-contain hover:scale-105 transition-transform"
+              />
+              <img
+                src={satyaBhartiLogo}
+                alt="Satya Bharti Foundation"
+                className="h-16 w-auto object-contain hover:scale-105 transition-transform"
+              />
+            </div>
           </div>
 
           {/* Heading */}
@@ -133,7 +147,7 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Right Side Video Carousel */}
+        {/* Right Side Video Carousel & Floating Logos */}
         <div
           data-aos="fade-left"
           className="w-full max-w-md md:w-1/2 lg:w-[480px] h-full flex flex-col justify-center items-center"
