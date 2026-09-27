@@ -7,6 +7,7 @@ import {
   FaCar,
   FaClock,
   FaSpinner,
+  FaRegDotCircle,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -61,7 +62,7 @@ const Footer = () => {
         try {
           // Open Source Routing Machine API Call
           const res = await fetch(
-            `https://router.project-osrm.org/route/v1/driving/${userLng},${userLat};${VENUE_LNG},${VENUE_LAT}?overview=false`
+            `https://router.project-osrm.org/route/v1/driving/${userLng},${userLat};${VENUE_LNG},${VENUE_LAT}?overview=false`,
           );
           const data = await res.json();
 
@@ -80,7 +81,7 @@ const Footer = () => {
               userLat,
               userLng,
               VENUE_LAT,
-              VENUE_LNG
+              VENUE_LNG,
             );
             setDistance(`~${fallback.roadKm} km`);
             setDuration(`~${fallback.timeText}`);
@@ -90,7 +91,7 @@ const Footer = () => {
             userLat,
             userLng,
             VENUE_LAT,
-            VENUE_LNG
+            VENUE_LNG,
           );
           setDistance(`~${fallback.roadKm} km`);
           setDuration(`~${fallback.timeText}`);
@@ -102,7 +103,7 @@ const Footer = () => {
         setLoading(false);
         setError("Location access denied/unavailable.");
       },
-      { timeout: 8000 }
+      { timeout: 8000 },
     );
   };
 
@@ -140,22 +141,34 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link to="/home" className="hover:text-red-400 transition-colors flex items-center gap-1.5">
+                <Link
+                  to="/home"
+                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
+                >
                   <span>›</span> Home
                 </Link>
               </li>
               <li>
-                <Link to="/guidelines" className="hover:text-red-400 transition-colors flex items-center gap-1.5">
+                <Link
+                  to="/guidelines"
+                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
+                >
                   <span>›</span> Guidelines & Rules
                 </Link>
               </li>
               <li>
-                <Link to="/registration" className="hover:text-red-400 transition-colors flex items-center gap-1.5">
+                <Link
+                  to="/registration"
+                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
+                >
                   <span>›</span> Registration & Submissions
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-red-400 transition-colors flex items-center gap-1.5">
+                <Link
+                  to="/contact"
+                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
+                >
                   <span>›</span> Contact Us
                 </Link>
               </li>
@@ -218,15 +231,23 @@ const Footer = () => {
                   <div className="p-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
                     <FaCar className="text-red-400 text-xs" />
                     <div>
-                      <p className="text-[9px] text-slate-400 uppercase font-bold">Dist</p>
-                      <p className="text-xs font-extrabold text-white">{distance}</p>
+                      <p className="text-[9px] text-slate-400 uppercase font-bold">
+                        Dist
+                      </p>
+                      <p className="text-xs font-extrabold text-white">
+                        {distance}
+                      </p>
                     </div>
                   </div>
                   <div className="p-2 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
                     <FaClock className="text-amber-400 text-xs" />
                     <div>
-                      <p className="text-[9px] text-slate-400 uppercase font-bold">Time</p>
-                      <p className="text-xs font-extrabold text-white">{duration}</p>
+                      <p className="text-[9px] text-slate-400 uppercase font-bold">
+                        Time
+                      </p>
+                      <p className="text-xs font-extrabold text-white">
+                        {duration}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -276,14 +297,18 @@ const Footer = () => {
                 <span className="text-[10px] text-slate-400 uppercase font-semibold">
                   Submission
                 </span>
-                <span className="text-xs font-bold text-red-400">1 OCT 2026</span>
+                <span className="text-xs font-bold text-red-400">
+                  1 OCT 2026
+                </span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
                 <span className="text-[10px] text-slate-400 uppercase font-semibold">
                   Results
                 </span>
-                <span className="text-xs font-bold text-amber-400">3 OCT 2026</span>
+                <span className="text-xs font-bold text-amber-400">
+                  3 OCT 2026
+                </span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
@@ -309,10 +334,20 @@ const Footer = () => {
         </div>
 
         {/* Bottom Credits Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 border-t border-white/10">
           <p>
             © 2026 SBIX 1.0 Tech Fest. In Association with Bharti Foundation.
             All rights reserved.
+          </p>
+          <p className="flex items-center text-slate-400 font-medium">
+            <FaRegDotCircle className="mr-1" />
+            Build by{" "}
+            <span className="text-red-400 px-1 font-bold hover:underline cursor-pointer">
+              Chandan Prajapati
+            </span>{" "}
+            <span className="text-slate-500 text-[11px]">
+              | Software Developer |
+            </span>
           </p>
         </div>
       </div>
