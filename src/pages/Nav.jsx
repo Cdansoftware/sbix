@@ -28,7 +28,7 @@ export default function Navbar() {
                 <img
                   src={Logo}
                   alt="SBIX Logo"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain rounded-full"
                 />
               </div>
             </div>

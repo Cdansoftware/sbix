@@ -1,18 +1,27 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo_sbix.png";
+
+
+// Replace or add your actual video file imports/URLs here
+import promoVideo1 from "../assets/carousel.mp4"; 
 
 const Home = () => {
+  // Video array for the carousel
+  const videos = [promoVideo1];
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  // Automatically switch video when current video finishes
+  const handleVideoEnded = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  };
+
   return (
     <section className="text-gray-800 body-font bg-white min-h-screen flex items-center justify-center">
-      {/* 
-        Key Fix: flex-col-reverse puts Right Side (Logo) first on mobile,
-        and md:flex-row restores side-by-side layout on desktop.
-      */}
       <div className="container mx-auto flex px-5 py-5 md:py-10 flex-col-reverse md:flex-row items-center">
         {/* Left Content (Text Details) */}
         <div
           data-aos="fade-right"
-          className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left items-center text-center mt-8 md:mt-0 "
+          className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left items-center text-center mt-8 md:mt-0"
         >
           {/* Badge */}
           <div className="mb-5">
@@ -62,7 +71,7 @@ const Home = () => {
                   Venue
                 </span>
                 <span className="text-sm font-semibold text-gray-800">
-                  SBAS Rauni
+                  Satya Bharti Adarsh Sen. Sec. School, Rauni
                 </span>
               </div>
             </div>
@@ -88,22 +97,22 @@ const Home = () => {
             <Link to="/registration">
               <button
                 className="
-      inline-flex
-      text-white
-      bg-red-600
-      border-0
-      py-3
-      px-7
-      focus:outline-none
-      hover:bg-red-700
-      rounded-lg
-      text-base
-      font-semibold
-      transition
-      duration-300
-      shadow-md
-      cursor-pointer
-    "
+                  inline-flex
+                  text-white
+                  bg-red-600
+                  border-0
+                  py-3
+                  px-7
+                  focus:outline-none
+                  hover:bg-red-700
+                  rounded-lg
+                  text-base
+                  font-semibold
+                  transition
+                  duration-300
+                  shadow-md
+                  cursor-pointer
+                "
               >
                 Register Your School
               </button>
@@ -116,20 +125,36 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Right Side (Logo Wrapper - Shows on top in mobile) */}
-        {/* Right Side (Logo Wrapper) */}
+        {/* Right Side Video Carousel */}
         <div
           data-aos="fade-left"
-          className="w-3/4 max-w-xs md:w-1/2 lg:w-[400px] h-full flex justify-center items-center"
+          className="w-full max-w-md md:w-1/2 lg:w-[480px] h-full flex flex-col justify-center items-center"
         >
-          <div className="relative w-full flex justify-center items-center">
-            {/* Logo Image */}
-            <div className="relative w-full flex justify-center items-center">
-              <img
-                src={logo}
-                alt="Satya Bharti InnovateX"
-                className="w-full h-auto object-contain drop-shadow-2xl rounded-full"
-              />
+          <div className="relative w-full aspect-video rounded-3xl overflow-hidden border-4 border-gray-100 shadow-2xl bg-black group">
+            <video
+              key={videos[currentVideoIndex]}
+              src={videos[currentVideoIndex]}
+              autoPlay
+              muted
+              playsInline
+              onEnded={handleVideoEnded}
+              className="w-full h-full object-cover transition-all duration-500"
+            />
+
+            {/* Video Controls / Navigation Indicators */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full z-10">
+              {videos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentVideoIndex(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    currentVideoIndex === index
+                      ? "w-6 bg-red-500"
+                      : "w-2 bg-white/50 hover:bg-white"
+                  }`}
+                  aria-label={`Go to video ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>

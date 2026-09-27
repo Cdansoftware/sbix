@@ -135,7 +135,6 @@ const ChallengeGuidelines = () => {
         "Test speed, accuracy, and knowledge depth in Artificial Intelligence, Machine Learning, Computer Vision, and Emerging Tech.",
       specifications: [
         "Round 1: Online Speed Quiz (Elimination Round).",
-        "Round 2: Stage Buzzer Round (Top 6 Teams).",
         "Team Size: 2 Members.",
       ],
       rules: [
