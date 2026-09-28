@@ -298,7 +298,7 @@ const Footer = () => {
                   Submission
                 </span>
                 <span className="text-xs font-bold text-red-400">
-                  1 OCT 2026
+                  7 OCT 2026
                 </span>
               </div>
 
@@ -307,7 +307,7 @@ const Footer = () => {
                   Results
                 </span>
                 <span className="text-xs font-bold text-amber-400">
-                  3 OCT 2026
+                  9 OCT 2026
                 </span>
               </div>
 
