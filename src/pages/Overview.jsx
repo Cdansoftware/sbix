@@ -108,7 +108,7 @@ const EventOverview = () => {
   const stats = [
     { label: "Competitions", value: "04 Tracks", icon: "🏆" },
     { label: "Target Audience", value: "Classes 6–12", icon: "🎓" },
-    { label: "Cash & Prizes", value: "₹ in Case ", icon: "🎁" },
+    { label: "Trophy", value: "Certificate", icon: "🎁" },
     { label: "Mode", value: "SBAS - Rauni", icon: "📍" },
   ];
 
