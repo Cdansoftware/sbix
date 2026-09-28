@@ -69,7 +69,7 @@ const Registration = () => {
               <p className="text-xs font-semibold text-slate-400">
                 Submission Deadline
               </p>
-              <p className="text-sm font-bold text-red-400">1 OCT 2026</p>
+              <p className="text-sm font-bold text-red-400">7 OCT 2026</p>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ const Registration = () => {
               <p className="text-xs font-semibold text-slate-400">
                 Results Declaration
               </p>
-              <p className="text-sm font-bold text-amber-400">3 OCT 2026</p>
+              <p className="text-sm font-bold text-amber-400">9 OCT 2026</p>
             </div>
           </div>
 
@@ -123,7 +123,7 @@ const Registration = () => {
                   <span className="text-red-400 font-bold">•</span>
                   <span>
                     <strong>Submission Deadline:</strong> All entries must be
-                    submitted by <strong>1 OCT 2026</strong>.
+                    submitted by <strong>7 OCT 2026</strong>.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -138,7 +138,7 @@ const Registration = () => {
                   <span className="text-red-400 font-bold">•</span>
                   <span>
                     <strong>Results:</strong> Selected teams will be announced
-                    on <strong>3 OCT 2026</strong>.
+                    on <strong>9 OCT 2026</strong>.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
