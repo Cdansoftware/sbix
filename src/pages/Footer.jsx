@@ -298,7 +298,7 @@ const Footer = () => {
                   Submission
                 </span>
                 <span className="text-xs font-bold text-red-400">
-                  7 OCT 2026
+                  Will update soon
                 </span>
               </div>
 
@@ -307,7 +307,7 @@ const Footer = () => {
                   Results
                 </span>
                 <span className="text-xs font-bold text-amber-400">
-                  9 OCT 2026
+                  Will update soon
                 </span>
               </div>
 

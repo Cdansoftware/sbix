@@ -5,6 +5,7 @@ import rulebook from "../assets/SBIX_1.0.pdf";
 
 const ChallengeGuidelines = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const [isSyllabusOpen, setIsSyllabusOpen] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -17,7 +18,7 @@ const ChallengeGuidelines = () => {
   // AOS Flip Animations Array
   const flipAnimations = ["flip-left", "flip-right", "flip-up", "flip-down"];
 
-  // General Competition Rules (Applies to Everyone)
+  // General Competition Rules
   const generalRules = [
     {
       title: "Eligibility & Registration",
@@ -38,6 +39,81 @@ const ChallengeGuidelines = () => {
       title: "Equipment & Safety",
       desc: "Participants are responsible for their own laptops, tools, and hardware. Safety goggles are required for physical robot arenas.",
       icon: "🛡️",
+    },
+  ];
+
+  // AI Quiz Syllabus Topics
+  const aiQuizSyllabus = [
+    {
+      module: "1. Introduction to Artificial Intelligence",
+      icon: "🤖",
+      topics: [
+        "Definition of AI",
+        "History and evolution of AI",
+        "Types of AI (Narrow AI, General AI, Super AI)",
+        "AI vs Human Intelligence",
+      ],
+    },
+    {
+      module: "2. AI Around Us",
+      icon: "📱",
+      topics: [
+        "Virtual Assistants (Siri, Alexa, Google Assistant)",
+        "Recommendation Systems (YouTube, Netflix, Spotify)",
+        "Face Recognition and Biometrics",
+        "AI in Smartphones and Smart Devices",
+      ],
+    },
+    {
+      module: "3. Machine Learning Basics",
+      icon: "⚙️",
+      topics: [
+        "What is Machine Learning?",
+        "Training Data and Models",
+        "Supervised Learning",
+        "Unsupervised Learning",
+        "Real-life applications of ML",
+      ],
+    },
+    {
+      module: "4. Robotics and AI",
+      icon: "🦾",
+      topics: [
+        "Difference between Robotics and AI",
+        "AI-powered Robots",
+        "Applications of Robotics in Industry, Healthcare, and Space",
+      ],
+    },
+    {
+      module: "5. Natural Language Processing (NLP)",
+      icon: "💬",
+      topics: [
+        "Speech Recognition",
+        "Language Translation",
+        "Chatbots and Virtual Assistants",
+        "Text Generation",
+      ],
+    },
+    {
+      module: "6. AI Applications",
+      icon: "🌐",
+      topics: [
+        "Healthcare",
+        "Education",
+        "Agriculture",
+        "Transportation",
+        "Banking and Finance",
+      ],
+    },
+    {
+      module: "7. Current AI Trends",
+      icon: "🚀",
+      topics: [
+        "AI in Self-Driving Cars",
+        "AI in Space Exploration",
+        "AI in Smart Cities",
+        "Emerging AI Technologies",
+      ],
     },
   ];
 
@@ -148,6 +224,7 @@ const ChallengeGuidelines = () => {
         "Buzzer Accuracy in Final Stage Round",
         "Scenario & Problem-Solving Speed",
       ],
+      hasSyllabusButton: true,
     },
   ];
 
@@ -160,7 +237,6 @@ const ChallengeGuidelines = () => {
     document.body.removeChild(link);
   };
 
-  // Filter challenges based on tab
   const filteredGuidelines =
     activeTab === "all"
       ? challengeGuidelines
@@ -201,7 +277,7 @@ const ChallengeGuidelines = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {generalRules.map((rule, idx) => (
               <div
-                key={idx}
+                key={rule.title}
                 data-aos="fade-up"
                 data-aos-delay={idx * 100}
                 className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-start gap-4 hover:border-white/20 transition-all"
@@ -233,6 +309,7 @@ const ChallengeGuidelines = () => {
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10">
               <button
+                type="button"
                 onClick={() => setActiveTab("all")}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                   activeTab === "all"
@@ -245,6 +322,7 @@ const ChallengeGuidelines = () => {
               {challengeGuidelines.map((item) => (
                 <button
                   key={item.id}
+                  type="button"
                   onClick={() => setActiveTab(item.id)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                     activeTab === item.id
@@ -259,7 +337,7 @@ const ChallengeGuidelines = () => {
           </div>
         </div>
 
-        {/* Detailed Challenge Cards with AOS Flip Animations */}
+        {/* Detailed Challenge Cards */}
         <div className="space-y-12">
           {filteredGuidelines.map((item, index) => {
             const currentFlip = flipAnimations[index % flipAnimations.length];
@@ -291,11 +369,22 @@ const ChallengeGuidelines = () => {
                         </p>
                       </div>
                     </div>
-                    <span
-                      className={`px-3.5 py-1.5 rounded-full text-xs font-bold border backdrop-blur-md ${item.badgeColor}`}
-                    >
-                      {item.category}
-                    </span>
+                    <div className="flex items-center gap-3">
+                      {item.hasSyllabusButton && (
+                        <button
+                          type="button"
+                          onClick={() => setIsSyllabusOpen(true)}
+                          className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40 hover:bg-purple-500/40 transition-all cursor-pointer flex items-center gap-1.5"
+                        >
+                          <span>📚</span> View Syllabus
+                        </button>
+                      )}
+                      <span
+                        className={`px-3.5 py-1.5 rounded-full text-xs font-bold border backdrop-blur-md ${item.badgeColor}`}
+                      >
+                        {item.category}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Rules Grid */}
@@ -364,6 +453,49 @@ const ChallengeGuidelines = () => {
           })}
         </div>
 
+        {/* Standalone Syllabus Grid Section */}
+        <div className="mt-20" data-aos="fade-up">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <span className="px-3 py-1 bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-full text-xs font-bold uppercase tracking-wider">
+                Exam Preparation
+              </span>
+              <h2 className="text-3xl font-extrabold text-white mt-2 flex items-center gap-3">
+                🧠 AI Quiz Complete Syllabus
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {aiQuizSyllabus.map((mod, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-purple-500/20 hover:border-purple-500/40 transition-all group"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 group-hover:scale-110 transition-transform">
+                    {mod.icon}
+                  </span>
+                  <h3 className="font-bold text-white text-base leading-tight">
+                    {mod.module}
+                  </h3>
+                </div>
+                <ul className="space-y-2 pl-2">
+                  {mod.topics.map((top, tIdx) => (
+                    <li
+                      key={tIdx}
+                      className="text-xs text-slate-300 flex items-start gap-2"
+                    >
+                      <span className="text-purple-400 shrink-0">•</span>
+                      <span>{top}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Download Button Banner */}
         <div data-aos="zoom-in" className="mt-16 text-center">
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10">
@@ -377,6 +509,7 @@ const ChallengeGuidelines = () => {
               </p>
             </div>
             <button
+              type="button"
               onClick={handleDownload}
               className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-bold text-xs rounded-xl shadow-lg transition-all shrink-0 flex items-center gap-2 cursor-pointer"
             >
@@ -386,6 +519,72 @@ const ChallengeGuidelines = () => {
           </div>
         </div>
       </div>
+
+      {/* AI Quiz Syllabus Modal */}
+      {isSyllabusOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+          <div className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto bg-slate-900 border border-purple-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl custom-scrollbar">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10 sticky top-0 bg-slate-900/90 backdrop-blur-md z-10">
+              <div className="flex items-center gap-3">
+                <span className="text-3xl">🧠</span>
+                <div>
+                  <h3 className="text-2xl font-black text-white">
+                    AI Quiz Official Syllabus
+                  </h3>
+                  <p className="text-slate-400 text-xs">
+                    Comprehensive topic coverage for Classes 6–12
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsSyllabusOpen(false)}
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-lg transition-all"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {aiQuizSyllabus.map((section, sIdx) => (
+                <div
+                  key={sIdx}
+                  className="p-5 rounded-2xl bg-white/5 border border-white/10"
+                >
+                  <h4 className="text-sm font-bold text-purple-300 mb-3 flex items-center gap-2">
+                    <span>{section.icon}</span>
+                    <span>{section.module}</span>
+                  </h4>
+                  <ul className="space-y-1.5 pl-2">
+                    {section.topics.map((t, tIdx) => (
+                      <li
+                        key={tIdx}
+                        className="text-xs text-slate-300 flex items-start gap-2"
+                      >
+                        <span className="text-purple-400 font-bold">•</span>
+                        <span>{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="mt-8 pt-4 border-t border-white/10 text-right">
+              <button
+                type="button"
+                onClick={() => setIsSyllabusOpen(false)}
+                className="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold rounded-xl transition-all"
+              >
+                Close Syllabus
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
