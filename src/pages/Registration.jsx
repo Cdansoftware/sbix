@@ -69,7 +69,7 @@ const Registration = () => {
               <p className="text-xs font-semibold text-slate-400">
                 Submission Deadline
               </p>
-              <p className="text-sm font-bold text-red-400">7 OCT 2026</p>
+              <p className="text-sm font-bold text-red-400">Will update soon</p>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ const Registration = () => {
               <p className="text-xs font-semibold text-slate-400">
                 Results Declaration
               </p>
-              <p className="text-sm font-bold text-amber-400">9 OCT 2026</p>
+              <p className="text-sm font-bold text-amber-400">Will update soon</p>
             </div>
           </div>
 
