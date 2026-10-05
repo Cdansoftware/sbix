@@ -7,6 +7,7 @@ import Navbar from "./pages/Nav";
 import SplashScreen from "./pages/SplashScreen";
 import Footer from "./pages/Footer";
 import ScrollToTop from "./pages/ScrollToTop";
+import Venue from "./pages/Venue";
 
 const Home = lazy(() => import("./pages/Home"));
 const Competitions = lazy(() => import("./pages/Competition"));
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/registration" element={<Registration />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/venue" element={<Venue />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
