@@ -323,10 +323,10 @@ const Footer = () => {
               <p className="text-[11px] text-slate-400 pt-1">
                 📧 Email:{" "}
                 <a
-                  href="mailto:Robotics.sbasrauni@gmail.com"
+                  href="mailto:sbix.sbasrauni@gmail.com"
                   className="text-white hover:text-red-400 transition-colors"
                 >
-                  Robotics.sbasrauni@gmail.com
+                  sbix.sbasrauni@gmail.com
                 </a>
               </p>
             </div>

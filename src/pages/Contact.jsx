@@ -193,7 +193,7 @@ const Contact = () => {
               href="mailto:Robotics.sbasrauni@gmail.com"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold rounded-xl shadow-lg hover:shadow-red-500/25 transition-all text-xs tracking-wider uppercase"
             >
-              <span>Robotics.sbasrauni@gmail.com</span>
+              <span>sbix.sbasrauni@gmail.com</span>
               <span className="text-sm">✉️</span>
             </a>
 
