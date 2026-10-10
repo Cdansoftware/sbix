@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import vidd from "../assets/carousel.mp4";
 import rulebook from "../assets/SBIX_1.0.pdf";
 
 const ChallengeGuidelines = () => {
@@ -251,7 +252,7 @@ const ChallengeGuidelines = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12"
           data-aos="fade-down"
         >
           <span className="inline-block px-4 py-1.5 bg-red-500/10 text-red-400 font-bold text-xs tracking-widest uppercase rounded-full border border-red-500/20 mb-4">
@@ -264,6 +265,41 @@ const ChallengeGuidelines = () => {
             Please review the general code of conduct and track-specific
             guidelines thoroughly before the event day.
           </p>
+        </div>
+
+        {/* Guideline Video Section */}
+        <div
+          data-aos="zoom-in"
+          className="mb-16 p-4 sm:p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl relative overflow-hidden"
+        >
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
+            <div>
+              <span className="px-3 py-1 bg-red-500/20 text-red-400 border border-red-500/30 rounded-full text-xs font-bold uppercase tracking-wider">
+                Video Walkthrough
+              </span>
+              <h2 className="text-2xl font-black text-white mt-2">
+                Official Guidelines & Briefing Video
+              </h2>
+              <p className="text-slate-400 text-xs sm:text-sm mt-1">
+                Watch this quick walkthrough to understand the judging rubric, arena layouts, and presentation criteria.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 text-xs font-bold text-red-400 bg-red-500/10 px-3 py-1.5 rounded-xl border border-red-500/20 shrink-0">
+              <span>▶️</span>
+              <span>Watch Guide</span>
+            </div>
+          </div>
+
+          {/* Video Container (Replace src with your actual YouTube embed or video link) */}
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-inner bg-slate-900">
+            <iframe
+              className="w-full h-full"
+              src={vidd}
+              title="SBIX 1.0 Guidelines Briefing Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
 
         {/* General Regulations Grid */}

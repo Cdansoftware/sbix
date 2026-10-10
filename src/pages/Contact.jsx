@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaRegUserCircle, FaMapMarkerAlt, FaDirections } from "react-icons/fa";
+import { FaRegUserCircle, FaMapMarkerAlt, FaDirections, FaWhatsapp } from "react-icons/fa";
 import UserIcons from "../assets/userr.png";
 import FeUser from "../assets/feuser.png";
 import { TfiEmail } from "react-icons/tfi";
@@ -9,6 +9,7 @@ import Gmail from "../assets/gmicon.png";
 
 const Contact = () => {
   const mapLink = "https://maps.app.goo.gl/f2LRfZySJPFA3FGn7";
+  const whatsappGroupLink = "https://chat.whatsapp.com/KKRMVUteyO95zC2gJ81DFj";
 
   useEffect(() => {
     AOS.init({
@@ -165,7 +166,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Official Email Communication Box */}
+        {/* Official Communication Box (Email & WhatsApp Group) */}
         <div
           data-aos="zoom-in"
           className="p-8 rounded-3xl bg-gradient-to-br from-red-500/10 via-white/5 to-white/5 backdrop-blur-2xl border border-red-500/20 text-center shadow-2xl relative overflow-hidden"
@@ -180,20 +181,33 @@ const Contact = () => {
           />
 
           <h3 className="text-2xl font-bold text-white mb-2">
-            Official Email ID
+            Stay Connected & Official Communication
           </h3>
           <p className="text-xs sm:text-sm text-slate-400 mb-6 max-w-md mx-auto">
-            Send your queries, project ideas, or registration confirmations
-            directly to our official robotics department email.
+            Send your queries or project ideas to our official email, or join our official WhatsApp group for instant announcements and updates.
           </p>
 
-          <a
-            href="mailto:Robotics.sbasrauni@gmail.com"
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold rounded-xl shadow-lg hover:shadow-red-500/25 transition-all text-xs tracking-wider uppercase"
-          >
-            <span>Robotics.sbasrauni@gmail.com</span>
-            <span className="text-sm">✉️</span>
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {/* Email Action Button */}
+            <a
+              href="mailto:Robotics.sbasrauni@gmail.com"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white font-bold rounded-xl shadow-lg hover:shadow-red-500/25 transition-all text-xs tracking-wider uppercase"
+            >
+              <span>Robotics.sbasrauni@gmail.com</span>
+              <span className="text-sm">✉️</span>
+            </a>
+
+            {/* WhatsApp Group Join Button */}
+            <a
+              href={whatsappGroupLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/40 transition-all text-xs tracking-wider uppercase hover:scale-105"
+            >
+              <FaWhatsapp className="text-base" />
+              <span>Join WhatsApp Group</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

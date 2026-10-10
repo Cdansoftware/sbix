@@ -8,6 +8,7 @@ import SplashScreen from "./pages/SplashScreen";
 import Footer from "./pages/Footer";
 import ScrollToTop from "./pages/ScrollToTop";
 import Venue from "./pages/Venue";
+import Result from "./pages/Result";
 
 const Home = lazy(() => import("./pages/Home"));
 const Competitions = lazy(() => import("./pages/Competition"));
@@ -17,6 +18,7 @@ const Registration = lazy(() => import("./pages/Registration"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Results = lazy(() => import("./pages/Result"));
 
 const App = () => {
   useEffect(() => {
@@ -51,6 +53,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/venue" element={<Venue />} />
+          <Route path="/results" element={<Results />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
