@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import innovationQr from "../assets/Innovation_QR.png";
 import otherEventQr from "../assets/other_event_QR.png";
-// REMOVED: import InnovationChallengePPT from "../assets/Innovation_challenge_ppt_formate.pptx";
+import InnovationChalleng from "../assets/SBIX 1.0 Innovation Challenge Template — Editable.pdf"; // Import the PDF file
 
 const Registration = () => {
   const [loading, setLoading] = useState(false);
@@ -18,16 +18,13 @@ const Registration = () => {
   }, []);
 
   const handleDownloadPPT = () => {
-    setLoading(true);
-    // Directly use the public asset path
-    const link = document.createElement("a");
-    link.href = "/Innovation_challenge_ppt_formate.pptx";
-    link.download = "Innovation-Challenge-Presentation-Format.pptx";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setLoading(false);
-  };
+     const link = document.createElement("a");
+        link.href = InnovationChalleng;
+        link.download = "Innovation-Challenge-Presentation-Format.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+  }
 
   const innovationFormUrl =
     "https://docs.google.com/forms/d/e/1FAIpQLSc44SSWC0-9EnfkBmZKE7K0Q-NV6G7N8o-b3QMxSKSI8dYX9A/viewform?pli=1&authuser=0";
