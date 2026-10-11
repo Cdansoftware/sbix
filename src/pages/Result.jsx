@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import logoImg from "../assets/logo_sbix.png";
 import { ResultData, selectedStudentsData } from "./siteData";
+import SplashScreen from "./SplashScreen";
 
 const Result = () => {
   const [loading, setLoading] = useState(true);
@@ -108,19 +109,7 @@ const Result = () => {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50">
-        <div className="relative flex items-center justify-center p-2">
-          <div className="absolute w-24 h-24 border-4 border-red-600/30 rounded-full animate-ping"></div>
-          <img
-            src={logoImg}
-            alt="SBIX Logo"
-            className="w-16 h-16 object-contain animate-pulse rounded-full relative z-10"
-          />
-        </div>
-        <p className="mt-6 text-lg font-medium text-slate-700 animate-pulse">
-          Loading 40 Selected Teams...
-        </p>
-      </div>
+      <SplashScreen />
     );
   }
 
