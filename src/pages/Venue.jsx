@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState } from 'react';
 import { 
   MapPin, 
   Navigation, 
@@ -10,107 +10,9 @@ import {
   ZoomOut, 
   RotateCcw, 
   Menu,
-  Compass,
-  Cpu,
-  Bot,
-  Sparkles,
-  BookOpen,
-  Award
+  Compass
 } from 'lucide-react';
-
-const CHALLENGES = [
-  {
-    id: 'tinkercad',
-    title: 'Tinkercad Challenge',
-    category: 'Tinker-Cad',
-    floor: 'first',
-    room: 'Language + Smart Lab',
-    desc: '3D modeling, circuit simulation, and creative CAD design challenge.',
-    icon: Cpu,
-    color: 'bg-indigo-500',
-    borderColor: 'border-indigo-500',
-    textColor: 'text-indigo-400',
-    pinCoords: { x: 860, y: 150 },
-    directions: [
-      'Stairs se 1st Floor par aayein.',
-      'Main corridor me Right muden.',
-      'Corridor ke end tak chalein (Science & Computer Lab ke paas).',
-      'Right side me "Language + Smart Lab" milega.'
-    ]
-  },
-  {
-    id: 'robo-race',
-    title: 'Robo Race Challenge',
-    category: 'Robotics',
-    floor: 'ground',
-    room: 'UKG Room (P-A / P.P.A)',
-    desc: 'Autonomous & remote-controlled bots navigating custom obstacle tracks.',
-    icon: Bot,
-    color: 'bg-cyan-500',
-    borderColor: 'border-cyan-500',
-    textColor: 'text-cyan-400',
-    pinCoords: { x: 330, y: 690 },
-    directions: [
-      'Ground Floor "YOU ARE HERE" entrance point par khade ho.',
-      'Aapke bilkul peeche/adjacent left me UKG (P-A / P.P.A) room hai.',
-      'Target room bas 5 steps ki doori par hai.'
-    ]
-  },
-  {
-    id: 'ai-quiz',
-    title: 'AI Quiz Challenge',
-    category: 'Robotics',
-    floor: 'first',
-    room: 'Robotics Lab',
-    desc: 'Interactive quiz testing knowledge on Artificial Intelligence & ML.',
-    icon: Sparkles,
-    color: 'bg-rose-500',
-    borderColor: 'border-rose-500',
-    textColor: 'text-rose-400',
-    pinCoords: { x: 540, y: 820 },
-    directions: [
-      'Ground Floor se staircase lekar 1st Floor aayein.',
-      'Stairs se bahar nikalte hi Right turn karein.',
-      'Aapke bilkul saamne/right me Robotics Lab hai.'
-    ]
-  },
-  {
-    id: 'senior-innovation',
-    title: 'Senior Innovation Challenge',
-    category: 'Innovation',
-    floor: 'ground',
-    room: 'Library',
-    desc: 'Advanced tech prototypes and working models by senior students.',
-    icon: Award,
-    color: 'bg-amber-500',
-    borderColor: 'border-amber-500',
-    textColor: 'text-amber-400',
-    pinCoords: { x: 500, y: 720 },
-    directions: [
-      'Ground Floor entry "YOU ARE HERE" pin se face karein.',
-      'Right corridor me seedhe aage badhein.',
-      'Classroom I-A ke bilkul paas Right side me Library hai.'
-    ]
-  },
-  {
-    id: 'junior-innovation',
-    title: 'Junior Innovation Challenge',
-    category: 'Innovation',
-    floor: 'ground',
-    room: 'Activity Hall',
-    desc: 'Creative STEM models and working projects by junior innovators.',
-    icon: BookOpen,
-    color: 'bg-emerald-500',
-    borderColor: 'border-emerald-500',
-    textColor: 'text-emerald-400',
-    pinCoords: { x: 820, y: 220 },
-    directions: [
-      'Ground Floor entry point se Right corridor pakdein.',
-      'ICT Lab ke baad Left turn lekar long vertical wing me jaayein.',
-      'Wing ke end me Right side par Activity Hall milega.'
-    ]
-  }
-];
+import { CHALLENGES } from './siteData';
 
 export default function App() {
   const [activeFloor, setActiveFloor] = useState('ground');

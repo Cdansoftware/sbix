@@ -2,12 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-// Import your category images here
-import tinkercadImg from "../assets/tinker-cad.png";
-import InnovationImg from "../assets/innovation.png";
-import aiquizImg from "../assets/ai-quiz.png";
-import roboraceImg from "../assets/robo-race.png";
+import { stats, Allcompetitions, flipAnimations, EventSchedule } from "./siteData";
 
 const EventOverview = () => {
 
@@ -20,97 +15,6 @@ const EventOverview = () => {
       easing: "ease-out-cubic",
     });
   }, []);
-
-  // AOS Flip Animations Sequence
-  const flipAnimations = ["flip-left", "flip-right", "flip-up", "flip-down"];
-
-  // Competitions Data
-  const competitions = [
-    {
-      id: "tinkercad",
-      title: "Tinkercad Circuits",
-      category: "Junior Category",
-      classes: "Classes 6–8",
-      teamSize: "1 Member",
-      icon: "⚡",
-      image: tinkercadImg,
-      accentGlow: "from-amber-500/20 to-orange-500/20",
-      badgeColor: "bg-amber-400/20 text-amber-300 border-amber-400/30",
-      btnColor: "bg-amber-500 hover:bg-amber-600",
-      description:
-        "Design and simulate virtual electronic circuits and systems on the spot within 60 minutes using Tinkercad.",
-      highlights: [
-        "60 Minutes On-Spot Challenge",
-        "Virtual Circuit Simulation",
-        "Must bring own laptop",
-      ],
-    },
-    {
-      id: "roborace",
-      title: "Robo Race",
-      category: "Senior Category",
-      classes: "Classes 9–12",
-      teamSize: "2 Members",
-      icon: "🤖",
-      image: roboraceImg,
-      accentGlow: "from-blue-500/20 to-indigo-500/20",
-      badgeColor: "bg-blue-400/20 text-blue-300 border-blue-400/30",
-      btnColor: "bg-blue-600 hover:bg-blue-700",
-      description:
-        "Build and navigate custom robots through a complex track filled with hurdles, tests for speed, control, and precision.",
-      highlights: [
-        "Max Dimensions: 30cm × 30cm × 30cm",
-        "Point-based Hurdle System",
-        "Time & Penalty Scoring",
-      ],
-    },
-    {
-      id: "innovation",
-      title: "Innovation Challenge",
-      category: "Junior & Senior",
-      classes: "Classes 6–12",
-      teamSize: "1–2 Members",
-      icon: "💡",
-      image: InnovationImg,
-      accentGlow: "from-rose-500/20 to-red-500/20",
-      badgeColor: "bg-rose-400/20 text-rose-300 border-rose-400/30",
-      btnColor: "bg-rose-600 hover:bg-rose-700",
-      description:
-        "Present original, practical solutions to real-world problems using tech, AI, or robotics with a working prototype.",
-      highlights: [
-        "4 Min Presentation + 3 Min Q&A",
-        "Working Prototype Compulsory",
-        "2-Round Evaluation Process",
-      ],
-    },
-    {
-      id: "aiquiz",
-      title: "AI Quiz",
-      category: "Open Category",
-      classes: "Classes 6–12",
-      teamSize: "2 Members",
-      icon: "🧠",
-      image: aiquizImg,
-      accentGlow: "from-purple-500/20 to-indigo-500/20",
-      badgeColor: "bg-purple-400/20 text-purple-300 border-purple-400/30",
-      btnColor: "bg-purple-600 hover:bg-purple-700",
-      description:
-        "Test your knowledge across Artificial Intelligence fundamentals, Machine Learning, Computer Vision, and modern tech trends.",
-      highlights: [
-        "Machine Learning & AI Concepts",
-        "Speed & Accuracy Assessment",
-        "Scenario-based Questions",
-      ],
-    },
-  ];
-
-  // Key Event Stats
-  const stats = [
-    { label: "Competitions", value: "04 Tracks", icon: "🏆" },
-    { label: "Target Audience", value: "Classes 6–12", icon: "🎓" },
-    { label: "Trophy", value: "Certificate", icon: "🎁" },
-    { label: "Mode", value: "SBAS - Rauni", icon: "📍" },
-  ];
 
   return (
     <div className="bg-slate-950 text-slate-100 min-h-screen font-sans overflow-hidden">
@@ -179,7 +83,7 @@ const EventOverview = () => {
 
         {/* Cards Grid / List with Dynamic AOS Flip Animations */}
         <div className="space-y-12">
-          {competitions.map((comp, index) => {
+          {Allcompetitions.map((comp, index) => {
             const currentFlip = flipAnimations[index % flipAnimations.length];
             const isEven = index % 2 === 0;
 
@@ -287,33 +191,7 @@ const EventOverview = () => {
         </div>
 
         <div className="space-y-4">
-          {[
-            {
-              time: "08:30 AM",
-              event: "Reporting & On-Spot Registration",
-              desc: "Check-in at main desk and team kit allocation.",
-            },
-            {
-              time: "09:30 AM",
-              event: "Opening Ceremony",
-              desc: "Welcome address, keynote speaker, and rules briefing.",
-            },
-            {
-              time: "10:15 AM",
-              event: "Competitions Begin",
-              desc: "All track events commence simultaneously across labs.",
-            },
-            {
-              time: "01:30 PM",
-              event: "Lunch Break & Jury Round",
-              desc: "Refreshments provided; judges finalize preliminary scores.",
-            },
-            {
-              time: "03:30 PM",
-              event: "Valedictory & Award Ceremony",
-              desc: "Declaration of winners and trophy distribution.",
-            },
-          ].map((item, idx) => (
+          {EventSchedule?.map((item, idx) => (
             <div
               key={idx}
               data-aos="fade-up"

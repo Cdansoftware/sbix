@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import logoImg from "../assets/logo_sbix.png";
-import PPT from "../assets/SBIXidea.pdf";
+import { ResultData, selectedStudentsData } from "./siteData";
 
 const Result = () => {
   const [loading, setLoading] = useState(true);
@@ -8,29 +8,20 @@ const Result = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [isPresenting, setIsPresenting] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [iframeLoading, setIframeLoading] = useState(true);
 
+  // Data ko direct import se load karana (optional loader effect ke sath)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setSelectedStudents([
-        {
-          id: 1,
-          schoolName: "Satya Bharti Adarsh Sen. Sec. School, Rauni",
-          teamName: "Innovate X",
-          teamCode: "SBX-9981",
-          mentorName: "Chandan Prajapati",
-          projectName: "Smart EV",
-          pptFile: PPT,
-        },
-      ]);
+      setSelectedStudents(selectedStudentsData); // <-- yahan data set ho gaya
       setLoading(false);
-    }, 1500);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
 
   /* ---------- Presentation (Full-screen) logic ---------- */
 
-  // Office Viewer needs a full public URL of the .pptx
   const getViewerUrl = (pdfPath) => `${pdfPath}#toolbar=0&navpanes=0&view=FitH`;
 
   const enterFullscreen = () => {
@@ -46,8 +37,8 @@ const Result = () => {
     }
   };
 
-  // Called directly inside the click handler so the browser allows fullscreen
   const handleStartPresentation = (item) => {
+    setIframeLoading(true);
     setActiveProject(item);
     setIsPresenting(true);
     enterFullscreen();
@@ -64,7 +55,6 @@ const Result = () => {
     else enterFullscreen();
   };
 
-  // If the user presses ESC (exits fullscreen), close the presenter too
   useEffect(() => {
     const onFullscreenChange = () => {
       if (!document.fullscreenElement) {
@@ -77,7 +67,6 @@ const Result = () => {
       document.removeEventListener("fullscreenchange", onFullscreenChange);
   }, []);
 
-  // Stop page scrolling while presenting
   useEffect(() => {
     document.body.style.overflow = isPresenting ? "hidden" : "";
     return () => {
@@ -129,7 +118,7 @@ const Result = () => {
           />
         </div>
         <p className="mt-6 text-lg font-medium text-slate-700 animate-pulse">
-          Loading Selected Teams...
+          Loading 40 Selected Teams...
         </p>
       </div>
     );
@@ -149,40 +138,43 @@ const Result = () => {
           </p>
         </div>
 
-        {/* Announcement Message Banner */}
-        <div className="mb-8 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center max-w-2xl mx-auto shadow-sm">
-          <p className="text-sm font-bold text-amber-800 flex items-center justify-center gap-2">
-            <span>📢</span> Official Announcement Notice:
-          </p>
-          <p className="text-xs text-slate-700 mt-1">
-            The final results will be announced on{" "}
-            <strong className="text-slate-900">
-              13 Oct by EOD (End of the Day)
-            </strong>{" "}
-            via official notification and email.
-          </p>
-        </div>
+        {/* Announcement Banner & Search Bar in a Row */}
+        <div className="mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 max-w-7xl mx-auto">
+          {/* Announcement Message Banner */}
+          <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center md:text-left flex-1 shadow-sm w-full">
+            <p className="text-xs font-bold text-amber-800 flex items-center justify-center md:justify-start gap-2">
+              <span>📢</span> Official Announcement Notice:
+            </p>
+            <p className="text-[11px] text-slate-700 mt-0.5">
+              The final results will be announced on{" "}
+              <strong className="text-slate-900">
+                13 Oct by EOD (End of the Day)
+              </strong>{" "}
+              via official notification and email.
+            </p>
+          </div>
 
-        {/* Search Bar */}
-        <div className="mb-6 max-w-md mx-auto">
-          <div className="relative flex items-center shadow-sm rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <span className="pl-4 text-slate-400">🔍</span>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by school, team, code, mentor, project..."
-              className="w-full py-3 px-3 bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                className="pr-4 text-slate-400 hover:text-slate-600 text-xs font-bold"
-              >
-                Clear
-              </button>
-            )}
+          {/* Search Bar */}
+          <div className="w-full md:w-80 shrink-0 flex items-center">
+            <div className="relative w-full flex items-center shadow-sm rounded-xl overflow-hidden border border-slate-200 bg-white">
+              <span className="pl-4 text-slate-400">🔍</span>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search school, team, code, mentor..."
+                className="w-full py-3 px-3 bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="pr-4 text-slate-400 hover:text-slate-600 text-xs font-bold cursor-pointer"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
@@ -191,18 +183,15 @@ const Result = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-red-900 text-white text-sm uppercase tracking-wider">
-                  <th className="py-3 px-4 font-semibold text-center">
-                    Sr. No.
-                  </th>
-                  <th className="py-3 px-4 font-semibold">School Name</th>
-                  <th className="py-3 px-4 font-semibold">Team Name</th>
-                  <th className="py-3 px-4 font-semibold">Team Code</th>
-                  <th className="py-3 px-4 font-semibold">Mentor Name</th>
-                  <th className="py-3 px-4 font-semibold">Project Name</th>
-                  <th className="py-3 px-4 font-semibold text-center">
-                    PPT Presentation
-                  </th>
+                <tr className="border-b border-slate-800 bg-slate-950/90 text-xs text-slate-400 uppercase tracking-wider">
+                  {ResultData?.headers?.map((header) => (
+                    <th
+                      key={header.id}
+                      className={`py-3 px-4 font-semibold ${header.align}`}
+                    >
+                      {header.label}
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 text-slate-700 text-sm">
@@ -262,7 +251,6 @@ const Result = () => {
       {/* Full-Screen Presentation Viewer */}
       {isPresenting && activeProject && (
         <div className="fixed inset-0 z-[100] bg-black flex flex-col">
-          {/* Top Control Bar */}
           <div className="flex items-center justify-between gap-3 px-4 py-2 bg-slate-900 text-white border-b border-white/10">
             <div className="min-w-0">
               <p className="text-[10px] font-bold uppercase text-red-400 truncate">
@@ -299,13 +287,32 @@ const Result = () => {
             </div>
           </div>
 
-          {/* Slides Viewer - covers the whole remaining screen */}
-          <iframe
-            title={`${activeProject.projectName} Presentation`}
-            src={getViewerUrl(activeProject.pptFile)}
-            className="flex-1 w-full border-0 bg-black"
-            allowFullScreen
-          />
+          <div className="relative flex-1 w-full overflow-hidden bg-black">
+            {iframeLoading && (
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950">
+                <div className="relative flex items-center justify-center p-2">
+                  <div className="absolute w-24 h-24 border-4 border-red-600/30 rounded-full animate-ping"></div>
+                  <img
+                    src={logoImg}
+                    alt="SBIX Logo"
+                    className="w-16 h-16 object-contain animate-pulse rounded-full relative z-10"
+                  />
+                </div>
+                <p className="mt-6 text-sm font-medium text-slate-300 animate-pulse">
+                  Loading presentation...
+                </p>
+              </div>
+            )}
+
+            <iframe
+              title={`${activeProject.projectName} Presentation`}
+              src={getViewerUrl(activeProject.pptFile)}
+              onLoad={() => setIframeLoading(false)}
+              className="absolute top-0 left-0 h-full border-0 bg-black"
+              style={{ width: "calc(100% + 24px)" }}
+              allowFullScreen
+            />
+          </div>
         </div>
       )}
     </div>

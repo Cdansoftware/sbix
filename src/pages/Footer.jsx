@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logoImg from "../assets/logo_sbix.png";
 import {
@@ -9,6 +9,7 @@ import {
   FaSpinner,
   FaRegDotCircle,
 } from "react-icons/fa";
+import { footerData } from "./siteData";
 
 const Footer = () => {
   const mapLink = "https://maps.app.goo.gl/f2LRfZySJPFA3FGn7";
@@ -134,44 +135,21 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div>
             <h4 className="text-xs font-extrabold uppercase tracking-widest text-white mb-4">
               Quick Navigation
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li>
-                <Link
-                  to="/home"
-                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>›</span> Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/guidelines"
-                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>›</span> Guidelines & Rules
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/registration"
-                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>›</span> Registration & Submissions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="hover:text-red-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span>›</span> Contact Us
-                </Link>
-              </li>
+              {footerData.quickLinks.map((link) => (
+                <li key={link.id}>
+                  <Link
+                    to={link.path}
+                    className="hover:text-red-400 transition-colors flex items-center gap-1.5"
+                  >
+                    <span>›</span> {link.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -181,18 +159,11 @@ const Footer = () => {
               Competitions
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li className="flex items-center gap-2">
-                <span className="text-amber-400">⚡</span> Tinkercad Circuits
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-blue-400">🤖</span> Robo Race
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-rose-400">💡</span> Innovation Challenge
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-purple-400">🧠</span> AI Quiz
-              </li>
+              {footerData.competitions.map((comp) => (
+                <li key={comp.id} className="flex items-center gap-2">
+                  <span className={comp.color}>{comp.icon}</span> {comp.title}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -336,8 +307,8 @@ const Footer = () => {
         {/* Bottom Credits Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 border-t border-white/10">
           <p>
-            © 2026 SBIX 1.0 Tech Fest. In Association with Bharti Foundation.
-            All rights reserved.
+            © 2026 SBIX 1.0 Tech Fest. In Association with Bharti Airtel
+            Foundation. All rights reserved.
           </p>
           <p className="flex items-center text-slate-400 font-medium">
             <FaRegDotCircle className="mr-1" />

@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaRegUserCircle, FaMapMarkerAlt, FaDirections, FaWhatsapp } from "react-icons/fa";
+import { FaMapMarkerAlt, FaDirections, FaWhatsapp } from "react-icons/fa";
 import UserIcons from "../assets/userr.png";
 import FeUser from "../assets/feuser.png";
-import { TfiEmail } from "react-icons/tfi";
 import Gmail from "../assets/gmicon.png";
 
 const Contact = () => {

@@ -1,11 +1,8 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import tinkercadImg from "../assets/tinker-cad.png";
-import innovationImg from "../assets/innovation.png";
-import aiquizImg from "../assets/ai-quiz.png";
-import roboraceImg from "../assets/robo-race.png";
-import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import { innovationThemes } from "./siteData";
+
 
 const Competitions = () => {
   useEffect(() => {
@@ -14,125 +11,6 @@ const Competitions = () => {
       once: true,
     });
   }, []);
-
-  // AOS animations ki array
-  const animations = ["flip-left", "flip-right", "flip-up", "flip-down"];
-
-  // Competitions List Data with Image, Theme Colors, and Icons
-  const competitions = [
-    {
-      id: "tinkercad",
-      title: "Tinkercad Circuits",
-      category: "Junior",
-      classes: "Classes 6–8",
-      teamSize: "1 Member (Individual)",
-      icon: "⚡",
-      image: tinkercadImg,
-      btnBg: "bg-emerald-500 hover:bg-emerald-600",
-      accentBg: "bg-emerald-100 text-emerald-600",
-      description:
-        "Design and simulate virtual electronic circuits and systems on the spot within 60 minutes using Tinkercad.",
-      highlights: [
-        "60 Minutes On-Spot Challenge",
-        "Virtual Circuit Simulation",
-        "Must bring own laptop",
-      ],
-    },
-    {
-      id: "roborace",
-      title: "Robo Race",
-      category: "Senior",
-      classes: "Classes 9–12",
-      teamSize: "2 Members",
-      icon: "🤖",
-      image: roboraceImg,
-      btnBg: "bg-blue-600 hover:bg-blue-700",
-      accentBg: "bg-blue-100 text-blue-600",
-      description:
-        "Build and navigate custom robots through a complex track filled with hurdles, tests for speed, control, and precision.",
-      highlights: [
-        "Max Dimensions: 30cm × 30cm × 30cm",
-        "Point-based Hurdle System",
-        "Time & Penalty Scoring",
-      ],
-    },
-    {
-      id: "innovation",
-      title: "Innovation Challenge",
-      category: "Junior & Senior",
-      classes: "Classes 6–12",
-      teamSize: "1–2 Members",
-      icon: "💡",
-      image: innovationImg, // Replace with innovationImg
-      btnBg: "bg-red-600 hover:bg-red-700",
-      accentBg: "bg-red-100 text-red-600",
-      description:
-        "Present original, practical solutions to real-world problems using tech, AI, or robotics with a working prototype.",
-      highlights: [
-        "4 Min Presentation + 3 Min Q&A",
-        "Working Prototype Compulsory",
-        "2-Round Evaluation Process",
-      ],
-    },
-    {
-      id: "aiquiz",
-      title: "AI Quiz",
-      category: "Open Category",
-      classes: "Classes 6–12",
-      teamSize: "2 Members",
-      icon: "🧠",
-      image: aiquizImg,
-      btnBg: "bg-purple-600 hover:bg-purple-700",
-      accentBg: "bg-purple-100 text-purple-600",
-      description:
-        "Test your knowledge across Artificial Intelligence fundamentals, Machine Learning, Computer Vision, and modern tech trends.",
-      highlights: [
-        "Machine Learning & AI Concepts",
-        "Speed & Accuracy Assessment",
-        "Scenario-based Questions",
-      ],
-    },
-  ];
-
-  // Innovation Themes Data
-  const innovationThemes = [
-    {
-      title: "AI & Digital Innovation",
-      icon: "🌐",
-      points: [
-        "Smart Cities & Infrastructure",
-        "Responsible AI for real-world issues",
-        "Community Problem Solving",
-      ],
-    },
-    {
-      title: "Environmental Sustainability",
-      icon: "🌱",
-      points: [
-        "Waste reduction & Water conservation",
-        "Local environmental protection",
-        "Data-driven green solutions",
-      ],
-    },
-    {
-      title: "Healthcare & Healthtech",
-      icon: "🩺",
-      points: [
-        "Early disease detection & monitoring",
-        "Rehabilitation & Recovery tech",
-        "Accessible healthcare for everyone",
-      ],
-    },
-    {
-      title: "Agriculture & Agritech",
-      icon: "🌾",
-      points: [
-        "Smart farming with robotics",
-        "Sustainable resource management",
-        "AI for crop yield enhancement",
-      ],
-    },
-  ];
 
   return (
     <div className="bg-gradient-to-b from-red-100 via-white to-gray-400 min-h-screen py-12 md:py-20 text-gray-800">
