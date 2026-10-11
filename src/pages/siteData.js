@@ -96,7 +96,7 @@ export const allParticipants = {
   roborace: [
     {
       id: 3,
-      schoolName: "BCM Arya Model Senior Secondary School",
+      schoolName: "Bharti Senior Secondary School",
       teamName: "Speed Bots",
       teamCode: "SBX-2055",
       members: ["Sahil Gupta", "Karan Singh"],
