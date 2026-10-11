@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate , } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "../assets/logo_sbix.png";
 import { LuSchool } from "react-icons/lu";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -14,7 +15,7 @@ export default function Navbar() {
     { name: "Venue", href: "/venue" },
     { name: "Results", href: "/results" },
     { name: "Contact Us", href: "/contact" },
-    { name: "Participants", href: "/participants" }
+    { name: "Participants", href: "/participants" },
   ];
 
   return (
@@ -27,7 +28,10 @@ export default function Navbar() {
           {/* Logo Section */}
           <Link to="/home" className="flex items-center gap-3 group">
             <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-red-600 to-amber-500 p-0.5 shadow-lg shadow-red-600/20 group-hover:scale-105 transition-transform duration-200">
-              <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+              <div
+                onClick={() => navigate("/results")}
+                className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+              >
                 <img
                   src={Logo}
                   alt="SBIX Logo"
