@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import logoImg from "../assets/logo_sbix.png";
-import PPT from "../assets/SBIX.pdf";
+import PPT from "../assets/SBIXidea.pdf";
 
 const Result = () => {
   const [loading, setLoading] = useState(true);
