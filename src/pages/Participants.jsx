@@ -26,35 +26,39 @@ const Participants = () => {
     <div className="min-h-screen bg-slate-50 p-6 md:p-10 font-sans">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-slate-900">
-            SBIX 1.0 - Registered Participants
-          </h1>
-          <p className="text-slate-600 mt-2">
-            Category-wise breakdown of all registered teams and schools.
-          </p>
-        </div>
+        {/* Header & Search Bar Container (Horizontally Arranged on Desktop) */}
+        <div className="flex flex-col bg-slate-950/90 p-2 rounded-xl md:flex-row items-center justify-between gap-6 mb-10">
+          {/* Header Section */}
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl font-bold text-slate-300">
+              SBIX 1.0 - Registered Participants
+            </h1>
+            <p className="text-slate-300 mt-1 text-sm">
+              Category-wise breakdown of all registered teams and schools.
+            </p>
+          </div>
 
-        {/* Global Search Bar */}
-        <div className="mb-10 max-w-md mx-auto">
-          <div className="relative flex items-center shadow-sm rounded-xl overflow-hidden border border-slate-200 bg-white">
-            <span className="pl-4 text-slate-400">🔍</span>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by school, team name, team code..."
-              className="w-full py-3 px-3 bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                className="pr-4 text-slate-400 hover:text-slate-600 text-xs font-bold"
-              >
-                Clear
-              </button>
-            )}
+          {/* Global Search Bar */}
+          <div className="w-full md:w-80">
+            <div className="relative flex items-center shadow-sm rounded-xl overflow-hidden border border-slate-200 bg-white">
+              <span className="pl-4 text-slate-400">🔍</span>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by school, team, code..."
+                className="w-full py-3 px-3 bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="pr-4 text-slate-400 hover:text-slate-600 text-xs font-bold cursor-pointer"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
           </div>
         </div>
 
