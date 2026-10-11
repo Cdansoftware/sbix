@@ -108,7 +108,9 @@ const Result = () => {
   /* ---------- Loading screen ---------- */
 
   if (loading) {
-    return <SplashScreen />;
+    return (
+      <SplashScreen />
+    );
   }
 
   /* ---------- Main UI ---------- */
@@ -274,7 +276,7 @@ const Result = () => {
             </div>
           </div>
 
-          {/* <div className="relative flex-1 w-full overflow-hidden bg-black">
+          <div className="relative flex-1 w-full overflow-hidden bg-black">
             {iframeLoading && (
               <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950">
                 <div className="relative flex items-center justify-center p-2">
@@ -299,70 +301,7 @@ const Result = () => {
               style={{ width: "calc(100% + 24px)" }}
               allowFullScreen
             />
-          </div> */}
-
-          {/* Presentation Viewer Modal */}
-          {isModalOpen && activeProject && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md">
-              {/* Modal Box: Responsive width & height */}
-              <div className="relative w-full max-w-5xl bg-slate-900 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl border border-red-500/35 flex flex-col h-[90vh] sm:h-[85vh]">
-                {/* Modal Header */}
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
-                  <div className="truncate pr-2">
-                    <span className="px-2.5 py-0.5 bg-red-500/20 text-red-400 border border-red-500/30 rounded-full text-[9px] sm:text-[10px] font-bold uppercase">
-                      Presentation — {activeProject.projectName}
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-white mt-1 truncate">
-                      Team: {activeProject.teamName}
-                    </h3>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(false)}
-                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-sm sm:text-base transition-all cursor-pointer flex-shrink-0"
-                  >
-                    ✕
-                  </button>
-                </div>
-
-                {/* Responsive Iframe Container */}
-                <div className="flex-1 bg-black rounded-xl sm:rounded-2xl border border-white/10 overflow-hidden relative flex items-center justify-center shadow-inner w-full">
-                  {/* Optional Loading Spinner inside viewer */}
-                  {iframeLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-slate-900/80 z-10">
-                      <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
-                    </div>
-                  )}
-
-                  <iframe
-                    title={`${activeProject.projectName} Presentation`}
-                    src={getViewerUrl(activeProject.pptFile)}
-                    onLoad={() => setIframeLoading(false)}
-                    className="w-full h-full border-0 bg-black"
-                    allowFullScreen
-                  />
-                </div>
-
-                {/* Modal Footer / Actions */}
-                <div className="mt-3 sm:mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <a
-                    href={activeProject.pptFile}
-                    download={activeProject.pptFileName}
-                    className="w-full sm:w-auto px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-red-600/30"
-                  >
-                    <span>📥</span> Download Presentation File
-                  </a>
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(false)}
-                    className="w-full sm:w-auto px-4 py-2.5 bg-white/10 hover:bg-white/20 text-slate-300 text-xs font-bold rounded-xl transition-all cursor-pointer"
-                  >
-                    Close Viewer
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       )}
     </div>
