@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { allParticipants, categories } from "./siteData"; // Apne siteData.js se data import karein
+import { allParticipants, categories } from "./siteData"; 
 
 const Participants = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   // Helper function to highlight search matches
   const highlightText = (text, query) => {
+    if (!text) return "";
     if (!query) return text;
     const parts = text.split(new RegExp(`(${query})`, "gi"));
     return parts.map((part, i) =>
@@ -25,10 +26,8 @@ const Participants = () => {
   return (
     <div className="min-h-screen bg-slate-50 p-6 md:p-10 font-sans">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        {/* Header & Search Bar Container (Horizontally Arranged on Desktop) */}
-        <div className="flex flex-col bg-slate-950/90 p-2 rounded-xl md:flex-row items-center justify-between gap-6 mb-10">
-          {/* Header Section */}
+        {/* Header & Search Bar Container */}
+        <div className="flex flex-col bg-slate-950/90 p-6 rounded-xl md:flex-row items-center justify-between gap-6 mb-10">
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold text-slate-300">
               SBIX 1.0 - Registered Participants
@@ -46,7 +45,7 @@ const Participants = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by school, team, code..."
+                placeholder="Search by school, team, mentor..."
                 className="w-full py-3 px-3 bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none"
               />
               {searchQuery && (
@@ -65,22 +64,19 @@ const Participants = () => {
         {/* Render Separate Tables for Each Category */}
         <div className="space-y-12">
           {categories.map((cat) => {
-            // Filter participants belonging to this specific category and matching search query
-            const categoryData = (allParticipants[cat.key] || []).filter(
-              (item) =>
-                item.schoolName
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase()) ||
-                item.teamName
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase()) ||
-                item.teamCode
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase()) ||
-                item.members.some((m) =>
-                  m.toLowerCase().includes(searchQuery.toLowerCase()),
-                ),
-            );
+            const participantsList = allParticipants[cat.key] || [];
+
+            // Safely filter participants supporting both team-based and mentor-based data models
+            const categoryData = participantsList.filter((item) => {
+              const query = searchQuery.toLowerCase();
+              const schoolMatch = item.schoolName?.toLowerCase().includes(query);
+              const teamNameMatch = item.teamName?.toLowerCase().includes(query);
+              const teamCodeMatch = item.teamCode?.toLowerCase().includes(query);
+              const mentorMatch = item.mentorName?.toLowerCase().includes(query);
+              const memberMatch = item.members?.some((m) => m.toLowerCase().includes(query));
+
+              return schoolMatch || teamNameMatch || teamCodeMatch || mentorMatch || memberMatch;
+            });
 
             return (
               <div
@@ -106,8 +102,7 @@ const Participants = () => {
                           Sr.
                         </th>
                         <th className="py-3 px-4 font-semibold">School Name</th>
-                        <th className="py-3 px-4 font-semibold">Team Name</th>
-                        <th className="py-3 px-4 font-semibold">Team Code</th>
+                        <th className="py-3 px-4 font-semibold">Team / Mentor Info</th>
                         <th className="py-3 px-4 font-semibold">Members</th>
                       </tr>
                     </thead>
@@ -115,7 +110,7 @@ const Participants = () => {
                       {categoryData.length > 0 ? (
                         categoryData.map((item, index) => (
                           <tr
-                            key={item.id}
+                            key={item.id || index}
                             className="hover:bg-slate-50 transition-colors"
                           >
                             <td className="py-3 px-4 text-center font-medium text-slate-900">
@@ -125,18 +120,26 @@ const Participants = () => {
                               {highlightText(item.schoolName, searchQuery)}
                             </td>
                             <td className="py-3 px-4">
-                              <span
-                                className={`${cat.badgeColor} text-xs font-semibold px-2.5 py-0.5 rounded`}
-                              >
-                                {highlightText(item.teamName, searchQuery)}
-                              </span>
-                            </td>
-                            <td className="py-3 px-4 font-mono font-semibold text-slate-600">
-                              {highlightText(item.teamCode, searchQuery)}
+                              {item.mentorName ? (
+                                <span
+                                  className={`${cat.badgeColor || "bg-blue-100 text-blue-800"} text-xs font-semibold px-2.5 py-0.5 rounded`}
+                                >
+                                  Mentor: {highlightText(item.mentorName, searchQuery)}
+                                </span>
+                              ) : (
+                                <div className="space-y-1">
+                                  <div className="font-semibold text-slate-800">
+                                    {highlightText(item.teamName, searchQuery)}
+                                  </div>
+                                  <div className="text-xs text-slate-500 font-mono">
+                                    Code: {highlightText(item.teamCode, searchQuery)}
+                                  </div>
+                                </div>
+                              )}
                             </td>
                             <td className="py-3 px-4">
                               <ul className="list-disc list-inside text-xs space-y-0.5 text-slate-600">
-                                {item.members.map((member, mIdx) => (
+                                {item.members?.map((member, mIdx) => (
                                   <li key={mIdx}>
                                     {highlightText(member, searchQuery)}
                                   </li>
@@ -148,7 +151,7 @@ const Participants = () => {
                       ) : (
                         <tr>
                           <td
-                            colSpan="5"
+                            colSpan="4"
                             className="py-6 text-center text-slate-400 text-xs italic"
                           >
                             No participant records found under this category.
