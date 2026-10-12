@@ -5,14 +5,21 @@ const InnovationChallenge = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Helper function to highlight matching text
+  // Helper function to escape special regex characters to prevent crashes
+  const escapeRegExp = (string) => {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  };
+
+  // Helper function to highlight matching text safely
   const highlightText = (text, query) => {
-    if (!query) return text;
+    if (!query || !text) return text;
     
-    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    const escapedQuery = escapeRegExp(query);
+    const parts = text.split(new RegExp(`(${escapedQuery})`, 'gi'));
+    
     return parts.map((part, i) => 
       part.toLowerCase() === query.toLowerCase() ? (
-        <mark key={i} className="bg-yellow-200 text-gray-900 px-0.5 rounded">
+        <mark key={i} className="bg-yellow-200 text-gray-900 px-0.5 rounded font-medium">
           {part}
         </mark>
       ) : (
@@ -25,8 +32,9 @@ const InnovationChallenge = () => {
   const filteredData = ideathonData.filter(item => {
     const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
     
-    const query = searchQuery.toLowerCase();
+    const query = searchQuery.toLowerCase().trim();
     const matchesSearch = 
+      !query ||
       item.schoolName.toLowerCase().includes(query) ||
       item.teamName.toLowerCase().includes(query) ||
       item.mentorName.toLowerCase().includes(query) ||
@@ -36,13 +44,13 @@ const InnovationChallenge = () => {
   });
 
   return (
-    <div className="max-w-[1300px] mx-auto p-6 font-sans">
-      <h1 className="text-2xl font-bold mb-6 text-center text-gray-800" style={{ marginBottom: '24px' }}>
+    <div className="max-w-[1300px] mx-auto p-3 sm:p-6 font-sans">
+      <h1 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-gray-800">
         Innovation Challenge Participation Teams
       </h1>
 
       {/* Search and Filter Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
         {/* Search Input */}
         <div className="w-full md:w-80">
           <input
@@ -50,30 +58,99 @@ const InnovationChallenge = () => {
             placeholder="Search school, team, mentor, or student..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
+            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
           />
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center gap-3">
+        <div className="flex w-full md:w-auto justify-center gap-2 sm:gap-3">
           {['All', 'Junior', 'Senior'].map(cat => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2 rounded-full font-bold transition-colors cursor-pointer border-none ${
+              className={`flex-1 md:flex-initial px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-colors cursor-pointer border-none text-center ${
                 selectedCategory === cat
                   ? 'bg-red-600 text-white'
                   : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
               }`}
             >
-              {cat} Category
+              {cat}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Table Container */}
-      <div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm bg-white">
+      {/* 📱 MOBILE VIEW: Cards (Shown on screens < 768px) */}
+      <div className="block md:hidden space-y-3">
+        {filteredData.length > 0 ? (
+          filteredData.map((team, index) => (
+            <div 
+              key={team.id} 
+              className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm space-y-2.5"
+            >
+              {/* Header: S.No, Category & Team Name */}
+              <div className="flex justify-between items-start gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                    #{index + 1}
+                  </span>
+                  <h3 className="font-bold text-base text-gray-900 leading-snug">
+                    {highlightText(team.teamName, searchQuery)}
+                  </h3>
+                </div>
+                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold shrink-0 ${
+                  team.category === 'Junior' 
+                    ? 'bg-sky-100 text-sky-700' 
+                    : 'bg-emerald-100 text-emerald-700'
+                }`}>
+                  {team.category}
+                </span>
+              </div>
+
+              {/* Details List */}
+              <div className="text-xs text-gray-600 space-y-1.5 pt-1">
+                <div>
+                  <span className="font-semibold text-gray-700">School: </span>
+                  {highlightText(team.schoolName, searchQuery)}
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-700">Mentor: </span>
+                  {highlightText(team.mentorName, searchQuery)}
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-700">Students: </span>
+                  {highlightText(team.members.join(', '), searchQuery)}
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-2 border-t border-gray-100 flex justify-end">
+                {team.pptLink ? (
+                  <a
+                    href={team.pptLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full text-center py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-lg shadow-sm transition-colors"
+                  >
+                    View Presentation (PPT) ↗
+                  </a>
+                ) : (
+                  <span className="text-gray-400 text-xs italic py-1">
+                    PPT Not Available
+                  </span>
+                )}
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="bg-white p-6 text-center text-gray-500 text-sm rounded-xl border border-gray-200">
+            No matching teams found.
+          </div>
+        )}
+      </div>
+
+      {/* 💻 DESKTOP VIEW: Table (Shown on screens >= 768px) */}
+      <div className="hidden md:block overflow-x-auto border border-gray-200 rounded-lg shadow-sm bg-white">
         <table className="w-full border-collapse text-left">
           <thead>
             <tr className="bg-gray-50 border-b-2 border-gray-200 text-gray-800">
