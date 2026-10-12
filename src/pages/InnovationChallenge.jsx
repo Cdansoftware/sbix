@@ -124,7 +124,7 @@ const InnovationChallenge = () => {
               </div>
 
               {/* Action Button */}
-              <div className="pt-2 border-t border-gray-100 flex justify-end">
+              {/* <div className="pt-2 border-t border-gray-100 flex justify-end">
                 {team.pptLink ? (
                   <a
                     href={team.pptLink}
@@ -139,7 +139,7 @@ const InnovationChallenge = () => {
                     PPT Not Available
                   </span>
                 )}
-              </div>
+              </div> */}
             </div>
           ))
         ) : (
