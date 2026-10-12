@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { allParticipants, categories } from "./siteData"; 
+import InnovationChallenge from "./InnovationChallenge";
 
 const Participants = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,14 +27,15 @@ const Participants = () => {
   return (
     <div className="min-h-screen bg-slate-50 p-6 md:p-10 font-sans">
       <div className="max-w-7xl mx-auto">
+        <InnovationChallenge />
         {/* Header & Search Bar Container */}
-        <div className="flex flex-col bg-slate-950/90 p-6 rounded-xl md:flex-row items-center justify-between gap-6 mb-10">
+        <div className="flex flex-col bg-slate-950/90 p-6 rounded-t-xl md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold text-slate-300">
               SBIX 1.0 - Registered Participants
             </h1>
             <p className="text-slate-300 mt-1 text-sm">
-              Category-wise breakdown of all registered teams and schools.
+              Category- Tinker-cad, AI-Quiz, Robo-race
             </p>
           </div>
 
@@ -70,8 +72,6 @@ const Participants = () => {
             const categoryData = participantsList.filter((item) => {
               const query = searchQuery.toLowerCase();
               const schoolMatch = item.schoolName?.toLowerCase().includes(query);
-              const teamNameMatch = item.teamName?.toLowerCase().includes(query);
-              const teamCodeMatch = item.teamCode?.toLowerCase().includes(query);
               const mentorMatch = item.mentorName?.toLowerCase().includes(query);
               const memberMatch = item.members?.some((m) => m.toLowerCase().includes(query));
 

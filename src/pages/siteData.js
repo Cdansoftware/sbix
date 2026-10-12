@@ -6,6 +6,442 @@ import roboraceImg from "../assets/robo-race.png";
 import PPT from "../assets/SBIXidea.pdf";
 import { Award, BookOpen, Bot, Cpu, Sparkles } from "lucide-react";
 
+
+export const ideathonData = [
+    {
+        id: 1,
+        schoolName: "Satya Elementary School Nassar",
+        mentorName: "Mehakdeep kaur",
+        category: "Junior",
+        teamName: "Creative Souls",
+        pptLink: "https://drive.google.com/file/d/1ca9YvEkF2xR00FzePLcc-2dlJn4DD8oD/view?usp=sharing",
+        members: ["Gurleen kaur", "Ashish Masih"]
+    },
+    {
+        id: 2,
+        schoolName: "Satya Elementary School Nassar",
+        mentorName: "Mehakdeep kaur",
+        category: "Junior",
+        teamName: "Smart team",
+        pptLink: "https://drive.google.com/file/d/1vQBvB2FKXBt928w0yQdeamY44oYOiURd/view?usp=sharing",
+        members: ["Gurnoor kumar", "Kirandeep kaur"]
+    },
+    {
+        id: 3,
+        schoolName: "Satya Bharti School Panditonka was",
+        mentorName: "Anmol",
+        category: "Junior",
+        teamName: "IdeaX",
+        pptLink: "https://drive.google.com/file/d/1ca9YvEkF2xR00FzePLcc-2dlJn4DD8oD/view?usp=sharing",
+        members: ["Vikash", "Moti singh"]
+    },
+    {
+        id: 4,
+        schoolName: "Satya Bharti School Panditonka was",
+        mentorName: "Anmol",
+        category: "Junior",
+        teamName: "Logic Lords",
+        pptLink: "https://drive.google.com/open?id=1XlAbxkFaipNH7Wenh6FcJzAYDqtCAMoJ",
+        members: ["Prem", "Chola ram"]
+    },
+    {
+        id: 5,
+        schoolName: "SATYA BHARTI ADARSH SENIOR SECONDARY SECONDRY SCHOOL, CHOGAWAN",
+        mentorName: "SOURAV KUMAR TIWARI",
+        category: "Senior",
+        teamName: "AGRIX",
+        pptLink: "https://drive.google.com/open?id=1UxptlmF9bmtU1qlnc9hqWuorZmlpO9S2",
+        members: ["ANMOL SINGH", "KOMALPREET KAUR"]
+    },
+    {
+        id: 6,
+        schoolName: "SATYA BHARTI ADARSH SENIOR SECONDARY SECONDRY SCHOOL, CHOGAWAN",
+        mentorName: "SOURAV KUMAR TIWARI",
+        category: "Senior",
+        teamName: "GREENOVATORS",
+        pptLink: "https://drive.google.com/open?id=1UHYYvqcu_EPc9QZ6wH76qG3a7INjG-KZ",
+        members: ["AMANATPREET KAUR", "TARANPREET KAUR"]
+    },
+    {
+        id: 7,
+        schoolName: "Satya Elementary School, Bohlian",
+        mentorName: "Simran Sahni",
+        category: "Junior",
+        teamName: "AutoBin Innovators",
+        pptLink: "https://drive.google.com/open?id=1Mml1PqLvMtmthp23KLjfdXZCPB-XiXEj",
+        members: ["Pardeep Singh", "Dilpreet Kaur"]
+    },
+    {
+        id: 8,
+        schoolName: "Satya Elementary School, Bohlian",
+        mentorName: "Simran Sahni",
+        category: "Junior",
+        teamName: "Young Innovator",
+        pptLink: "https://drive.google.com/open?id=1_hbP3e1CK6J__8IcTyv3fpKjNdn1jGrt",
+        members: ["Sandeep Kaur", "Agamjot Singh"]
+    },
+    {
+        id: 9,
+        schoolName: "Satya Elementary School Bhattike",
+        mentorName: "Karamjit Kaur",
+        category: "Junior",
+        teamName: "Changemakers",
+        pptLink: "https://drive.google.com/open?id=129rZa27c-kSm6jvSmFU9K2fDPi484emO",
+        members: ["Mansirat Kaur", "Jashanpreet Kaur"]
+    },
+    {
+        id: 10,
+        schoolName: "Satya Elementary School Bhattike",
+        mentorName: "Karamjit Kaur",
+        category: "Junior",
+        teamName: "Reformer",
+        pptLink: "https://drive.google.com/open?id=1-ScV3BCizpCuOaYWBfijLYPrLo-EFlX9",
+        members: ["Abhijot Singh", "Gurpreet Kaur"]
+    },
+    {
+        id: 11,
+        schoolName: "Satya Bharti School, Behlolpur",
+        mentorName: "Kanchan Sapra",
+        category: "Junior",
+        teamName: "Innovation club behlolpur",
+        pptLink: "https://drive.google.com/open?id=1F-XpYTdkoMqjKniqpaxucknzZ1pwTH1a",
+        members: ["Navpreet Kaur", "Radhika Kalra"]
+    },
+    {
+        id: 12,
+        schoolName: "Satya Elementary School Mohie",
+        mentorName: "Avaneesh Kumar",
+        category: "Junior",
+        teamName: "GreenCool",
+        pptLink: "https://drive.google.com/open?id=12tzafx4EohMCG4BbkAHLepjWDTpnCug2",
+        members: ["Diljot Kaur", "Dipreet Kaur"]
+    },
+    {
+        id: 13,
+        schoolName: "Satya Elementary School Mohie",
+        mentorName: "Avaneesh Kumar",
+        category: "Junior",
+        teamName: "Smart Growers",
+        pptLink: "https://drive.google.com/open?id=1vlsoAIWnI4sNcSLKjS5K6lL3DmsAHks6",
+        members: ["Urmila", "Manjinder Singh"]
+    },
+    {
+        id: 14,
+        schoolName: "Satya elemenatry school balliyewal",
+        mentorName: "Rajni Rani",
+        category: "Junior",
+        teamName: "EcoSpark Innovators",
+        pptLink: "https://drive.google.com/open?id=1mv_fmlzr-46kfC14EyiF6422WJw8RAHG",
+        members: ["Jasmeen kaur", "Sukhman singh"]
+    },
+    {
+        id: 15,
+        schoolName: "Satya Elementry school chananke",
+        mentorName: "Ramandeep kaur",
+        category: "Junior",
+        teamName: "Team chananke",
+        pptLink: "https://drive.google.com/open?id=1RKnH1eRs9SvHkYuShVYpBMx7kG8aplp1",
+        members: ["Vanshdeep singh", "Gurjant Singh"]
+    },
+    {
+        id: 16,
+        schoolName: "Satya Elementry school chananke",
+        mentorName: "Ramandeep kaur",
+        category: "Junior",
+        teamName: "Chananke",
+        pptLink: "https://drive.google.com/open?id=1qjEU_m34jtSJdwF-O-3Er2II4BzFMa3-",
+        members: ["Shabnamdeep kaur", "Surinder daas"]
+    },
+    {
+        id: 17,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School , Sherpur Kalan",
+        mentorName: "Arush Gupta",
+        category: "Senior",
+        teamName: "Bharti Innovator",
+        pptLink: "https://drive.google.com/open?id=1Qi39E_94VSDGRff4RznkT5MUGcQSBduN",
+        members: ["Amanpreet Singh", "Gurnoor Kaur"]
+    },
+    {
+        id: 18,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School , Sherpur Kalan",
+        mentorName: "Arush Gupta",
+        category: "Junior",
+        teamName: "SherpurX",
+        pptLink: "https://drive.google.com/open?id=1RXP_Zpu0vdsCW4ICoZRgKCYaubgWLYQU",
+        members: ["Nimart Kaur", "Jasmeen Kaur"]
+    },
+    {
+        id: 19,
+        schoolName: "Satya Elementary School Nassar",
+        mentorName: "Mehakdeep Kaur",
+        category: "Junior",
+        teamName: "Creative Souls",
+        pptLink: "https://drive.google.com/open?id=19knAUZ9onyJSANlA4MMWkYVp_FRoYEN3",
+        members: ["Asish Masih", "Gurleen Kaur"]
+    },
+    {
+        id: 20,
+        schoolName: "Satya Elementary School Nassar",
+        mentorName: "Mehakdeep Kaur",
+        category: "Junior",
+        teamName: "Smart Team",
+        pptLink: "https://drive.google.com/open?id=1M75HsOecVkKNzwqsNhQI5fFXKOD3HwwK",
+        members: ["Gurnoor Kumar", "Kirandeep kaur"]
+    },
+    {
+        id: 21,
+        schoolName: "Satya Elementary School Khanpur",
+        mentorName: "Ramesh Prasad Sahani",
+        category: "Junior",
+        teamName: "Future Founder",
+        pptLink: "https://drive.google.com/open?id=1Cklp_A7hqvaof5U1iW_A1CwN27foB_-X",
+        members: ["Sukhmani Kaur", "Angel"]
+    },
+    {
+        id: 22,
+        schoolName: "Satya Elementary School Khanpur",
+        mentorName: "Ramesh Prasad Sahani",
+        category: "Junior",
+        teamName: "Future Founder Khanpur",
+        pptLink: "https://drive.google.com/open?id=1ys6X1LK9y59hZIrKMfMlY2knnhHiaVKi",
+        members: ["Arshdeep", "Arman Singh"]
+    },
+    {
+        id: 23,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School, Fattubhila",
+        mentorName: "Deeksha Arya",
+        category: "Junior",
+        teamName: "Gaurdian Innovators",
+        pptLink: "https://drive.google.com/open?id=11WWFZvx8E4D9zOceJC0qSgUVGD0EUrBt",
+        members: ["Peehu Sharma", "Khushpreet Singh"]
+    },
+    {
+        id: 24,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School, Fattubhila",
+        mentorName: "Deeksha Arya",
+        category: "Senior",
+        teamName: "Gaurdian Innovators",
+        pptLink: "https://drive.google.com/open?id=14C52elWQ2eLMaRwV3Fjf2dlZtM13zuzW",
+        members: ["Jagroop Kaur", "Saroop Kaur"]
+    },
+    {
+        id: 25,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School, Fattubhila",
+        mentorName: "Deeksha Arya",
+        category: "Senior",
+        teamName: "EcoErasers",
+        pptLink: "https://drive.google.com/open?id=1c2kTHhwzyWnZSH3m9av5LIlaI5WfZcZ3",
+        members: ["Ekamjot Kaur", "Karanpreet Singh"]
+    },
+    {
+        id: 26,
+        schoolName: "satya elementary school dhulka",
+        mentorName: "khushwinder kaur",
+        category: "Junior",
+        teamName: "Ignite minds",
+        pptLink: "https://drive.google.com/open?id=1CPQyYQjSrwWI-j4xZmXb--wLwhgvqxR-",
+        members: ["Ekamjot Singh", "Inderjit Singh"]
+    },
+    {
+        id: 27,
+        schoolName: "satya elementary school dhulka",
+        mentorName: "khushwinder kaur",
+        category: "Junior",
+        teamName: "Ignite Minds",
+        pptLink: "https://drive.google.com/open?id=1w_9DLDzw8_7iB8Zf53r86Q1sUTLptGg8",
+        members: ["Aravdeep Singh", "Gurtaj Singh"]
+    },
+    {
+        id: 28,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+        mentorName: "Pradeep Kumar Gupta",
+        category: "Senior",
+        teamName: "Ritam",
+        pptLink: "https://drive.google.com/open?id=195yuwQdfRAh4TDJmxN6KUJW2A-910qeH",
+        members: ["Rashi Shaw"]
+    },
+    {
+        id: 29,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+        mentorName: "Pradeep Kumar Gupta",
+        category: "Junior",
+        teamName: "Khule Aasmaan",
+        pptLink: "https://drive.google.com/open?id=1ioz7JGrVacZoX95GOY-O9F_orTIPMNy2",
+        members: ["Nibha Kumari"]
+    },
+    {
+        id: 30,
+        schoolName: "Satya Elementary School Kamalpur",
+        mentorName: "Vivek kumar",
+        category: "Junior",
+        teamName: "TechMind",
+        pptLink: "https://drive.google.com/open?id=19JVbqpsYNoQMjBEXQs2lUE2b9UBPla12",
+        members: ["Praneet Kaur", "Suhana"]
+    },
+    {
+        id: 31,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+        mentorName: "Pradeep Kumar Gupta",
+        category: "Senior",
+        teamName: "Jal Rakshak",
+        pptLink: "https://drive.google.com/open?id=11-wioqH0P-9sbPXKpWFxCQeYis60TXjw",
+        members: ["Davinder Singh", "Divanshu Singh"]
+    },
+    {
+        id: 32,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+        mentorName: "Pradeep Kumar Gupta",
+        category: "Junior",
+        teamName: "Waste to Energy",
+        pptLink: "https://drive.google.com/open?id=1jWe5H5uN92drSdZIgwG1diaYZrOYl_2F",
+        members: ["Sehajpreet Singh"]
+    },
+    {
+        id: 33,
+        schoolName: "SES Bhangali Kalan- Amritsar-PB",
+        mentorName: "Anterpreet Singh",
+        category: "Junior",
+        teamName: "Eco Tech Star",
+        pptLink: "https://drive.google.com/open?id=1K5yoh4zKSp6r_qYW6tHI-rgRCxgrqWSw",
+        members: ["Sunali"]
+    },
+    {
+        id: 34,
+        schoolName: "SES Bhangali Kalan- Amritsar-PB",
+        mentorName: "Anterpreet Singh",
+        category: "Junior",
+        teamName: "Eco Warriors",
+        pptLink: "https://drive.google.com/open?id=1pSp5xCLNRGPcPbDeWBqZ7VBXEKFTTV9l",
+        members: ["Shubhamdeep Singh"]
+    },
+    {
+        id: 35,
+        schoolName: "Govt. High School, Khokhar (Bathinda) Punjab",
+        mentorName: "Parwinder Singh",
+        category: "Senior",
+        teamName: "Eco Tech Star 2",
+        pptLink: "https://drive.google.com/open?id=1yenWGO-FAAyxuyZDBcsp1KRu7YSOnLzI",
+        members: ["Navdeep Kaur", "Daljeet Singh"]
+    },
+    {
+        id: 36,
+        schoolName: "Govt. High School, Khokhar (Bathinda) Punjab",
+        mentorName: "Parwinder Singh",
+        category: "Senior",
+        teamName: "Young Innovators",
+        pptLink: "https://drive.google.com/open?id=1zTwU5nUmAorK3YepBylItjn065uoqYxf",
+        members: ["Navjot Kaur", "Akashdeep Singh"]
+    },
+    {
+        id: 37,
+        schoolName: "SES Jijjeani-Amritsar-PB",
+        mentorName: "Anterpreet SIngh",
+        category: "Junior",
+        teamName: "Future Engineers",
+        pptLink: "https://drive.google.com/open?id=1QDiY294nkk6yG0IjSoWF_1AVMtzMueqR",
+        members: ["Ukina"]
+    },
+    {
+        id: 38,
+        schoolName: "SES Jijjeani-Amritsar-PB",
+        mentorName: "Anterpreet SIngh",
+        category: "Junior",
+        teamName: "Jal Rakshak Team",
+        pptLink: "https://drive.google.com/open?id=19Co72hqhA5oHZ0F9c21vyAeNUIxn35uO",
+        members: ["Ekdeep Singh"]
+    },
+    {
+        id: 39,
+        schoolName: "Satya Bharti School Lordi Dejgara",
+        mentorName: "Ashish Dadhich",
+        category: "Junior",
+        teamName: "Pathfinder",
+        pptLink: "https://drive.google.com/open?id=1MoeHCsJVXYZnRmGbmFOorz3tHR4D24Um",
+        members: ["Sunil", "Saniya"]
+    },
+    {
+        id: 40,
+        schoolName: "Satya Bharti School Lordi Dejgara",
+        mentorName: "Ashish Dadhich",
+        category: "Junior",
+        teamName: "DeepThink",
+        pptLink: "https://drive.google.com/open?id=1FGL7QJ05oA-bqykFi3EH1g6BZ-rJtA9v",
+        members: ["Insaf", "Karishma"]
+    },
+    {
+        id: 41,
+        schoolName: "Satya Bharti School Dasania",
+        mentorName: "Devi Lal",
+        category: "Junior",
+        teamName: "JalRakshak Innovators",
+        pptLink: "https://drive.google.com/open?id=1G5BJTpZJPIBKgGNj-Fw0QVgN_Frzhnd1",
+        members: ["Babloo", "Jhamu"]
+    },
+    {
+        id: 42,
+        schoolName: "Satya Bharti School Dasania",
+        mentorName: "Devi Lal",
+        category: "Junior",
+        teamName: "MittiSense Innovators",
+        pptLink: "https://drive.google.com/open?id=1wngIUUSFVrNkY5sRUqUrb49KQIjPQsJM",
+        members: ["Ashutosh", "Dinesh"]
+    },
+    {
+        id: 43,
+        schoolName: "Satya Bharti School Gumansinghpura",
+        mentorName: "Nitesh Diwedi",
+        category: "Junior",
+        teamName: "Gspura",
+        pptLink: "https://docs.google.com/presentation/d/1kiYrECWsmf7Kgoa61Q6sOS_2c4QgImEt/edit?slide=id.p1#slide=id.p1",
+        members: ["Kamal singh", "Durgh Singh"]
+    },
+    {
+        id: 44,
+        schoolName: "Satya Bharti School Devrajgarh",
+        mentorName: "Devi Lal",
+        category: "Junior",
+        teamName: "TharCool — Zero-Electricity Classroom Cooling System",
+        pptLink: "https://drive.google.com/open?id=1xTJvs5JjH0kKnXIzGTRWyk2vpnfedmZT",
+        members: ["Dinesh Das", "Arbaj Khan"]
+    },
+    {
+        id: 45,
+        schoolName: "Satya Bharti School Devrajgarh",
+        mentorName: "Devi Lal",
+        category: "Junior",
+        teamName: "DhartiRakshak — Smart Soil-Erosion and Rainwater Pathway Model",
+        pptLink: "https://drive.google.com/open?id=1cqfSPR4ZHXB2iSkrourYLiOMFdETrQdQ",
+        members: ["Sher Singh", "Yaahpal Singh"]
+    },
+    {
+        id: 46,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+        mentorName: "Pradeep Kumar Gupta",
+        category: "Senior",
+        teamName: "Agri Innovators",
+        pptLink: "https://drive.google.com/open?id=1TNGJdCSTDxifBD1Z5e4LJtJc0aoC-6-O",
+        members: ["Davinder Singh", "Divanshu Singh"]
+    },
+    {
+        id: 47,
+        schoolName: "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+        mentorName: "Pradeep Kumar Gupta",
+        category: "Senior",
+        teamName: "Waste to Energy",
+        pptLink: "https://drive.google.com/open?id=1lGgMrITKxbNt8qcaIw7C-m0hQZqo157l",
+        members: ["Sehajpreet Singh"]
+    },
+    {
+        id: 48,
+        schoolName: "PM Shri GSSS Talwand Jalle Khan",
+        mentorName: "Mohit Garg",
+        category: "Senior",
+        teamName: "Young innovators",
+        pptLink: "https://drive.google.com/open?id=1Q49KkVODT-Snno1EN4RDEuWVQ2WnNMKp",
+        members: ["Milanpreet Kaur", "Amritpal Singh"]
+    },
+];
+
 export const ResultData = {
   headers: [
     { id: "srNo", label: "Sr. No.", align: "text-center" },
@@ -49,12 +485,6 @@ export const EventSchedule = [
 // Categories list matching with your data keys or categories
 export const categories = [
   {
-    key: "innovation",
-    title: "💡 Innovation Challenge",
-    borderColor: "border-red-500",
-    badgeColor: "bg-red-100 text-red-800",
-  },
-  {
     key: "tinkercad",
     title: "⚡ Tinkercad Circuits",
     borderColor: "border-emerald-500",
@@ -75,15 +505,6 @@ export const categories = [
 ];
 
 export const allParticipants = {
-  innovation: [
-    {
-      id: 1,
-      schoolName: "Satya Bharti Adarsh Sen. Sec. School, Rauni",
-      teamName: "Innovate X",
-      teamCode: "SBX-9981",
-      members: ["Chandan Prajapati", "Aman Sharma"],
-    },
-  ],
   tinkercad: [
     {
       id: 1,
@@ -171,19 +592,18 @@ export const allParticipants = {
     },
     {
       id: 15,
-      schoolName:
-        "Satya Bharti Adarsh Senior Secondary School, Bhangali Kalan-Jijjeani Cluster-Amritsar.",
+      schoolName: "Satya Bharti Adarsh Senior Secondary School, Bhangali Kalan-Jijjeani Cluster-Amritsar.",
       mentorName: "Anterpreet Singh",
       members: ["Sunali"],
     },
     {
-      id: 12,
+      id: 16,
       schoolName: "Satya Bharti Elementary School, Jijjeani-Amritsar-PB",
       mentorName: "Anterpreet Singh",
       members: ["Ekdeep Singh"],
     },
     {
-      id: 15,
+      id: 17,
       schoolName: "Satya Bharti Adarsh Sr. Sec. School Gurmansinghpura",
       mentorName: "Nitesh Dwivedi",
       members: ["Goutam Singh"],
@@ -262,7 +682,7 @@ export const allParticipants = {
       id: 4,
       schoolName: "Satya Bharti Elementary School, Bohlian",
       mentorName: "Simran Sahni",
-      members: ["Dilpreet kaur", "Pradeep Singh"],
+      members: ["Dilpreet kaur", "Pardeep Singh"],
     },
     {
       id: 5,

@@ -1,0 +1,146 @@
+import { useState } from 'react';
+import { ideathonData } from './siteData';
+
+const InnovationChallenge = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Helper function to highlight matching text
+  const highlightText = (text, query) => {
+    if (!query) return text;
+    
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return parts.map((part, i) => 
+      part.toLowerCase() === query.toLowerCase() ? (
+        <mark key={i} className="bg-yellow-200 text-gray-900 px-0.5 rounded">
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    );
+  };
+
+  // Filter by category first, then filter by search query
+  const filteredData = ideathonData.filter(item => {
+    const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+    
+    const query = searchQuery.toLowerCase();
+    const matchesSearch = 
+      item.schoolName.toLowerCase().includes(query) ||
+      item.teamName.toLowerCase().includes(query) ||
+      item.mentorName.toLowerCase().includes(query) ||
+      item.members.some(member => member.toLowerCase().includes(query));
+
+    return matchesCategory && matchesSearch;
+  });
+
+  return (
+    <div className="max-w-[1300px] mx-auto p-6 font-sans">
+      <h1 className="text-2xl font-bold mb-6 text-center text-gray-800" style={{ marginBottom: '24px' }}>
+        Innovation Challenge Participation Teams
+      </h1>
+
+      {/* Search and Filter Section */}
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+        {/* Search Input */}
+        <div className="w-full md:w-80">
+          <input
+            type="text"
+            placeholder="Search school, team, mentor, or student..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
+          />
+        </div>
+
+        {/* Filter Buttons */}
+        <div className="flex justify-center gap-3">
+          {['All', 'Junior', 'Senior'].map(cat => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-5 py-2 rounded-full font-bold transition-colors cursor-pointer border-none ${
+                selectedCategory === cat
+                  ? 'bg-red-600 text-white'
+                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+              }`}
+            >
+              {cat} Category
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Table Container */}
+      <div className="overflow-x-auto border border-gray-200 rounded-lg shadow-sm bg-white">
+        <table className="w-full border-collapse text-left">
+          <thead>
+            <tr className="bg-gray-50 border-b-2 border-gray-200 text-gray-800">
+              <th className="p-4 text-sm font-semibold text-center w-16">S.No.</th>
+              <th className="p-4 text-sm font-semibold">School Name</th>
+              <th className="p-4 text-sm font-semibold">Mentor Name</th>
+              <th className="p-4 text-sm font-semibold">Team Name</th>
+              <th className="p-4 text-sm font-semibold">Category</th>
+              <th className="p-4 text-sm font-semibold">Student Members</th>
+              <th className="p-4 text-sm font-semibold text-center">Presentation (PPT)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredData.length > 0 ? (
+              filteredData.map((team, index) => (
+                <tr 
+                  key={team.id} 
+                  className={`border-b border-gray-100 ${
+                    index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+                  }`}
+                >
+                  <td className="p-4 text-sm text-gray-600 text-center font-medium">{index + 1}</td>
+                  <td className="p-4 text-sm text-gray-800">{highlightText(team.schoolName, searchQuery)}</td>
+                  <td className="p-4 text-sm text-gray-600">{highlightText(team.mentorName, searchQuery)}</td>
+                  <td className="p-4 text-sm font-bold text-gray-900">{highlightText(team.teamName, searchQuery)}</td>
+                  <td className="p-4 text-sm">
+                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold inline-block ${
+                      team.category === 'Junior' 
+                        ? 'bg-sky-100 text-sky-700' 
+                        : 'bg-emerald-100 text-emerald-700'
+                    }`}>
+                      {team.category}
+                    </span>
+                  </td>
+                  <td className="p-4 text-sm text-gray-600">
+                    {highlightText(team.members.join(', '), searchQuery)}
+                  </td>
+                  <td className="p-4 text-sm text-center">
+                    {team.pptLink ? (
+                      <a
+                        href={team.pptLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded shadow-sm inline-block transition-colors"
+                      >
+                        View PPT ↗
+                      </a>
+                    ) : (
+                      <span className="text-gray-400 text-xs italic">
+                        Not Available
+                      </span>
+                    )}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="7" className="p-6 text-center text-gray-500 text-sm">
+                  No matching teams found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default InnovationChallenge;
