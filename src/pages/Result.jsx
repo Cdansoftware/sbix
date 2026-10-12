@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import logoImg from "../assets/logo_sbix.png";
+// import logoImg from "../assets/logo_sbix.png";
+import waitVideo from "../assets/wait.mp4";
 import { ResultData, selectedStudentsData } from "./siteData";
 import SplashScreen from "./SplashScreen";
 
@@ -278,17 +279,20 @@ const Result = () => {
 
           <div className="relative flex-1 w-full overflow-hidden bg-black">
             {iframeLoading && (
-              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950">
-                <div className="relative flex items-center justify-center p-2">
-                  <div className="absolute w-24 h-24 border-4 border-red-600/30 rounded-full animate-ping"></div>
-                  <img
-                    src={logoImg}
-                    alt="SBIX Logo"
-                    className="w-16 h-16 object-contain animate-pulse rounded-full relative z-10"
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950 p-4">
+                {/* 🎥 Local Please Wait Video Animation */}
+                <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center bg-black mb-3">
+                  <video
+                    src={waitVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="mt-6 text-sm font-medium text-slate-300 animate-pulse">
-                  Loading presentation...
+                <p className="text-sm font-medium text-slate-300 animate-pulse tracking-wide">
+                  Please wait, loading presentation...
                 </p>
               </div>
             )}

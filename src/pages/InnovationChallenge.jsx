@@ -160,7 +160,7 @@ const InnovationChallenge = () => {
               <th className="p-4 text-sm font-semibold">Team Name</th>
               <th className="p-4 text-sm font-semibold">Category</th>
               <th className="p-4 text-sm font-semibold">Student Members</th>
-              <th className="p-4 text-sm font-semibold text-center">Presentation (PPT)</th>
+              {/* <th className="p-4 text-sm font-semibold text-center">Presentation (PPT)</th> */}
             </tr>
           </thead>
           <tbody>
@@ -188,22 +188,22 @@ const InnovationChallenge = () => {
                   <td className="p-4 text-sm text-gray-600">
                     {highlightText(team.members.join(', '), searchQuery)}
                   </td>
-                  <td className="p-4 text-sm text-center">
+                  {/* <td className="p-4 text-sm text-center">
                     {team.pptLink ? (
-                      <a
-                        href={team.pptLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded shadow-sm inline-block transition-colors"
-                      >
-                        View PPT ↗
-                      </a>
+                      // <a
+                      //   href={team.pptLink}
+                      //   target="_blank"
+                      //   rel="noopener noreferrer"
+                      //   className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded shadow-sm inline-block transition-colors"
+                      // >
+                      //   View PPT ↗
+                      // </a>
                     ) : (
                       <span className="text-gray-400 text-xs italic">
                         Not Available
                       </span>
                     )}
-                  </td>
+                  </td> */}
                 </tr>
               ))
             ) : (
