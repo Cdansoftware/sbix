@@ -75,7 +75,7 @@ const Participants = () => {
               const mentorMatch = item.mentorName?.toLowerCase().includes(query);
               const memberMatch = item.members?.some((m) => m.toLowerCase().includes(query));
 
-              return schoolMatch || teamNameMatch || teamCodeMatch || mentorMatch || memberMatch;
+              return schoolMatch || mentorMatch || memberMatch;
             });
 
             return (
