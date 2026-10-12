@@ -670,7 +670,7 @@ export const allParticipants = {
       id: 2,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Sherpur Kalan",
       mentorName: "Arush Gupta",
-      members: ["Shamsher Singh", "Amanpreet Singh"],
+      members: ["Shamsher Singh", "Gurnoor Kaur"],
     },
     {
       id: 3,
