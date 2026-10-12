@@ -120,22 +120,13 @@ const Participants = () => {
                               {highlightText(item.schoolName, searchQuery)}
                             </td>
                             <td className="py-3 px-4">
-                              {item.mentorName ? (
+                              {item.mentorName && (
                                 <span
                                   className={`${cat.badgeColor || "bg-blue-100 text-blue-800"} text-xs font-semibold px-2.5 py-0.5 rounded`}
                                 >
                                   Mentor: {highlightText(item.mentorName, searchQuery)}
-                                </span>
-                              ) : (
-                                <div className="space-y-1">
-                                  <div className="font-semibold text-slate-800">
-                                    {highlightText(item.teamName, searchQuery)}
-                                  </div>
-                                  <div className="text-xs text-slate-500 font-mono">
-                                    Code: {highlightText(item.teamCode, searchQuery)}
-                                  </div>
-                                </div>
-                              )}
+                                </span> )}
+                            
                             </td>
                             <td className="py-3 px-4">
                               <ul className="list-disc list-inside text-xs space-y-0.5 text-slate-600">
