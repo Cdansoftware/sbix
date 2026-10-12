@@ -584,7 +584,7 @@ export const allParticipants = {
     {
       id: 2,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Chogawan",
-      mentorName: "Saurav Tiwari",
+      mentorName: "Sourav Tiwari",
       members: ["Lavish Kumar"],
     },
     {
