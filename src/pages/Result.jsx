@@ -22,7 +22,7 @@ const Result = () => {
         <div className="flex justify-center items-center w-full my-4">
           <div className="w-full max-w-xs sm:max-w-md aspect-square sm:aspect-video rounded-2xl overflow-hidden shadow-lg bg-white flex items-center justify-center">
             <video
-              className="w-full h-full object-contain pointer-events-none"
+              className="w-full h-full object-contain pointer-events-none border-none"
               autoPlay
               loop
               muted

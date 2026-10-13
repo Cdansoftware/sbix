@@ -217,7 +217,7 @@ export const ideathonData = [
     teamName: "Future Founder",
     pptLink:
       "https://drive.google.com/open?id=1Cklp_A7hqvaof5U1iW_A1CwN27foB_-X",
-    members: ["Sukhmani Kaur", "Angel"],
+    members: ["Sukhmani Kaur", "Amandeep Kaur"],
   },
   {
     id: 22,
@@ -806,7 +806,7 @@ export const allParticipants = {
       id: 11,
       schoolName: "Satya Bharti Elementary School, Khanpur",
       mentorName: "Ramesh Prasad Sahani",
-      members: ["Sukhmani Kaur", "Angel"],
+      members: ["Sukhmani Kaur", "Amandeep Kaur"],
     },
     {
       id: 12,
