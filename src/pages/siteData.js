@@ -985,7 +985,7 @@ export const selectedStudentsData = [
   {
     "id": 16,
     "schoolName": "Satya Bharti School Panditonka was",
-    "teamName": "IdeaX",
+    "teamName": "Logic Lord",
     "mentorName": "Anmol Rathod",
     "category": "junior"
   },
