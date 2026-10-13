@@ -69,7 +69,7 @@ const Registration = () => {
               <p className="text-xs font-semibold text-slate-400">
                 Submission Deadline
               </p>
-              <p className="text-sm font-bold text-red-400">Open till 6 P.M. ( 13 OCT 2026 )</p>
+              <p className="text-sm font-bold text-red-400">Registration Open</p>
             </div>
           </div>
 
@@ -123,7 +123,7 @@ const Registration = () => {
                   <span className="text-red-400 font-bold">•</span>
                   <span>
                     <strong>Submission Deadline:</strong> All entries must be
-                    submitted by <strong>Open till 6 P.M. ( 13 OCT 2026 )</strong>.
+                    submitted by <strong>Registration Open</strong>.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
