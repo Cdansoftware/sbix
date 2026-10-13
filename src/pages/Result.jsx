@@ -4,6 +4,10 @@ import waitVideo from "../assets/wait.mp4";
 import { ResultData, selectedStudentsData } from "./siteData";
 import SplashScreen from "./SplashScreen";
 
+// 1. AOS library & styles import karein
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Result = () => {
   const [loading, setLoading] = useState(true);
   const [selectedStudents, setSelectedStudents] = useState([]);
@@ -12,10 +16,19 @@ const Result = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [iframeLoading, setIframeLoading] = useState(true);
 
-  // Data ko direct import se load karana (optional loader effect ke sath)
+  // 2. Component mount hone par AOS initialize karein
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // animation duration in milliseconds
+      once: true,    // animation sirf ek baar scroll hone par chale
+      offset: 50,    // trigger offset
+    });
+  }, []);
+
+  // Data ko direct import se load karana
   useEffect(() => {
     const timer = setTimeout(() => {
-      setSelectedStudents(selectedStudentsData); // <-- yahan data set ho gaya
+      setSelectedStudents(selectedStudentsData);
       setLoading(false);
     }, 800);
 
@@ -109,17 +122,17 @@ const Result = () => {
   /* ---------- Loading screen ---------- */
 
   if (loading) {
-    return (
-      <SplashScreen />
-    );
+    return <SplashScreen />;
   }
 
   /* ---------- Main UI ---------- */
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6 md:p-10 font-sans">
+    <div className="min-h-screen bg-slate-50 p-6 md:p-10 font-sans overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8">
+        
+        {/* Header with Fade Down Animation */}
+        <div className="text-center mb-8" data-aos="fade-down">
           <h1 className="text-3xl font-bold text-slate-900">
             SBIX 1.0 - Selected Students List
           </h1>
@@ -128,8 +141,11 @@ const Result = () => {
           </p>
         </div>
 
-        {/* Announcement Banner & Search Bar in a Row */}
-        <div className="mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 max-w-7xl mx-auto">
+        {/* Announcement Banner & Search Bar with Fade Up Animation */}
+        <div 
+          className="mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 max-w-7xl mx-auto"
+          data-aos="fade-up"
+        >
           {/* Announcement Message Banner */}
           <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center md:text-left flex-1 shadow-sm w-full">
             <p className="text-xs font-bold text-amber-800 flex items-center justify-center md:justify-start gap-2">
@@ -145,7 +161,7 @@ const Result = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="w-full md:w-80 shrink-0 flex items-center">
+          <div className="w-full md:w-80 shrink-0 flex items-center" data-aos="fade-up">
             <div className="relative w-full flex items-center shadow-sm rounded-xl overflow-hidden border border-slate-200 bg-white">
               <span className="pl-4 text-slate-400">🔍</span>
               <input
@@ -168,8 +184,11 @@ const Result = () => {
           </div>
         </div>
 
-        {/* Table Container */}
-        <div className="bg-white shadow-md rounded-lg overflow-hidden border border-slate-200">
+        {/* Table Container with Zoom-In or Fade-Up Animation */}
+        <div 
+          className="bg-white shadow-md rounded-lg overflow-hidden border border-slate-200"
+          data-aos="fade-up"
+        >
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -240,7 +259,7 @@ const Result = () => {
 
       {/* Full-Screen Presentation Viewer */}
       {isPresenting && activeProject && (
-        <div className="fixed inset-0 z-[100] bg-black flex flex-col">
+        <div className="fixed inset-0 z-[100] bg-black flex flex-col" >
           <div className="flex items-center justify-between gap-3 px-4 py-2 bg-slate-900 text-white border-b border-white/10">
             <div className="min-w-0">
               <p className="text-[10px] font-bold uppercase text-red-400 truncate">
@@ -277,10 +296,10 @@ const Result = () => {
             </div>
           </div>
 
-          <div className="relative flex-1 w-full overflow-hidden bg-black">
+          <div className="relative flex-1 w-full overflow-hidden bg-black" data-aos="fade-up">
             {iframeLoading && (
               <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950 p-4">
-                {/* 🎥 Local Please Wait Video Animation */}
+                {/* Local Please Wait Video Animation */}
                 <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center bg-black mb-3">
                   <video
                     src={waitVideo}

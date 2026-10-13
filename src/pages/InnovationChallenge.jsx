@@ -1,56 +1,81 @@
-import { useState } from 'react';
-import { ideathonData } from './siteData';
+import { useState, useEffect } from "react";
+import { ideathonData } from "./siteData";
+
+// AOS Library aur CSS import karein
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const InnovationChallenge = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Component load hone par AOS initialize karein
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Animation duration (milliseconds)
+      once: true, // Animation sirf ek baar scroll hone par chale
+      offset: 50, // Trigger offset
+    });
+  }, []);
 
   // Helper function to escape special regex characters to prevent crashes
   const escapeRegExp = (string) => {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   };
 
   // Helper function to highlight matching text safely
   const highlightText = (text, query) => {
     if (!query || !text) return text;
-    
+
     const escapedQuery = escapeRegExp(query);
-    const parts = text.split(new RegExp(`(${escapedQuery})`, 'gi'));
-    
-    return parts.map((part, i) => 
+    const parts = text.split(new RegExp(`(${escapedQuery})`, "gi"));
+
+    return parts.map((part, i) =>
       part.toLowerCase() === query.toLowerCase() ? (
-        <mark key={i} className="bg-yellow-200 text-gray-900 px-0.5 rounded font-medium">
+        <mark
+          key={i}
+          className="bg-yellow-200 text-gray-900 px-0.5 rounded font-medium"
+        >
           {part}
         </mark>
       ) : (
         part
-      )
+      ),
     );
   };
 
   // Filter by category first, then filter by search query
-  const filteredData = ideathonData.filter(item => {
-    const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
-    
+  const filteredData = ideathonData.filter((item) => {
+    const matchesCategory =
+      selectedCategory === "All" || item.category === selectedCategory;
+
     const query = searchQuery.toLowerCase().trim();
-    const matchesSearch = 
+    const matchesSearch =
       !query ||
       item.schoolName.toLowerCase().includes(query) ||
       item.teamName.toLowerCase().includes(query) ||
       item.mentorName.toLowerCase().includes(query) ||
-      item.members.some(member => member.toLowerCase().includes(query));
+      item.members.some((member) => member.toLowerCase().includes(query));
 
     return matchesCategory && matchesSearch;
   });
 
   return (
-    <div className="max-w-[1300px] mx-auto p-3 sm:p-6 font-sans">
-      <h1 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-gray-800">
+    <div className="max-w-[1300px] mx-auto p-3 sm:p-6 font-sans overflow-x-hidden">
+      {/* Header with Fade-Down Animation */}
+      <h1
+        className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
+        data-aos="fade-down"
+      >
         Innovation Challenge Participation Teams
       </h1>
 
-      {/* Search and Filter Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
+      {/* Search and Filter Section with Fade-Up Animation */}
+      <div
+        className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 mb-5 sm:mb-6"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         {/* Search Input */}
         <div className="w-full md:w-80">
           <input
@@ -64,14 +89,14 @@ const InnovationChallenge = () => {
 
         {/* Filter Buttons */}
         <div className="flex w-full md:w-auto justify-center gap-2 sm:gap-3">
-          {['All', 'Junior', 'Senior'].map(cat => (
+          {["All", "Junior", "Senior"].map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`flex-1 md:flex-initial px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-colors cursor-pointer border-none text-center ${
                 selectedCategory === cat
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                  ? "bg-red-600 text-white"
+                  : "bg-gray-200 text-gray-800 hover:bg-gray-300"
               }`}
             >
               {cat}
@@ -81,11 +106,15 @@ const InnovationChallenge = () => {
       </div>
 
       {/* 📱 MOBILE VIEW: Cards (Shown on screens < 768px) */}
-      <div className="block md:hidden space-y-3">
+      <div
+        className="block md:hidden space-y-3"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         {filteredData.length > 0 ? (
           filteredData.map((team, index) => (
-            <div 
-              key={team.id} 
+            <div
+              key={team.id}
               className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm space-y-2.5"
             >
               {/* Header: S.No, Category & Team Name */}
@@ -98,11 +127,13 @@ const InnovationChallenge = () => {
                     {highlightText(team.teamName, searchQuery)}
                   </h3>
                 </div>
-                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold shrink-0 ${
-                  team.category === 'Junior' 
-                    ? 'bg-sky-100 text-sky-700' 
-                    : 'bg-emerald-100 text-emerald-700'
-                }`}>
+                <span
+                  className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold shrink-0 ${
+                    team.category === "Junior"
+                      ? "bg-sky-100 text-sky-700"
+                      : "bg-emerald-100 text-emerald-700"
+                  }`}
+                >
                   {team.category}
                 </span>
               </div>
@@ -118,28 +149,12 @@ const InnovationChallenge = () => {
                   {highlightText(team.mentorName, searchQuery)}
                 </div>
                 <div>
-                  <span className="font-semibold text-gray-700">Students: </span>
-                  {highlightText(team.members.join(', '), searchQuery)}
+                  <span className="font-semibold text-gray-700">
+                    Students:{" "}
+                  </span>
+                  {highlightText(team.members.join(", "), searchQuery)}
                 </div>
               </div>
-
-              {/* Action Button */}
-              {/* <div className="pt-2 border-t border-gray-100 flex justify-end">
-                {team.pptLink ? (
-                  <a
-                    href={team.pptLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-lg shadow-sm transition-colors"
-                  >
-                    View Presentation (PPT) ↗
-                  </a>
-                ) : (
-                  <span className="text-gray-400 text-xs italic py-1">
-                    PPT Not Available
-                  </span>
-                )}
-              </div> */}
             </div>
           ))
         ) : (
@@ -150,65 +165,68 @@ const InnovationChallenge = () => {
       </div>
 
       {/* 💻 DESKTOP VIEW: Table (Shown on screens >= 768px) */}
-      <div className="hidden md:block overflow-x-auto border border-gray-200 rounded-lg shadow-sm bg-white">
+      <div
+        className="hidden md:block overflow-x-auto border border-gray-200 rounded-lg shadow-sm bg-white"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <table className="w-full border-collapse text-left">
           <thead>
             <tr className="bg-gray-50 border-b-2 border-gray-200 text-gray-800">
-              <th className="p-4 text-sm font-semibold text-center w-16">S.No.</th>
+              <th className="p-4 text-sm font-semibold text-center w-16">
+                S.No.
+              </th>
               <th className="p-4 text-sm font-semibold">School Name</th>
               <th className="p-4 text-sm font-semibold">Mentor Name</th>
               <th className="p-4 text-sm font-semibold">Team Name</th>
               <th className="p-4 text-sm font-semibold">Category</th>
               <th className="p-4 text-sm font-semibold">Student Members</th>
-              {/* <th className="p-4 text-sm font-semibold text-center">Presentation (PPT)</th> */}
             </tr>
           </thead>
           <tbody>
             {filteredData.length > 0 ? (
               filteredData.map((team, index) => (
-                <tr 
-                  key={team.id} 
-                  className={`border-b border-gray-100 ${
-                    index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+                <tr
+                  key={team.id}
+                  className={`border-b border-gray-100 transition-all duration-200 hover:bg-gray-100 hover:shadow-sm ${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-50/50"
                   }`}
+                  data-aos="zoom-in-up"
                 >
-                  <td className="p-4 text-sm text-gray-600 text-center font-medium">{index + 1}</td>
-                  <td className="p-4 text-sm text-gray-800">{highlightText(team.schoolName, searchQuery)}</td>
-                  <td className="p-4 text-sm text-gray-600">{highlightText(team.mentorName, searchQuery)}</td>
-                  <td className="p-4 text-sm font-bold text-gray-900">{highlightText(team.teamName, searchQuery)}</td>
+                  <td className="p-4 text-sm text-gray-600 text-center font-medium">
+                    {index + 1}
+                  </td>
+                  <td className="p-4 text-sm text-gray-800">
+                    {highlightText(team.schoolName, searchQuery)}
+                  </td>
+                  <td className="p-4 text-sm text-gray-600">
+                    {highlightText(team.mentorName, searchQuery)}
+                  </td>
+                  <td className="p-4 text-sm font-bold text-gray-900">
+                    {highlightText(team.teamName, searchQuery)}
+                  </td>
                   <td className="p-4 text-sm">
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold inline-block ${
-                      team.category === 'Junior' 
-                        ? 'bg-sky-100 text-sky-700' 
-                        : 'bg-emerald-100 text-emerald-700'
-                    }`}>
+                    <span
+                      className={`px-2.5 py-1 rounded-full text-xs font-bold inline-block ${
+                        team.category === "Junior"
+                          ? "bg-sky-100 text-sky-700"
+                          : "bg-emerald-100 text-emerald-700"
+                      }`}
+                    >
                       {team.category}
                     </span>
                   </td>
                   <td className="p-4 text-sm text-gray-600">
-                    {highlightText(team.members.join(', '), searchQuery)}
+                    {highlightText(team.members.join(", "), searchQuery)}
                   </td>
-                  {/* <td className="p-4 text-sm text-center">
-                    {team.pptLink ? (
-                      // <a
-                      //   href={team.pptLink}
-                      //   target="_blank"
-                      //   rel="noopener noreferrer"
-                      //   className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded shadow-sm inline-block transition-colors"
-                      // >
-                      //   View PPT ↗
-                      // </a>
-                    ) : (
-                      <span className="text-gray-400 text-xs italic">
-                        Not Available
-                      </span>
-                    )}
-                  </td> */}
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="7" className="p-6 text-center text-gray-500 text-sm">
+                <td
+                  colSpan="6"
+                  className="p-6 text-center text-gray-500 text-sm"
+                >
                   No matching teams found.
                 </td>
               </tr>

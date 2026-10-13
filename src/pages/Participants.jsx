@@ -1,9 +1,21 @@
-import { useState } from "react";
-import { allParticipants, categories } from "./siteData"; 
+import { useState, useEffect } from "react";
+import { allParticipants, categories } from "./siteData";
 import InnovationChallenge from "./InnovationChallenge";
+// AOS Library aur CSS import karein
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Participants = () => {
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Component load hone par AOS initialize karein
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Animation duration (milliseconds)
+      once: true, // Animation sirf ek baar scroll hone par chale
+      offset: 50, // Trigger offset
+    });
+  }, []);
 
   // Helper function to highlight search matches
   const highlightText = (text, query) => {
@@ -30,7 +42,7 @@ const Participants = () => {
         <InnovationChallenge />
         {/* Header & Search Bar Container */}
         <div className="flex flex-col bg-slate-950/90 p-6 rounded-t-xl md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left" data-aos="fade-down-right">
             <h1 className="text-3xl font-bold text-slate-300">
               SBIX 1.0 - Registered Participants
             </h1>
@@ -40,7 +52,7 @@ const Participants = () => {
           </div>
 
           {/* Global Search Bar */}
-          <div className="w-full md:w-80">
+          <div className="w-full md:w-80" data-aos="fade-down-left">
             <div className="relative flex items-center shadow-sm rounded-xl overflow-hidden border border-slate-200 bg-white">
               <span className="pl-4 text-slate-400">🔍</span>
               <input
@@ -71,9 +83,15 @@ const Participants = () => {
             // Safely filter participants supporting both team-based and mentor-based data models
             const categoryData = participantsList.filter((item) => {
               const query = searchQuery.toLowerCase();
-              const schoolMatch = item.schoolName?.toLowerCase().includes(query);
-              const mentorMatch = item.mentorName?.toLowerCase().includes(query);
-              const memberMatch = item.members?.some((m) => m.toLowerCase().includes(query));
+              const schoolMatch = item.schoolName
+                ?.toLowerCase()
+                .includes(query);
+              const mentorMatch = item.mentorName
+                ?.toLowerCase()
+                .includes(query);
+              const memberMatch = item.members?.some((m) =>
+                m.toLowerCase().includes(query),
+              );
 
               return schoolMatch || mentorMatch || memberMatch;
             });
@@ -102,7 +120,9 @@ const Participants = () => {
                           Sr.
                         </th>
                         <th className="py-3 px-4 font-semibold">School Name</th>
-                        <th className="py-3 px-4 font-semibold">Team / Mentor Info</th>
+                        <th className="py-3 px-4 font-semibold">
+                          Team / Mentor Info
+                        </th>
                         <th className="py-3 px-4 font-semibold">Members</th>
                       </tr>
                     </thead>
@@ -112,6 +132,9 @@ const Participants = () => {
                           <tr
                             key={item.id || index}
                             className="hover:bg-slate-50 transition-colors"
+                            data-aos="fade-down"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500"
                           >
                             <td className="py-3 px-4 text-center font-medium text-slate-900">
                               {index + 1}
@@ -124,9 +147,10 @@ const Participants = () => {
                                 <span
                                   className={`${cat.badgeColor || "bg-blue-100 text-blue-800"} text-xs font-semibold px-2.5 py-0.5 rounded`}
                                 >
-                                  Mentor: {highlightText(item.mentorName, searchQuery)}
-                                </span> )}
-                            
+                                  Mentor:{" "}
+                                  {highlightText(item.mentorName, searchQuery)}
+                                </span>
+                              )}
                             </td>
                             <td className="py-3 px-4">
                               <ul className="list-disc list-inside text-xs space-y-0.5 text-slate-600">
