@@ -137,7 +137,7 @@ export const ideathonData = [
     teamName: "Smart Growers",
     pptLink:
       "https://drive.google.com/open?id=1vlsoAIWnI4sNcSLKjS5K6lL3DmsAHks6",
-    members: ["Urmila", "Manjinder Singh"],
+    members: ["Urmila", "Dilpreet Kaur"],
   },
   {
     id: 14,
