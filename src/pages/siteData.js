@@ -516,10 +516,10 @@ export const ResultData = {
     { id: "srNo", label: "Sr. No.", align: "text-center" },
     { id: "schoolName", label: "School Name", align: "text-left" },
     { id: "teamName", label: "Team Name", align: "text-left" },
-    { id: "teamCode", label: "Team Code", align: "text-left" },
     { id: "mentorName", label: "Mentor Name", align: "text-left" },
-    { id: "projectName", label: "Project Name", align: "text-left" },
-    { id: "ppt", label: "PPT Presentation", align: "text-center" },
+    { id: "category", label: "Category", align: "text-left" },
+    // { id: "projectName", label: "Project Name", align: "text-left" },
+    // { id: "ppt", label: "PPT Presentation", align: "text-center" },
   ],
 };
 
@@ -865,16 +865,7 @@ export const allParticipants = {
   ],
 };
 
-export const selectedStudentsData = [
-  {
-    id: 1,
-    schoolName: "Satya Bharti Adarsh Sen. Sec. School, Rauni",
-    teamName: "Innovate X",
-    teamCode: "SBX-1001",
-    mentorName: "Chandan Prajapati",
-    projectName: "Smart EV",
-    pptFile: PPT,
-  },
+
   // {
   //   id: 2,
   //   schoolName: "Govt. Model Senior Secondary School, Patiala",
@@ -884,7 +875,205 @@ export const selectedStudentsData = [
   //   projectName: "Automated Agriculture Bot",
   //   pptFile: PPT,
   // },
-];
+
+export const selectedStudentsData = [
+  {
+    "id": 1,
+    "schoolName": "Satya Elementary School Mohie",
+    "teamName": "Smart Growers",
+    "mentorName": "Avneesh Kumar",
+    "category": "junior"
+  },
+  {
+    "id": 2,
+    "schoolName": "satya elementary school dhulka",
+    "teamName": "Ignite Minds",
+    "mentorName": "khushwinder  kaur",
+    "category": "junior"
+  },
+  {
+    "id": 3,
+    "schoolName": "Satya Elementary School, Bohlian",
+    "teamName": "Young Innovator",
+    "mentorName": "Simran Sahni",
+    "category": "junior"
+  },
+  {
+    "id": 4,
+    "schoolName": "Satya Elementary School Khanpur",
+    "teamName": "Future Founder",
+    "mentorName": "Ramesh Prasad Sahani",
+    "category": "junior"
+  },
+  {
+    "id": 5,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+    "teamName": "Waste to Energy",
+    "mentorName": "Pradeep Kumar Gupta",
+    "category": "junior"
+  },
+  {
+    "id": 6,
+    "schoolName": "Satya Elementary School Khanpur",
+    "teamName": "Future Founder Khanpur",
+    "mentorName": "Ramesh Prasad Sahani",
+    "category": "junior"
+  },
+  {
+    "id": 7,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+    "teamName": "Khule Aasmaan",
+    "mentorName": "Pradeep Kumar Gupta",
+    "category": "junior"
+  },
+  {
+    "id": 8,
+    "schoolName": "Satya Bharti School Dasania",
+    "teamName": "MittiSense Innovators",
+    "mentorName": "Devi Lal",
+    "category": "junior"
+  },
+  {
+    "id": 9,
+    "schoolName": "Satya elemenatry school balliyewal",
+    "teamName": "EcoSpark Innovators",
+    "mentorName": "Rajni Rani",
+    "category": "junior"
+  },
+  {
+    "id": 10,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School , Sherpur Kalan",
+    "teamName": "SherpurX",
+    "mentorName": "Arush Gupta",
+    "category": "junior"
+  },
+  {
+    "id": 11,
+    "schoolName": "Satya Elementary School Bhattike",
+    "teamName": "Reformer",
+    "mentorName": "Karamjit Kaur",
+    "category": "junior"
+  },
+  {
+    "id": 12,
+    "schoolName": "Satya Elementary School Kamalpur",
+    "teamName": "TechMind",
+    "mentorName": "Vivek kumar",
+    "category": "junior"
+  },
+  {
+    "id": 13,
+    "schoolName": "Satya Bharti School Gumansinghpura",
+    "teamName": "Gspura",
+    "mentorName": "Nitesh Diwedi",
+    "category": "junior"
+  },
+  {
+    "id": 14,
+    "schoolName": "Satya Bharti School Devrajgarh",
+    "teamName": "TharCool — Zero-Electric",
+    "mentorName": "Devi Lal",
+    "category": "junior"
+  },
+  {
+    "id": 15,
+    "schoolName": "Satya Bharti School Jati Bhandu Jodhpur",
+    "teamName": "Team Future Makers",
+    "mentorName": "Sunil Garg",
+    "category": "junior"
+  },
+  {
+    "id": 16,
+    "schoolName": "Satya Bharti School Panditonka was",
+    "teamName": "IdeaX",
+    "mentorName": "Sunil Garg",
+    "category": "junior"
+  },
+  {
+    "id": 17,
+    "schoolName": "SATYA BHARTI ADARSH SENIOR SECONDARY SECONDRY SCHOOL, CHOGAWAN",
+    "mentorName": "SOURAV KUMAR TIWARI",
+    "teamName": "AGRIX",
+    "category": "Senior"
+  },
+  {
+    "id": 18,
+    "schoolName": "SATYA BHARTI ADARSH SENIOR SECONDARY SECONDRY SCHOOL, CHOGAWAN",
+    "mentorName": "SOURAV KUMAR TIWARI",
+    "teamName": "GREENOVATORS",
+    "category": "Senior"
+  },
+  {
+    "id": 19,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+    "mentorName": "Pradeep Kumar Gupta",
+    "teamName": "Agri Innovators",
+    "category": "Senior"
+  },
+  {
+    "id": 20,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+    "mentorName": "Pradeep Kumar Gupta",
+    "teamName": "Waste to Energy",
+    "category": "Senior"
+  },
+  {
+    "id": 21,
+    "schoolName": "PM Shri GSSS Talwand Jalle Khan",
+    "mentorName": "Mohit Garg",
+    "teamName": "Young innovators",
+    "category": "Senior"
+  },
+  {
+    "id": 22,
+    "schoolName": "Govt. High School, Khokhar (Bathinda) Punjab",
+    "mentorName": "Parwinder Singh",
+    "teamName": "Eco Tech Star 2",
+    "category": "Senior"
+  },
+  {
+    "id": 23,
+    "schoolName": "Govt. High School, Khokhar (Bathinda) Punjab",
+    "mentorName": "Parwinder Singh",
+    "teamName": "Young Innovators",
+    "category": "Senior"
+  },
+  {
+    "id": 24,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+    "mentorName": "Pradeep Kumar Gupta",
+    "teamName": "Jal Rakshak",
+    "category": "Senior"
+  },
+  {
+    "id": 25,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+    "mentorName": "Pradeep Kumar Gupta",
+    "teamName": "Ritam",
+    "category": "Senior"
+  },
+  {
+    "id": 26,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School, Fattubhila",
+    "mentorName": "Deeksha Arya",
+    "category": "Senior",
+    "teamName": "Gaurdian Innovators"
+  },
+  {
+    "id": 27,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School, Fattubhila",
+    "mentorName": "Deeksha Arya",
+    "category": "Senior",
+    "teamName": "EcoErasers"
+  },
+  {
+    "id": 28,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School , Sherpur Kalan",
+    "mentorName": "Arush Gupta",
+    "teamName": "Bharti Innovator",
+    "category": "Senior"
+  }
+]
 
 export const footerData = {
   quickLinks: [

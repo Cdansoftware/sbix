@@ -1,376 +1,125 @@
-import React from "react";
-import logoImg from "../assets/logo_sbix.png";
-import gif from "../assets/wait.mp4";
+import { useState, useMemo } from "react";
+import { ResultData, selectedStudentsData } from "./siteData";
 
-const Result = () => {
+export default function Result() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Filter the data based on search term matching any key value
+  const filteredData = useMemo(() => {
+    if (!searchTerm.trim()) return selectedStudentsData;
+    const lowerQuery = searchTerm.toLowerCase();
+
+    return selectedStudentsData.filter((item) => {
+      return (
+        item.schoolName?.toLowerCase().includes(lowerQuery) ||
+        item.teamName?.toLowerCase().includes(lowerQuery) ||
+        item.mentorName?.toLowerCase().includes(lowerQuery) ||
+        item.category?.toLowerCase().includes(lowerQuery)
+      );
+    });
+  }, [searchTerm]);
+
+  // Helper function to highlight matching text
+  const highlightText = (text, query) => {
+    if (!query || !text) return text;
+    const parts = text.split(new RegExp(`(${query})`, "gi"));
+    return parts.map((part, index) =>
+      part.toLowerCase() === query.toLowerCase() ? (
+        <mark key={index} className="bg-yellow-200 text-gray-900 rounded px-0.5 font-medium">
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    );
+  };
+
   return (
-    <div className="min-h-screen w-full flex flex-col bg-slate-50 text-slate-100 items-center justify-center p-4 sm:p-6 font-sans">
-      <div className="max-w-3xl w-full text-center space-y-6">
-
-        {/* Heading & Notice */}
-        <div className="space-y-2">
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-            Please Wait for the Result...
-          </h1>
-          <p className="text-xs sm:text-sm max-w-lg mx-auto text-amber-600 font-medium">
-            Evaluation is in progress. The final results and notifications will
-            be announced soon. Stay tuned!
-          </p>
-        </div>
-
-        {/* Animation / Video Player Section */}
-        <div className="flex justify-center items-center w-full my-4">
-          <div className="w-full max-w-xs sm:max-w-md aspect-square sm:aspect-video rounded-2xl overflow-hidden shadow-lg bg-white flex items-center justify-center">
-            <video
-              className="w-full h-full object-contain pointer-events-none border-none"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={gif} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+    // Outer Container: Mobile me 0 padding, min-h-screen flex layout
+    <div className="min-h-screen bg-gray-50 p-0 sm:p-6 md:p-10 flex flex-col">
+      <div className="w-full flex-grow max-w-7xl mx-auto bg-white shadow-none sm:shadow-md rounded-none sm:rounded-xl overflow-hidden border-0 sm:border sm:border-gray-200 flex flex-col">
+        
+        {/* Header & Search Bar Section */}
+        <div className="p-4 sm:p-6 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 bg-white">
+          <div>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-800">Student Team Results</h2>
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
+              Showing {filteredData.length} of {selectedStudentsData.length} entries
+            </p>
+          </div>
+          <div className="w-full sm:w-80">
+            <input
+              type="text"
+              placeholder="Search by school, team, mentor..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-3.5 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
+            />
           </div>
         </div>
 
-        {/* Footer info */}
-        <div className="pt-2">
-          <span className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-widest font-semibold">
-            SBIX 1.0 Event Committee
-          </span>
+        {/* Table Section */}
+        <div className="overflow-x-auto flex-grow">
+          <table className="w-full border-collapse text-left min-w-[600px] sm:min-w-full">
+            <thead>
+              <tr className="bg-gray-100 text-gray-700 uppercase text-xs font-semibold tracking-wider border-b border-gray-200">
+                {ResultData.headers.map((header) => (
+                  <th
+                    key={header.id}
+                    className={`py-3 px-4 sm:py-3.5 sm:px-6 ${header.align}`}
+                  >
+                    {header.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200 text-sm text-gray-700">
+              {filteredData.length > 0 ? (
+                filteredData.map((row, index) => (
+                  <tr 
+                    key={row.id} 
+                    className="hover:bg-gray-50/80 transition-colors"
+                  >
+                    {/* Sr. No. */}
+                    <td className="py-3 px-4 sm:py-4 sm:px-6 text-center font-medium text-gray-500">
+                      {index + 1}
+                    </td>
+                    {/* School Name */}
+                    <td className="py-3 px-4 sm:py-4 sm:px-6 font-medium text-gray-900">
+                      {highlightText(row.schoolName, searchTerm)}
+                    </td>
+                    {/* Team Name */}
+                    <td className="py-3 px-4 sm:py-4 sm:px-6">
+                      {highlightText(row.teamName, searchTerm)}
+                    </td>
+                    {/* Mentor Name */}
+                    <td className="py-3 px-4 sm:py-4 sm:px-6">
+                      {highlightText(row.mentorName, searchTerm)}
+                    </td>
+                    {/* Category */}
+                    <td className="py-3 px-4 sm:py-4 sm:px-6">
+                      <span className={`inline-block px-2.5 py-1 text-xs font-semibold rounded-full uppercase ${
+                        row.category?.toLowerCase() === 'junior' 
+                          ? 'bg-blue-100 text-blue-700' 
+                          : 'bg-purple-100 text-purple-700'
+                      }`}>
+                        {highlightText(row.category, searchTerm)}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={ResultData.headers.length} className="text-center py-10 text-gray-400">
+                    No matching records found.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
 
       </div>
     </div>
   );
-};
-
-export default Result;
-
-// import { useState, useEffect } from "react";
-// // import logoImg from "../assets/logo_sbix.png";
-// import waitVideo from "../assets/wait.mp4";
-// import { ResultData, selectedStudentsData } from "./siteData";
-// import SplashScreen from "./SplashScreen";
-
-// // 1. AOS library & styles import karein
-// import AOS from "aos";
-// import "aos/dist/aos.css";
-
-// const Result = () => {
-//   const [loading, setLoading] = useState(true);
-//   const [selectedStudents, setSelectedStudents] = useState([]);
-//   const [activeProject, setActiveProject] = useState(null);
-//   const [isPresenting, setIsPresenting] = useState(false);
-//   const [searchQuery, setSearchQuery] = useState("");
-//   const [iframeLoading, setIframeLoading] = useState(true);
-
-//   // 2. Component mount hone par AOS initialize karein
-//   useEffect(() => {
-//     AOS.init({
-//       duration: 800, // animation duration in milliseconds
-//       once: true, // animation sirf ek baar scroll hone par chale
-//       offset: 50, // trigger offset
-//     });
-//   }, []);
-
-//   // Data ko direct import se load karana
-//   useEffect(() => {
-//     const timer = setTimeout(() => {
-//       setSelectedStudents(selectedStudentsData);
-//       setLoading(false);
-//     }, 800);
-
-//     return () => clearTimeout(timer);
-//   }, []);
-
-//   /* ---------- Presentation (Full-screen) logic ---------- */
-
-//   const getViewerUrl = (pdfPath) => `${pdfPath}#toolbar=0&navpanes=0&view=FitH`;
-
-//   const enterFullscreen = () => {
-//     const el = document.documentElement;
-//     if (!document.fullscreenElement && el.requestFullscreen) {
-//       el.requestFullscreen().catch(() => {});
-//     }
-//   };
-
-//   const exitFullscreen = () => {
-//     if (document.fullscreenElement && document.exitFullscreen) {
-//       document.exitFullscreen().catch(() => {});
-//     }
-//   };
-
-//   const handleStartPresentation = (item) => {
-//     setIframeLoading(true);
-//     setActiveProject(item);
-//     setIsPresenting(true);
-//     enterFullscreen();
-//   };
-
-//   const handleIframeLoad = () => {
-//     setTimeout(() => {
-//       setIframeLoading(false);
-//     }, 1500);
-//   };
-
-//   const handleClosePresentation = () => {
-//     exitFullscreen();
-//     setIsPresenting(false);
-//     setActiveProject(null);
-//   };
-
-//   const toggleFullscreen = () => {
-//     if (document.fullscreenElement) exitFullscreen();
-//     else enterFullscreen();
-//   };
-
-//   useEffect(() => {
-//     const onFullscreenChange = () => {
-//       if (!document.fullscreenElement) {
-//         setIsPresenting(false);
-//         setActiveProject(null);
-//       }
-//     };
-//     document.addEventListener("fullscreenchange", onFullscreenChange);
-//     return () =>
-//       document.removeEventListener("fullscreenchange", onFullscreenChange);
-//   }, []);
-
-//   useEffect(() => {
-//     document.body.style.overflow = isPresenting ? "hidden" : "";
-//     return () => {
-//       document.body.style.overflow = "";
-//     };
-//   }, [isPresenting]);
-
-//   /* ---------- Search helpers ---------- */
-
-//   const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-//   const highlightText = (text, query) => {
-//     if (!query) return text;
-//     const parts = text.split(new RegExp(`(${escapeRegExp(query)})`, "gi"));
-//     return parts.map((part, i) =>
-//       part.toLowerCase() === query.toLowerCase() ? (
-//         <mark
-//           key={i}
-//           className="bg-yellow-300 text-slate-950 px-0.5 rounded font-semibold"
-//         >
-//           {part}
-//         </mark>
-//       ) : (
-//         part
-//       ),
-//     );
-//   };
-
-//   const filteredStudents = selectedStudents.filter(
-//     (item) =>
-//       item.schoolName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//       item.teamName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//       item.teamCode.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//       item.mentorName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//       item.projectName.toLowerCase().includes(searchQuery.toLowerCase()),
-//   );
-
-//   /* ---------- Loading screen ---------- */
-
-//   if (loading) {
-//     return <SplashScreen />;
-//   }
-
-//   /* ---------- Main UI ---------- */
-
-//   return (
-//     <div className="min-h-screen bg-slate-50 p-6 md:p-10 font-sans overflow-x-hidden">
-//       <div className="max-w-7xl mx-auto">
-//         {/* Header with Fade Down Animation */}
-//         <div className="text-center mb-8" data-aos="fade-down">
-//           <h1 className="text-3xl font-bold text-slate-900">
-//             SBIX 1.0 - Selected Students List
-//           </h1>
-//           <p className="text-slate-600 mt-2">
-//             Congratulations to all the selected teams moving to the final round!
-//           </p>
-//         </div>
-
-//         {/* Announcement Banner & Search Bar with Fade Up Animation */}
-//         <div
-//           className="mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 max-w-7xl mx-auto"
-//           data-aos="fade-up"
-//         >
-//           {/* Announcement Message Banner */}
-//           <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center md:text-left flex-1 shadow-sm w-full">
-//             <p className="text-xs font-bold text-amber-800 flex items-center justify-center md:justify-start gap-2">
-//               <span>📢</span> Official Announcement Notice:
-//             </p>
-//             <p className="text-[11px] text-slate-700 mt-0.5">
-//               The final results will be announced on{" "}
-//               <strong className="text-slate-900">
-//                 13 Oct by EOD (End of the Day)
-//               </strong>{" "}
-//               via official notification and email.
-//             </p>
-//           </div>
-
-//           {/* Search Bar */}
-//           <div
-//             className="w-full md:w-80 shrink-0 flex items-center"
-//             data-aos="fade-up"
-//           >
-//             <div className="relative w-full flex items-center shadow-sm rounded-xl overflow-hidden border border-slate-200 bg-white">
-//               <span className="pl-4 text-slate-400">🔍</span>
-//               <input
-//                 type="text"
-//                 value={searchQuery}
-//                 onChange={(e) => setSearchQuery(e.target.value)}
-//                 placeholder="Search school, team, code, mentor..."
-//                 className="w-full py-3 px-3 bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none"
-//               />
-//               {searchQuery && (
-//                 <button
-//                   type="button"
-//                   onClick={() => setSearchQuery("")}
-//                   className="pr-4 text-slate-400 hover:text-slate-600 text-xs font-bold cursor-pointer"
-//                 >
-//                   Clear
-//                 </button>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Table Container with Zoom-In or Fade-Up Animation */}
-//         <div
-//           className="bg-white shadow-md rounded-lg overflow-hidden border border-slate-200"
-//           data-aos="fade-up"
-//         >
-//           <div className="overflow-x-auto">
-//             <table className="w-full text-left border-collapse">
-//               <thead>
-//                 <tr className="border-b border-slate-800 bg-slate-950/90 text-xs text-slate-400 uppercase tracking-wider">
-//                   {ResultData?.headers?.map((header) => (
-//                     <th
-//                       key={header.id}
-//                       className={`py-3 px-4 font-semibold ${header.align}`}
-//                     >
-//                       {header.label}
-//                     </th>
-//                   ))}
-//                 </tr>
-//               </thead>
-//               <tbody className="divide-y divide-slate-200 text-slate-700 text-sm">
-//                 {filteredStudents.length > 0 ? (
-//                   filteredStudents.map((item, index) => (
-//                     <tr
-//                       key={item.id}
-//                       className="hover:bg-slate-50 transition-colors"
-//                     >
-//                       <td className="py-4 px-4 text-center font-medium text-slate-900">
-//                         {index + 1}
-//                       </td>
-//                       <td className="py-4 px-4 font-medium">
-//                         {highlightText(item.schoolName, searchQuery)}
-//                       </td>
-//                       <td className="py-4 px-4">
-//                         <span className="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-//                           {highlightText(item.teamName, searchQuery)}
-//                         </span>
-//                       </td>
-//                       <td className="py-4 px-4 font-mono font-semibold text-slate-600">
-//                         {highlightText(item.teamCode, searchQuery)}
-//                       </td>
-//                       <td className="py-4 px-4">
-//                         {highlightText(item.mentorName, searchQuery)}
-//                       </td>
-//                       <td className="py-4 px-4 font-medium text-slate-900">
-//                         {highlightText(item.projectName, searchQuery)}
-//                       </td>
-//                       <td className="py-4 px-4 text-center">
-//                         <button
-//                           type="button"
-//                           onClick={() => handleStartPresentation(item)}
-//                           className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-lg shadow transition-all cursor-pointer"
-//                         >
-//                           <span>📊</span> Show PPT
-//                         </button>
-//                       </td>
-//                     </tr>
-//                   ))
-//                 ) : (
-//                   <tr>
-//                     <td
-//                       colSpan="7"
-//                       className="py-8 text-center text-slate-400 text-xs"
-//                     >
-//                       No matching records found for "{searchQuery}".
-//                     </td>
-//                   </tr>
-//                 )}
-//               </tbody>
-//             </table>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Full-Screen Presentation Viewer */}
-//       {isPresenting && activeProject && (
-//         <div className="fixed inset-0 z-[100] bg-black flex flex-col">
-//           <div className="flex items-center justify-between gap-3 px-4 py-2 bg-slate-900 text-white border-b border-white/10">
-//             <div className="min-w-0">
-//               <p className="text-[10px] font-bold uppercase text-red-400 truncate">
-//                 Presentation Mode — {activeProject.projectName}
-//               </p>
-//               <h3 className="text-sm font-bold truncate">
-//                 Team: {activeProject.teamName}
-//               </h3>
-//             </div>
-
-//             <div className="flex items-center gap-2 shrink-0">
-//               <a
-//                 href={activeProject.pptFile}
-//                 download="SBIX_Presentation.pdf"
-//                 className="px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-semibold"
-//               >
-//                 📥 Download
-//               </a>
-//               <button
-//                 type="button"
-//                 onClick={toggleFullscreen}
-//                 className="px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-semibold cursor-pointer"
-//               >
-//                 ⛶ Fullscreen
-//               </button>
-//               <button
-//                 type="button"
-//                 onClick={handleClosePresentation}
-//                 className="w-8 h-8 rounded-full bg-red-600 hover:bg-red-500 text-white font-bold cursor-pointer"
-//                 aria-label="Close presentation"
-//               >
-//                 ✕
-//               </button>
-//             </div>
-//           </div>
-
-//           <div
-//             className="relative flex-1 w-full overflow-hidden bg-black"
-//             data-aos="fade-up"
-//           >
-//             <iframe
-//               title={`${activeProject.projectName} Presentation`}
-//               src={getViewerUrl(activeProject.pptFile)}
-//               onLoad={handleIframeLoad}
-//               className="absolute top-0 left-0 h-full border-0 bg-black"
-//               style={{ width: "calc(100% + 24px)" }}
-//               allowFullScreen
-//             />
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Result;
+}
