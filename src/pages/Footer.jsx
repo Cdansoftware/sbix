@@ -269,7 +269,7 @@ const Footer = () => {
                   Submission
                 </span>
                 <span className="text-xs font-bold text-red-400">
-                  Registration Closed
+                  Open till 6 P.M. ( 13 OCT 2026 )
                 </span>
               </div>
 
