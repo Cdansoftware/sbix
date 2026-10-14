@@ -1003,13 +1003,13 @@ export const selectedStudentsData = [
     "teamName": "GREENOVATORS",
     "category": "Senior"
   },
-  // {
-  //   "id": 19,
-  //   "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
-  //   "mentorName": "Pradeep Kumar Gupta",
-  //   "teamName": "Agri Innovators",
-  //   "category": "Senior"
-  // },
+  {
+    "id": 19,
+    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+    "mentorName": "Pradeep Kumar Gupta",
+    "teamName": "Agri Innovators",
+    "category": "Senior"
+  },
   // {
   //   "id": 20,
   //   "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
@@ -1018,33 +1018,33 @@ export const selectedStudentsData = [
   //   "category": "Senior"
   // },
   {
-    "id": 19,
+    "id": 20,
     "schoolName": "PM Shri GSSS Talwand Jalle Khan",
     "mentorName": "Mohit Garg",
     "teamName": "Young innovators",
     "category": "Senior"
   },
   {
-    "id": 20,
+    "id": 21,
     "schoolName": "Govt. High School, Khokhar (Bathinda) Punjab",
     "mentorName": "Parwinder Singh",
     "teamName": "Eco Tech Star 2",
     "category": "Senior"
   },
   {
-    "id": 21,
+    "id": 22,
     "schoolName": "Govt. High School, Khokhar (Bathinda) Punjab",
     "mentorName": "Parwinder Singh",
     "teamName": "Young Innovators",
     "category": "Senior"
   },
-  {
-    "id": 22,
-    "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
-    "mentorName": "Pradeep Kumar Gupta",
-    "teamName": "Jal Rakshak",
-    "category": "Senior"
-  },
+  // {
+  //   "id": 22,
+  //   "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
+  //   "mentorName": "Pradeep Kumar Gupta",
+  //   "teamName": "Jal Rakshak",
+  //   "category": "Senior"
+  // },
   {
     "id": 23,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
