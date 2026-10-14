@@ -5,8 +5,10 @@ import { FaMapMarkerAlt, FaDirections, FaWhatsapp } from "react-icons/fa";
 import UserIcons from "../assets/userr.png";
 import FeUser from "../assets/feuser.png";
 import Gmail from "../assets/gmicon.png";
+import Head from "../assets/head.png";
 
 const Contact = () => {
+  
   const mapLink = "https://maps.app.goo.gl/f2LRfZySJPFA3FGn7";
   const whatsappGroupLink = "https://chat.whatsapp.com/KKRMVUteyO95zC2gJ81DFj";
 
@@ -52,11 +54,12 @@ const Contact = () => {
           <div className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-xl relative overflow-hidden group hover:border-red-500/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-24 h-28 rounded-2xl bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform">
+                {/* Yahan overflow-hidden add kiya hai */}
+                <div className="w-32 h-36 rounded-2xl bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform overflow-hidden">
                   <img
-                    src={UserIcons}
+                    src={Head}
                     alt="Chandan Prajapati"
-                    className="w-auto h-28 object-cover"
+                    className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
                 <div>
@@ -87,11 +90,12 @@ const Contact = () => {
           <div className="p-6 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-xl relative overflow-hidden group hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-24 h-28 rounded-2xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform">
+                {/* Fix: yahan `w-28 h-36` kiya aur `overflow-hidden` add kiya taki Chandan wale card jaisi hi proper shape bane */}
+                <div className="w-32 h-36 rounded-2xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl font-bold group-hover:scale-105 transition-transform overflow-hidden">
                   <img
                     src={FeUser}
                     alt="Dhanjeet Kaur"
-                    className="w-auto h-28 object-cover"
+                    className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
                 <div>
@@ -183,7 +187,8 @@ const Contact = () => {
             Stay Connected & Official Communication
           </h3>
           <p className="text-xs sm:text-sm text-slate-400 mb-6 max-w-md mx-auto">
-            Send your queries or project ideas to our official email, or join our official WhatsApp group for instant announcements and updates.
+            Send your queries or project ideas to our official email, or join
+            our official WhatsApp group for instant announcements and updates.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">

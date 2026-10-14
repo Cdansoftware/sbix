@@ -518,6 +518,7 @@ export const ResultData = {
     { id: "teamName", label: "Team Name", align: "text-left" },
     { id: "mentorName", label: "Mentor Name", align: "text-left" },
     { id: "category", label: "Category", align: "text-left" },
+    { id: "teamCode", label: "teamCode", align: "text-left" },
     // { id: "projectName", label: "Project Name", align: "text-left" },
     // { id: "ppt", label: "PPT Presentation", align: "text-center" },
   ],
@@ -575,170 +576,184 @@ export const categories = [
 
 export const allParticipants = {
   tinkercad: [
-    {
+       {
       id: 1,
       schoolName: "Satya Bharti Elementary School, Khanpur",
       mentorName: "Ramesh Prasad Sahani",
       members: ["Arshdeep"],
+      teamCode: "SBIX-KPR-TC-08"
     },
     {
       id: 2,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Chogawan",
       mentorName: "Sourav Tiwari",
       members: ["Lavish Kumar"],
+      teamCode: "SBIX-CHG-TC-01"
     },
     {
       id: 3,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Sherpur Kalan",
       mentorName: "Arush Gupta",
       members: ["Japsirat kaur"],
+      teamCode: "SBIX-SHK-TC-03"
     },
     {
       id: 4,
       schoolName: "Satya Bharti Elementary School, Bhattike",
       mentorName: "Karamjit Kaur",
       members: ["Mansirat Kaur"],
+      teamCode: "SBIX-BHT-TC-11"
     },
     {
       id: 5,
       schoolName: "Satya Bharti Elementary School, Bohlian",
       mentorName: "Simran Sahni",
-      members: ["Sandeep Kaur"],
+      members: ["Armandeep Singh"],
+      teamCode: "SBIX-BHL-TC-09"
     },
     {
       id: 6,
-      schoolName: "Satya Bharti Elementary School, Gujjapoor",
+      schoolName: "Satya Bharti Elementary School, Gujjapir",
       mentorName: "Simran Sahni",
       members: ["Khushanveer Singh"],
+      teamCode: "SBIX-GJR-TC-21"
     },
     {
       id: 7,
       schoolName: "Satya Bharti Elementary School, Nassar",
       mentorName: "Mehakdeep Kaur",
       members: ["Gurleen Kaur"],
+      teamCode: "SBIX-NSR-TC-10"
     },
     {
       id: 8,
       schoolName: "Satya Bharti Elementary School, Bath",
       mentorName: "Mehakdeep Kaur",
       members: ["Parnajdeep kaur"],
+      teamCode: "SBIX-BTH-TC-17"
     },
     {
       id: 9,
-      schoolName: "Satya Bharti Elementary School, Chanankya",
+      schoolName: "Satya Bharti Elementary School, Chananake",
       mentorName: "Ramandeep Kaur",
       members: ["Shabnamdeep kaur"],
+      teamCode: "SBIX-CNK-TC-13"
     },
     {
       id: 10,
       schoolName: "Satya Bharti Elementary School, Mohie",
       mentorName: "Avaneesh Kumar",
       members: ["Gagandeep Singh"],
+      teamCode: "SBIX-MOH-TC-02"
     },
     {
       id: 11,
       schoolName: "Satya Bharti Adarsh Sr. Sec. School, Fattubhila",
       mentorName: "Diksha Arya",
       members: ["Peehu Sharma"],
+      teamCode: "SBIX-FTB-TC-04"
     },
     {
       id: 12,
       schoolName: "Satya Bharti Elementary School, Kamalpur",
       mentorName: "Vivek kumar",
       members: ["Diljaan Singh"],
+      teamCode: "SBIX-KMP-TC-06"
     },
     {
       id: 13,
-      schoolName: "Satya Bharti Adarsh Sr. Sec. School Bhangali Kalan",
+      schoolName: "Satya Bharti Adarsh Senior Secondary School, Jhaneri",
       mentorName: "Pradeep Kumar Gupta",
-      members: ["Sunali"],
+      members: ["Harkirot Singh"],
+      teamCode: "SBIX-JNR-TC-05"
     },
     {
       id: 14,
-      schoolName: "Satya Bharti Adarsh Senior Secondary School, Jhaneri",
-      mentorName: "Pradeep Kumar Gupta",
-      members: ["Harkirot Singhh"],
-    },
-    {
-      id: 15,
       schoolName:
         "Satya Bharti Adarsh Senior Secondary School, Bhangali Kalan-Jijjeani Cluster-Amritsar.",
       mentorName: "Anterpreet Singh",
       members: ["Sunali"],
+      teamCode: "SBIX-BJK-TC-15"
     },
     {
-      id: 16,
+      id: 15,
       schoolName: "Satya Bharti Elementary School, Jijjeani-Amritsar-PB",
       mentorName: "Anterpreet Singh",
       members: ["Ekdeep Singh"],
+      teamCode: "SBIX-JJN-TC-14"
+    },
+    {
+      id: 16,
+      schoolName: "Satya Bharti Adarsh Sr. Sec. School Gumansinghpura",
+      mentorName: "Nitesh Dwivedi",
+      members: ["Goutam Singh"],
+      teamCode: "SBIX-GSP-TC-07"
     },
     {
       id: 17,
-      schoolName: "Satya Bharti Adarsh Sr. Sec. School Gurmansinghpura",
-      mentorName: "Nitesh Dwivedi",
-      members: ["Goutam Singh"],
-    },
-    {
-      id: 18,
       schoolName: "Satya Bhart School Lordi Dejgara -Jodhpur-Rajasthan",
-      mentorName: "Ashish",
+      mentorName: "Ashish Dadhich",
       members: ["Insaf"],
+      teamCode: "SBIX-LDG-TC-16"
     },
-    {
-      id: 19,
-      schoolName: "Satya Bhart School Lordi Dejgara -Jodhpur-Rajasthan",
-      mentorName: "Ashish",
-      members: ["Saniya"],
-    },
-  ],
-  roborace: [
+    
+ ],
+    roborace:[
     {
       id: 1,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Chogawan",
       mentorName: "Sourav Tiwari",
       members: ["Harmanpreet Singh", "Gurbir Singh"],
+      teamCode: "SBIX-CHG-RR-01"
     },
     {
       id: 2,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Sherpur Kalan",
       mentorName: "Arush Gupta",
       members: ["Jobanpreet Singh", "Shamsher Singh"],
+      teamCode: "SBIX-SHK-RR-03"
     },
     {
       id: 3,
       schoolName: "Satya Bharti Elementary School, Khanpur",
       mentorName: "Ramesh Prasad Sahani",
       members: ["Arshdeep", "Arman Singh"],
+      teamCode: "SBIX-KPR-RR-08"
     },
     {
       id: 4,
       schoolName: "Satya Bharti Elementary School, Mohie",
       mentorName: "Avaneesh Kumar",
       members: ["Gurbir Singh", "Gagandeep Singh"],
+      teamCode: "SBIX-MOH-RR-02"
     },
     {
       id: 5,
       schoolName: "Satya Bharti Adarsh Sr. Sec. School, Fattubhilla",
       mentorName: "Diksha Arya",
       members: ["Nihar Sharma", "Armanjot Singh"],
+      teamCode: "SBIX-FTB-RR-04"
     },
     {
       id: 6,
       schoolName: "Satya Bharti Elementary School, Kamalpur",
       mentorName: "Vivek Kumar",
       members: ["Diljaan Singh", "Baldeep Singh"],
+      teamCode: "SBIX-KMP-RR-06"
     },
     {
       id: 7,
       schoolName: "Satya Bharti Adarsh Senior Secondary School, Jhaneri",
       mentorName: "Pradeep Kumar Gupta",
-      members: ["Amandeep kaur", "Akashdeep Singh"],
+      members: ["Amandeep Kaur", "Akashdeep Singh"],
+      teamCode: "SBIX-JNR-RR-05"
     },
     {
       id: 8,
-      schoolName: "Satya Bharti Adarsh Sr. Sec. School Gurmansinghpura",
+      schoolName: "Satya Bharti Adarsh Sr. Sec. School Gumansinghpura",
       mentorName: "Nitesh Dwivedi",
-      members: ["Lal singh", "Pataram"],
+      members: ["Lal Singh"],
+      teamCode: "SBIX-GSP-RR-07"
     },
   ],
   aiquiz: [
@@ -747,134 +762,143 @@ export const allParticipants = {
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Chogawan",
       mentorName: "Sourav Tiwari",
       members: ["Komalpreet Kaur", "Taranpreet Kaur"],
+      teamCode: "SBIX-CHG-AQ-01"
     },
     {
       id: 2,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Sherpur Kalan",
       mentorName: "Arush Gupta",
       members: ["Shamsher Singh", "Gurnoor Kaur"],
+      teamCode: "SBIX-SHK-AQ-03"
     },
     {
       id: 3,
       schoolName: "Satya Bharti Elementary School, Bhattike",
       mentorName: "Karamjit Kaur",
-      members: ["Mansirat Kaur", "Jasanpreet Kaur"],
+      members: ["Mansirat Kaur", "Jashanpreet Kaur"],
+      teamCode: "SBIX-BHT-AQ-11"
     },
     {
       id: 4,
       schoolName: "Satya Bharti Elementary School, Bohlian",
       mentorName: "Simran Sahni",
       members: ["Dilpreet kaur", "Pardeep Singh"],
+      teamCode: "SBIX-BHL-AQ-09"
     },
     {
       id: 5,
-      schoolName: "Satya Bharti Elementary School, Gujjapeer",
+      schoolName: "Satya Bharti Elementary School, Gujjapir",
       mentorName: "Simran Sahni",
       members: ["Radhika", "Harjasmeet Kaur"],
+      teamCode: "SBIX-GJR-AQ-21"
     },
     {
       id: 6,
       schoolName: "Satya Bharti Elementary School, Balliyewal",
       mentorName: "Rajni Rani",
       members: ["Jasmeen Kaur", "Sukhman Singh"],
+      teamCode: "SBIX-BLW-AQ-19"
     },
     {
       id: 7,
       schoolName: "Satya Bharti Adarsh Sen. Sec. School, Behlolpur",
       mentorName: "Kanchan Sapra",
       members: ["Navpreet Kaur", "Radhika Kalra"],
+      teamCode: "SBIX-BHL-AQ-12"
     },
     {
       id: 8,
       schoolName: "Satya Bharti Elementary School, Nassar",
       mentorName: "Mehakdeep Kaur",
       members: ["Gurleen Kaur", "Kirandeep Kaur"],
+      teamCode: "SBIX-NSR-AQ-10"
     },
     {
       id: 9,
       schoolName: "Satya Bharti Elementary School, Bath",
       mentorName: "Mehakdeep Kaur",
       members: ["Simran Kaur", "Parnajdeep kaur"],
+      teamCode: "SBIX-BTH-AQ-17"
     },
     {
       id: 10,
-      schoolName: "Satya Bharti Elementary School, Chanankya",
+      schoolName: "Satya Bharti Elementary School, Chananake",
       mentorName: "Ramandeep Kaur",
-      members: ["Surinder Das", "Vanshdeep Singh"],
+      members: ["Surinder Daas", "Vanshdeep Singh"],
+      teamCode: "SBIX-CNK-AQ-13"
     },
     {
       id: 11,
       schoolName: "Satya Bharti Elementary School, Khanpur",
       mentorName: "Ramesh Prasad Sahani",
       members: ["Sukhmani Kaur", "Amandeep Kaur"],
+      teamCode: "SBIX-KPR-AQ-08"
     },
     {
       id: 12,
       schoolName: "Satya Bharti Elementary School, Mohie",
       mentorName: "Avaneesh Kumar",
       members: ["Dilpreet Singh", "Urmila"],
+      teamCode: "SBIX-MOH-AQ-02"
     },
     {
       id: 13,
       schoolName: "Satya Bharti Adarsh Sr. Sec. School, Fattubhilla",
       mentorName: "Diksha Arya",
       members: ["Ekamjot Kaur", "Nihar Sharma"],
+      teamCode: "SBIX-FTB-AQ-04"
     },
     {
       id: 14,
       schoolName: "Satya Bharti Elementary School, Dhulka",
       mentorName: "Khuswinder Kaur",
       members: ["Ekamjot Singh", "Inderjit Singh"],
+      teamCode :"SBIX-DLK-AQ-20"
     },
     {
       id: 15,
       schoolName: "Satya Bharti Elementary School, Kamalpur",
       mentorName: "Vivek Kumar",
-      members: ["Suhana", "Parneet Kaur"],
+      members: ["Suhana", "Praneet Kaur"],
+      teamCode: "SBIX-KMP-AQ-06"
     },
     {
       id: 16,
       schoolName: "Satya Bharti Adarsh Senior Secondary School, Jhaneri",
       mentorName: "Pradeep Kumar Gupta",
       members: ["Davinder Singh", "Rashi Shaw"],
+      teamCode: "SBIX-JNR-AQ-05"
     },
     {
       id: 17,
       schoolName: "Satya Bharti Elementary School, Bhangali Kalan",
       mentorName: "Anterpreet Singh",
       members: ["Sonali", "Shubhamdeep Singh"],
+      teamCode: "SBIX-BJK-AQ-15"
     },
     {
       id: 18,
       schoolName: "Satya Bharti Elementary School, Jijjeani-Amritsar-PB",
       mentorName: "Anterpreet Singh",
       members: ["Ukina", "Ekdeep Singh"],
+      teamCode: "SBIX-JJN-AQ-14"
     },
     {
       id: 19,
-      schoolName: "Satya Bharti Adarsh Sr. Sec. School, Gurmansinghpura",
+      schoolName: "Satya Bharti Adarsh Sr. Sec. School, Gumansinghpura",
       mentorName: "Nitesh Dwivedi",
       members: ["Kamal Singh", "Goutam singh"],
+      teamCode: "SBIX-GSP-AQ-07"
     },
     {
       id: 20,
       schoolName: "Satya Bharti School Lordi Dejgara -Jodhpur-Rajasthan",
       mentorName: "Ashish Dadhich",
       members: ["Saniya", "Karishma"],
+      teamCode: "SBIX-LDG-AQ-16"
     },
   ],
 };
-
-
-  // {
-  //   id: 2,
-  //   schoolName: "Govt. Model Senior Secondary School, Patiala",
-  //   teamName: "RoboSpark",
-  //   teamCode: "SBX-1002",
-  //   mentorName: "Rajesh Kumar",
-  //   projectName: "Automated Agriculture Bot",
-  //   pptFile: PPT,
-  // },
 
 export const selectedStudentsData = [
   {
@@ -882,133 +906,154 @@ export const selectedStudentsData = [
     "schoolName": "Satya Elementary School Mohie",
     "teamName": "Smart Growers",
     "mentorName": "Avneesh Kumar",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-MOH-IJ-02"
   },
   {
     "id": 2,
-    "schoolName": "satya elementary school dhulka",
+    "schoolName": "satya elementary school Dhulka",
     "teamName": "Ignite Minds",
     "mentorName": "khushwinder  kaur",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-DLK-IJ-20"
   },
   {
     "id": 3,
     "schoolName": "Satya Elementary School, Bohlian",
     "teamName": "Young Innovator",
     "mentorName": "Simran Sahni",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-BHI-IJ-09"
   },
   {
     "id": 4,
     "schoolName": "Satya Elementary School Khanpur",
     "teamName": "Future Founder",
     "mentorName": "Ramesh Prasad Sahani",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-KPR-IJ-08-1"
   },
   {
     "id": 5,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
     "teamName": "Waste to Energy",
     "mentorName": "Pradeep Kumar Gupta",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-JNR-IJ-05-2"
+
   },
   {
     "id": 6,
     "schoolName": "Satya Elementary School Khanpur",
     "teamName": "Future Founder Khanpur",
     "mentorName": "Ramesh Prasad Sahani",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-KPR-IJ-08-2"
   },
   {
     "id": 7,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
     "teamName": "Khule Aasmaan",
     "mentorName": "Pradeep Kumar Gupta",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-JNR-IJ-05-1"
   },
   {
     "id": 8,
     "schoolName": "Satya Bharti School Dasania",
     "teamName": "MittiSense Innovators",
     "mentorName": "Devi Lal",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-DSN-IJ-23"
   },
   {
     "id": 9,
     "schoolName": "Satya elemenatry school balliyewal",
     "teamName": "EcoSpark Innovators",
     "mentorName": "Rajni Rani",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-BLW-IJ-19"
   },
   {
     "id": 10,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School , Sherpur Kalan",
     "teamName": "SherpurX",
     "mentorName": "Arush Gupta",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-SHK-IJ-03"
   },
   {
     "id": 11,
     "schoolName": "Satya Elementary School Bhattike",
     "teamName": "Reformer",
     "mentorName": "Karamjit Kaur",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-BHT-IJ-11"
   },
   {
     "id": 12,
     "schoolName": "Satya Elementary School Kamalpur",
     "teamName": "TechMind",
     "mentorName": "Vivek kumar",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-KML-IJ-06"
   },
   {
     "id": 13,
     "schoolName": "Satya Bharti School Gumansinghpura",
     "teamName": "Gspura",
     "mentorName": "Nitesh Diwedi",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-GSP-IJ-07"
   },
   {
     "id": 14,
     "schoolName": "Satya Bharti School Devrajgarh",
-    "teamName": "TharCool — Zero-Electric",
+    "teamName": "TharCool — Zero-Electricity Classroom Cooling System",
     "mentorName": "Devi Lal",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-DVG-IJ-24"
   },
   {
     "id": 15,
     "schoolName": "Satya Bharti School Jati Bhandu Jodhpur",
     "teamName": "Team Future Makers",
     "mentorName": "Sunil Garg",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-JBJ-IJ-26"
   },
   {
     "id": 16,
     "schoolName": "Satya Bharti School Panditonka was",
     "teamName": "Logic Lord",
     "mentorName": "Anmol Rathod",
-    "category": "junior"
+    "category": "junior",
+    "teamCode": "SBIX-KVP-IJ-18"
   },
   {
     "id": 17,
     "schoolName": "SATYA BHARTI ADARSH SENIOR SECONDARY SECONDRY SCHOOL, CHOGAWAN",
     "mentorName": "SOURAV KUMAR TIWARI",
     "teamName": "AGRIX",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-CHG-IS-01-1"
   },
   {
     "id": 18,
     "schoolName": "SATYA BHARTI ADARSH SENIOR SECONDARY SECONDRY SCHOOL, CHOGAWAN",
     "mentorName": "SOURAV KUMAR TIWARI",
     "teamName": "GREENOVATORS",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-CHG-IS-01-2"
   },
   {
     "id": 19,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
     "mentorName": "Pradeep Kumar Gupta",
     "teamName": "Agri Innovators",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-JNR-IS-05-1"
+
   },
   // {
   //   "id": 20,
@@ -1022,21 +1067,24 @@ export const selectedStudentsData = [
     "schoolName": "PM Shri GSSS Talwand Jalle Khan",
     "mentorName": "Mohit Garg",
     "teamName": "Young innovators",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-TJK-IS-25"
   },
   {
     "id": 21,
     "schoolName": "Govt. High School, Khokhar (Bathinda) Punjab",
     "mentorName": "Parwinder Singh",
     "teamName": "Eco Tech Star 2",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-KKR-IS-22-2"
   },
   {
     "id": 22,
     "schoolName": "Govt. High School, Khokhar (Bathinda) Punjab",
     "mentorName": "Parwinder Singh",
     "teamName": "Young Innovators",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-KKR-IS-22-1"
   },
   // {
   //   "id": 22,
@@ -1050,28 +1098,32 @@ export const selectedStudentsData = [
     "schoolName": "Satya Bharti Adarsh Senior Secondary School Jhaneri",
     "mentorName": "Pradeep Kumar Gupta",
     "teamName": "Ritam",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-JNR-IS-05-2"
   },
   {
     "id": 24,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School, Fattubhila",
     "mentorName": "Deeksha Arya",
     "category": "Senior",
-    "teamName": "Gaurdian Innovators"
+    "teamName": "Gaurdian Innovators",
+    "teamCode": "SBIX-FTB-IS-04-1"
   },
   {
     "id": 25,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School, Fattubhila",
     "mentorName": "Deeksha Arya",
     "category": "Senior",
-    "teamName": "EcoErasers"
+    "teamName": "EcoErasers",
+    "teamCode": "SBIX-FTB-IS-04-2"
   },
   {
     "id": 26,
     "schoolName": "Satya Bharti Adarsh Senior Secondary School , Sherpur Kalan",
     "mentorName": "Arush Gupta",
     "teamName": "Bharti Innovator",
-    "category": "Senior"
+    "category": "Senior",
+    "teamCode": "SBIX-SHK-IS-03"
   }
 ]
 

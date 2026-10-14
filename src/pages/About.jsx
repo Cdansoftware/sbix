@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { RiMapPinUserLine } from "react-icons/ri";
 import { departmentData } from "./siteData";
+import Head from "../assets/head.png";
 
 const About = () => {
   useEffect(() => {
@@ -46,7 +47,10 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Head */}
             <div className="p-6 rounded-3xl bg-gradient-to-br from-red-500/20 via-white/5 to-white/5 backdrop-blur-xl border border-red-500/30 text-center relative overflow-hidden group hover:border-red-500/60 transition-all">
-              <RiMapPinUserLine className="w-20 h-24 rounded-2xl bg-red-500/20 border border-red-500/40 text-red-400 flex items-center justify-center text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <img 
+              src={Head} 
+              alt="Head" 
+              className="w-22 h-24 rounded-2xl bg-red-500/20 border border-red-500/40 text-red-400 flex items-center justify-center text-2xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform" />
 
               <span className="text-[10px] font-black uppercase tracking-widest text-red-400 px-3 py-1 bg-red-500/10 rounded-full border border-red-500/20">
                 Event Head

@@ -92,7 +92,6 @@ const Participants = () => {
               const memberMatch = item.members?.some((m) =>
                 m.toLowerCase().includes(query),
               );
-
               return schoolMatch || mentorMatch || memberMatch;
             });
 
@@ -124,6 +123,7 @@ const Participants = () => {
                           Team / Mentor Info
                         </th>
                         <th className="py-3 px-4 font-semibold">Members</th>
+                        <th className="py-3 px-4 font-semibold">Team Code</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-200 text-slate-700 text-sm">
@@ -160,6 +160,11 @@ const Participants = () => {
                                   </li>
                                 ))}
                               </ul>
+                            </td>
+                            <td className="py-3 px-4 font-medium">
+                              <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700 border-2 border-red-100">
+                                {highlightText(item.teamCode, searchQuery)}
+                              </span>
                             </td>
                           </tr>
                         ))

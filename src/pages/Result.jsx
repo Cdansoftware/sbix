@@ -81,29 +81,34 @@ export default function Result() {
                     className="hover:bg-gray-50/80 transition-colors"
                   >
                     {/* Sr. No. */}
-                    <td className="py-3 px-4 sm:py-4 sm:px-6 text-center font-medium text-gray-500">
+                    <td className="py-3 px-4 sm:py-4 sm:px-3 text-center font-medium text-gray-500">
                       {index + 1}
                     </td>
                     {/* School Name */}
-                    <td className="py-3 px-4 sm:py-4 sm:px-6 font-medium text-gray-900">
+                    <td className="py-3 px-4 sm:py-4 sm:px-4 font-medium text-gray-900">
                       {highlightText(row.schoolName, searchTerm)}
                     </td>
                     {/* Team Name */}
-                    <td className="py-3 px-4 sm:py-4 sm:px-6">
+                    <td className="py-3 px-4 sm:py-4 sm:px-2">
                       {highlightText(row.teamName, searchTerm)}
                     </td>
                     {/* Mentor Name */}
-                    <td className="py-3 px-4 sm:py-4 sm:px-6">
+                    <td className="py-3 px-4 sm:py-4 sm:px-2">
                       {highlightText(row.mentorName, searchTerm)}
                     </td>
                     {/* Category */}
-                    <td className="py-3 px-4 sm:py-4 sm:px-6">
-                      <span className={`inline-block px-2.5 py-1 text-xs font-semibold rounded-full uppercase ${
+                    <td className="py-3 px-4 sm:py-4 sm:px-5">
+                      <span className={`inline-block px-2.5 py-1 text-xs font-light rounded-full uppercase ${
                         row.category?.toLowerCase() === 'junior' 
                           ? 'bg-blue-100 text-blue-700' 
                           : 'bg-purple-100 text-purple-700'
                       }`}>
                         {highlightText(row.category, searchTerm)}
+                      </span>
+                    </td>
+                     <td className="py-3 px-4 sm:py-2">
+                      <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700 border-2 border-red-100">
+                      {highlightText(row.teamCode, searchTerm)}
                       </span>
                     </td>
                   </tr>
