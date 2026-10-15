@@ -40,7 +40,7 @@ const About = () => {
         </div>
 
         {/* Leadership Section (Head & Co-Head) */}
-        <div className="mb-16" data-aos="fade-up">
+        <div className="mb-16" data-aos="fade-up">  
           <h2 className="text-xl font-extrabold text-white text-center mb-8 uppercase tracking-wider flex items-center justify-center gap-2">
             <span>⭐</span> Event Leadership
           </h2>

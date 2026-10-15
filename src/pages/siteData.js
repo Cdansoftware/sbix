@@ -29,7 +29,7 @@ export const ideathonData = [
   },
   {
     id: 3,
-    schoolName: "Satya Bharti School Panditonka was",
+    schoolName: "Satya Bharti School Panditonka Vas",
     mentorName: "Anmol",
     category: "Junior",
     teamName: "IdeaX",
@@ -39,7 +39,7 @@ export const ideathonData = [
   },
   {
     id: 4,
-    schoolName: "Satya Bharti School Panditonka was",
+    schoolName: "Satya Bharti School Panditonka Vas",
     mentorName: "Anmol",
     category: "Junior",
     teamName: "Logic Lords",
@@ -141,7 +141,7 @@ export const ideathonData = [
   },
   {
     id: 14,
-    schoolName: "Satya elemenatry school balliyewal",
+    schoolName: "Satya elemenatry School Balliyewal",
     mentorName: "Rajni Rani",
     category: "Junior",
     teamName: "EcoSpark Innovators",
@@ -151,7 +151,7 @@ export const ideathonData = [
   },
   {
     id: 15,
-    schoolName: "Satya Elementry school chananke",
+    schoolName: "Satya Elementry School Chananke",
     mentorName: "Ramandeep kaur",
     category: "Junior",
     teamName: "Team chananke",
@@ -161,7 +161,7 @@ export const ideathonData = [
   },
   {
     id: 16,
-    schoolName: "Satya Elementry school chananke",
+    schoolName: "Satya Elementry School Chananke",
     mentorName: "Ramandeep kaur",
     category: "Junior",
     teamName: "Chananke",
@@ -261,8 +261,8 @@ export const ideathonData = [
   },
   {
     id: 26,
-    schoolName: "satya elementary school dhulka",
-    mentorName: "khushwinder kaur",
+    schoolName: "Satya Elementary School Dhulka",
+    mentorName: "Khushwinder kaur",
     category: "Junior",
     teamName: "Ignite minds",
     pptLink:
@@ -271,8 +271,8 @@ export const ideathonData = [
   },
   {
     id: 27,
-    schoolName: "satya elementary school dhulka",
-    mentorName: "khushwinder kaur",
+    schoolName: "Satya Elementary School Dhulka",
+    mentorName: "Khushwinder kaur",
     category: "Junior",
     teamName: "Ignite Minds",
     pptLink:
@@ -574,7 +574,7 @@ export const categories = [
   },
 ];
 
-export const allParticipants = {
+export const allParticipants = {  
   tinkercad: [
        {
       id: 1,
@@ -873,7 +873,7 @@ export const allParticipants = {
       id: 17,
       schoolName: "Satya Bharti Elementary School, Bhangali Kalan",
       mentorName: "Anterpreet Singh",
-      members: ["Sonali", "Shubhamdeep Singh"],
+      members: ["Sunali", "Shubhamdeep Singh"],
       teamCode: "SBIX-BJK-AQ-15"
     },
     {
@@ -913,7 +913,7 @@ export const selectedStudentsData = [
     "id": 2,
     "schoolName": "satya elementary school Dhulka",
     "teamName": "Ignite Minds",
-    "mentorName": "khushwinder  kaur",
+    "mentorName": "Khushwinder  kaur",
     "category": "junior",
     "teamCode": "SBIX-DLK-IJ-20"
   },
@@ -968,7 +968,7 @@ export const selectedStudentsData = [
   },
   {
     "id": 9,
-    "schoolName": "Satya elemenatry school balliyewal",
+    "schoolName": "Satya elemenatry school Balliyewal",
     "teamName": "EcoSpark Innovators",
     "mentorName": "Rajni Rani",
     "category": "junior",
@@ -1024,7 +1024,7 @@ export const selectedStudentsData = [
   },
   {
     "id": 16,
-    "schoolName": "Satya Bharti School Panditonka was",
+    "schoolName": "Satya Bharti School Panditonka Vas",
     "teamName": "Logic Lord",
     "mentorName": "Anmol Rathod",
     "category": "junior",
@@ -1457,7 +1457,7 @@ export const generalRules = [
 ];
 
 // AI Quiz Syllabus Topics
-export const aiQuizSyllabus = [
+export const aiQuizSyllabus =   [
   {
     module: "1. Introduction to Artificial Intelligence",
     icon: "🤖",
@@ -1624,18 +1624,15 @@ export const challengeGuidelines = [
     overview:
       "Test speed, accuracy, and knowledge depth in Artificial Intelligence, Machine Learning, Computer Vision, and Emerging Tech.",
     specifications: [
-      "Round 1: Online Speed Quiz (Elimination Round).",
+      "Online Speed Quiz.",
       "Team Size: 2 Members.",
     ],
     rules: [
-      "Use of mobile phones, smartwatches, or external assistance during quiz rounds is strictly prohibited.",
-      "In Round 1, tie-breakers will be determined based on submission speed.",
-      "For Round 2 (Buzzer Round), negative points apply for incorrect answers after pressing the buzzer.",
-      "The Quizmaster's decision is final and binding on all participating teams.",
+      "Use of mobile phones, smartwatches, or external assistance during quiz rounds is strictly prohibited",
+      "The quiz will consist of 20 questions, to be completed within 10 minutes.  "
     ],
     judgmentCriteria: [
-      "Round 1 Score & Speed Ranking (Qualification)",
-      "Buzzer Accuracy in Final Stage Round",
+      "Score & Speed Ranking",
       "Scenario & Problem-Solving Speed",
     ],
     hasSyllabusButton: true,

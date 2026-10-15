@@ -25,12 +25,15 @@ export default function Result() {
     const parts = text.split(new RegExp(`(${query})`, "gi"));
     return parts.map((part, index) =>
       part.toLowerCase() === query.toLowerCase() ? (
-        <mark key={index} className="bg-yellow-200 text-gray-900 rounded px-0.5 font-medium">
+        <mark
+          key={index}
+          className="bg-yellow-200 text-gray-900 rounded px-0.5 font-medium"
+        >
           {part}
         </mark>
       ) : (
         part
-      )
+      ),
     );
   };
 
@@ -38,13 +41,15 @@ export default function Result() {
     // Outer Container: Mobile me 0 padding, min-h-screen flex layout
     <div className="min-h-screen bg-gray-50 p-0 sm:p-6 md:p-10 flex flex-col">
       <div className="w-full flex-grow max-w-7xl mx-auto bg-white shadow-none sm:shadow-md rounded-none sm:rounded-xl overflow-hidden border-0 sm:border sm:border-gray-200 flex flex-col">
-        
         {/* Header & Search Bar Section */}
         <div className="p-4 sm:p-6 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 bg-white">
           <div>
-            <h2 className="text-lg sm:text-xl font-bold text-gray-800">Student Team Results</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-800">
+              Student Team Results
+            </h2>
             <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
-              Showing {filteredData.length} of {selectedStudentsData.length} entries
+              Showing {filteredData.length} of {selectedStudentsData.length}{" "}
+              entries
             </p>
           </div>
           <div className="w-full sm:w-80">
@@ -76,9 +81,12 @@ export default function Result() {
             <tbody className="divide-y divide-gray-200 text-sm text-gray-700">
               {filteredData.length > 0 ? (
                 filteredData.map((row, index) => (
-                  <tr 
-                    key={row.id} 
+                  <tr
+                    key={row.id}
                     className="hover:bg-gray-50/80 transition-colors"
+                    data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
                   >
                     {/* Sr. No. */}
                     <td className="py-3 px-4 sm:py-4 sm:px-3 text-center font-medium text-gray-500">
@@ -98,24 +106,29 @@ export default function Result() {
                     </td>
                     {/* Category */}
                     <td className="py-3 px-4 sm:py-4 sm:px-5">
-                      <span className={`inline-block px-2.5 py-1 text-xs font-light rounded-full uppercase ${
-                        row.category?.toLowerCase() === 'junior' 
-                          ? 'bg-blue-100 text-blue-700' 
-                          : 'bg-purple-100 text-purple-700'
-                      }`}>
+                      <span
+                        className={`inline-block px-2.5 py-1 text-xs font-light rounded-full uppercase ${
+                          row.category?.toLowerCase() === "junior"
+                            ? "bg-blue-100 text-blue-700"
+                            : "bg-purple-100 text-purple-700"
+                        }`}
+                      >
                         {highlightText(row.category, searchTerm)}
                       </span>
                     </td>
-                     <td className="py-3 px-4 sm:py-2">
+                    <td className="py-3 px-4 sm:py-2">
                       <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-full bg-red-100 text-red-700 border-2 border-red-100">
-                      {highlightText(row.teamCode, searchTerm)}
+                        {highlightText(row.teamCode, searchTerm)}
                       </span>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan={ResultData.headers.length} className="text-center py-10 text-gray-400">
+                  <td
+                    colSpan={ResultData.headers.length}
+                    className="text-center py-10 text-gray-400"
+                  >
                     No matching records found.
                   </td>
                 </tr>
@@ -123,8 +136,9 @@ export default function Result() {
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   );
 }
+
+
