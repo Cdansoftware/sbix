@@ -5,6 +5,163 @@ import aiquizImg from "../assets/ai-quiz.png";
 import roboraceImg from "../assets/robo-race.png";
 import PPT from "../assets/SBIXidea.pdf";
 import { Award, BookOpen, Bot, Cpu, Sparkles } from "lucide-react";
+import Jasmen from "../assets/jasmeen.png";
+import Akshita from "../assets/Akshita.jpeg";
+import Sanchit from "../assets/Sanchit.jpeg";
+import Hard from "../assets/Harsh.jpeg";
+import Vrun from "../assets/Vrun.png";
+import { FaGavel } from "react-icons/fa";
+
+const juryMembers = [
+  {
+    id: 1,
+    name: "Jasmeen Gill",
+    role: "Professor || Associate Head (CSE) at RIMT University",
+    image: Jasmen,
+  },
+  {
+    id: 2,
+    name: "Varun Batra",
+    role: "Manager of Makerspace At Plaksha University",
+    image: Vrun,
+  },
+  {
+    id: 3,
+    name: "Sanchit Gupta",
+    role: "Founder of Agriguru Techbologies",
+    image: Sanchit,
+  },
+  {
+    id: 4,
+    name: "Harsh Mishra",
+    role: "AI/ML Engineer at Millipixels Interactive",
+    image: Hard,
+  },
+  {
+    id: 5,
+    name: "Akshita",
+    role: "Founder of Tinkerminds",
+    image: Akshita,
+  },
+];
+
+const juryData = [
+  {
+    category: "TinkerCAD",
+    badgeColor: "bg-red-600 border-red-500",
+    lightBg: "bg-red-500/10 border-red-500/20",
+    textColor: "text-red-500",
+    jury: ["Akshita", "Harsh Mishra"],
+  },
+  {
+    category: "Robo-Race",
+    badgeColor: "bg-amber-600 border-amber-500",
+    lightBg: "bg-amber-500/10 border-amber-500/20",
+    textColor: "text-amber-500",
+    jury: ["Varun Batra"],
+  },
+  {
+    category: "Senior Innovation",
+    badgeColor: "bg-blue-600 border-blue-500",
+    lightBg: "bg-blue-500/10 border-blue-500/20",
+    textColor: "text-blue-500",
+    jury: ["Jasmeen Gill"],
+  },
+  {
+    category: "Junior Innovation",
+    badgeColor: "bg-emerald-600 border-emerald-500",
+    lightBg: "bg-emerald-500/10 border-emerald-500/20",
+    textColor: "text-emerald-500",
+    jury: ["Sanchit Gupta"],
+  },
+];
+
+export const EventSchedule = [
+  {
+    timing: "8:00–8:30 AM",
+    activity: "Welcome & Registration",
+    venue: "Registration Desk",
+    type: "normal",
+  },
+  {
+    timing: "8:30–9:00 AM",
+    activity: "Refreshments for Judges & PPT Presentation",
+    venue: "ICR",
+    type: "normal",
+  },
+  {
+    timing: "8:30–9:00 AM",
+    activity: "Refreshments for Students",
+    venue: "MDM Hall",
+    type: "normal",
+  },
+  {
+    timing: "9:00–10:00 AM",
+    activity: "Opening Ceremony",
+    venue: "Open Theatre",
+    type: "normal",
+  },
+  {
+    timing: "10:00 AM–1:00 PM",
+    activity: "Senior Innovation Challenge",
+    venue: "Library",
+    type: "normal",
+  },
+  {
+    timing: "10:00 AM–1:00 PM",
+    activity: "Junior Innovation Challenge",
+    venue: "Activity Hall",
+    type: "normal",
+  },
+  {
+    timing: "10:00 AM–1:00 PM",
+    activity: "Robo Race",
+    venue: "UKG A",
+    type: "normal",
+  },
+  {
+    timing: "10:00 AM–1:00 PM",
+    activity: "Tinkercad Challenge",
+    venue: "Language Lab",
+    type: "normal",
+  },
+  {
+    timing: "1:00–1:35 PM",
+    activity: "Lunch – Slot 1",
+    venue: "MDM Hall",
+    type: "highlight",
+  },
+  {
+    timing: "1:00–1:35 PM",
+    activity: "AI Quiz",
+    venue: "Robo Lab",
+    type: "normal",
+  },
+  {
+    timing: "1:35–2:00 PM",
+    activity: "Lunch – Slot 2",
+    venue: "MDM Hall",
+    type: "highlight",
+  },
+  {
+    timing: "2:00–2:30 PM",
+    activity: "Session",
+    venue: "Activity Hall",
+    type: "normal",
+  },
+  {
+    timing: "2:30–3:00 PM",
+    activity: "Jury Discussion",
+    venue: "ICR",
+    type: "normal",
+  },
+  {
+    timing: "3:00–4:30 PM",
+    activity: "Closing Ceremony & Prize Distribution",
+    venue: "Open Theatre",
+    type: "highlight",
+  },
+];
 
 export const ideathonData = [
   {
@@ -524,33 +681,33 @@ export const ResultData = {
   ],
 };
 
-export const EventSchedule = [
-  {
-    time: "08:30 AM",
-    event: "Reporting & On-Spot Registration",
-    desc: "Check-in at main desk and team kit allocation.",
-  },
-  {
-    time: "09:30 AM",
-    event: "Opening Ceremony",
-    desc: "Welcome address, keynote speaker, and rules briefing.",
-  },
-  {
-    time: "10:15 AM",
-    event: "Competitions Begin",
-    desc: "All track events commence simultaneously across labs.",
-  },
-  {
-    time: "01:30 PM",
-    event: "Lunch Break & Jury Round",
-    desc: "Refreshments provided; judges finalize preliminary scores.",
-  },
-  {
-    time: "03:30 PM",
-    event: "Valedictory & Award Ceremony",
-    desc: "Declaration of winners and trophy distribution.",
-  },
-];
+// export const EventSchedule = [
+//   {
+//     time: "08:30 AM",
+//     event: "Reporting & On-Spot Registration",
+//     desc: "Check-in at main desk and team kit allocation.",
+//   },
+//   {
+//     time: "09:30 AM",
+//     event: "Opening Ceremony",
+//     desc: "Welcome address, keynote speaker, and rules briefing.",
+//   },
+//   {
+//     time: "10:15 AM",
+//     event: "Competitions Begin",
+//     desc: "All track events commence simultaneously across labs.",
+//   },
+//   {
+//     time: "01:30 PM",
+//     event: "Lunch Break & Jury Round",
+//     desc: "Refreshments provided; judges finalize preliminary scores.",
+//   },
+//   {
+//     time: "03:30 PM",
+//     event: "Valedictory & Award Ceremony",
+//     desc: "Declaration of winners and trophy distribution.",
+//   },
+// ];
 
 // Categories list matching with your data keys or categories
 export const categories = [
@@ -801,7 +958,7 @@ export const allParticipants = {
     },
     {
       id: 7,
-      schoolName: "Satya Bharti Adarsh Sen. Sec. School, Behlolpur",
+      schoolName: "Satya Bharti Elementary, Behlolpur",
       mentorName: "Kanchan Sapra",
       members: ["Navpreet Kaur", "Radhika Kalra"],
       teamCode: "SBIX-BHL-AQ-12"

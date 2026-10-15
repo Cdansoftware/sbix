@@ -2,10 +2,14 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { stats, Allcompetitions, flipAnimations, EventSchedule } from "./siteData";
+import {
+  stats,
+  Allcompetitions,
+  flipAnimations,
+  EventSchedule,
+} from "./siteData";
 
 const EventOverview = () => {
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -191,26 +195,42 @@ const EventOverview = () => {
         </div>
 
         <div className="space-y-4">
+          {/* Schedule Cards */}
           {EventSchedule?.map((item, idx) => (
             <div
               key={idx}
               data-aos="fade-up"
-              data-aos-delay={idx * 100}
-              className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-red-500/40 transition-colors"
+              data-aos-delay={idx * 50}
+              className={`p-5 rounded-2xl backdrop-blur-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors border ${
+                item.type === "highlight"
+                  ? "bg-red-950/20 border-red-500/40 hover:border-red-500/70"
+                  : "bg-white/5 border-white/10 hover:border-red-500/40"
+              }`}
             >
-              <div className="flex items-center gap-4">
-                <span className="px-3 py-1 bg-red-500/20 text-red-300 text-xs font-bold rounded-lg border border-red-500/30 shrink-0">
-                  {item.time}
+              <div className="flex items-start sm:items-center gap-4">
+                <span className="px-3.5 py-1.5 bg-red-500/20 text-red-300 text-xs sm:text-sm font-bold rounded-lg border border-red-500/30 shrink-0">
+                  {item.timing}
                 </span>
                 <div>
-                  <h4 className="font-bold text-white text-base">
-                    {item.event}
+                  <h4 className="font-bold text-white text-base sm:text-lg">
+                    {item.activity}
                   </h4>
-                  <p className="text-slate-400 text-xs mt-0.5">{item.desc}</p>
+                  <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
+                    Venue:{" "}
+                    <span className="text-slate-200 font-medium">
+                      {item.venue}
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
           ))}
+
+          {/* Footer Note */}
+          <div className="text-center text-slate-400 text-xs sm:text-sm pt-4">
+            Note: Activities listed with the same timing may run simultaneously
+            in their respective venues.
+          </div>
         </div>
       </section>
     </div>
