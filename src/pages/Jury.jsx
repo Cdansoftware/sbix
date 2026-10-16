@@ -24,7 +24,7 @@ const juryMembers = [
   {
     id: 3,
     name: "Sanchit Gupta",
-    role: "Founder of Agriguru Techbologies",
+    role: "Founder of Agriguru Technologies",
     image: Sanchit,
   },
   {
@@ -100,8 +100,8 @@ const JuryCards = () => {
     },
     {
       name: "Sanchit Gupta",
-      title: "Founder of Agriguru Techbologies",
-      designation: "Founder of Agriguru Techbologies",
+      title: "Founder of Agriguru Technologies",
+      designation: "Founder of Agriguru Technologies",
       organization: "Plaksha University",
       image: Sanchit,
       bio: "NA"
