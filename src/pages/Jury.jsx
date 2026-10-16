@@ -6,6 +6,7 @@ import Vrun from "../assets/Vrun.png";
 import Depak from "../assets/Depak.jpeg";
 import Jasmeen from "../assets/jasmeen.png";
 import { FaGavel } from "react-icons/fa";
+import { desc } from "framer-motion/m";
 
 const juryMembers = [
   {
@@ -72,32 +73,40 @@ const juryData = [
 ];
 
 const JuryCards = () => {
- const ChiefGuestsData = [
-  {
-    name: "Mr. Deepak Garg",
-    title: "Chief Guest",
-    designation: "CEO of Innow8",
-    organization: "Innow8",
-    image: Depak,
-    bio: "Leading pioneer in emerging technologies, AI research, and fostering grassroots student innovation across national platforms.",
-  },
-  {
-    name: "Mr. Varun Batra",
-    title: "Chief Guest",
-    designation: "Manager of Makerspace at Plaksha University",
-    organization: "Plaksha University",
-    image: Vrun,
-    bio: "Accomplished technologist and mentor dedicated to mentoring young minds in robotics, embedded systems, and automated design.",
-  },
-  {
-    name: "Dr. Jasmeen Gill", // Only if her doctorate is confirmed
-    title: "Chief Guest of Honour",
-    designation: "Professor and Head (CSE), RIMT University",
-    organization: "RIMT University",
-    image: Jasmeen,
-    bio: "Distinguished academic leader contributing to computer science education and innovation.",
-  },
-];
+  const ChiefGuestsData = [
+    {
+      name: "Mr. Deepak Garg",
+      title: "Chief Guest",
+      designation: "CEO of Innow8",
+      organization: "Innow8",
+      image: Depak,
+      bio: "Leading pioneer in emerging technologies, AI research, and fostering grassroots student innovation across national platforms.",
+    },
+    {
+      name: "Mr. Varun Batra",
+      title: "Chief Guest",
+      designation: "Manager of Makerspace at Plaksha University",
+      organization: "Plaksha University",
+      image: Vrun,
+      bio: "Accomplished technologist and mentor dedicated to mentoring young minds in robotics, embedded systems, and automated design.",
+    },
+    {
+      name: "Dr. Jasmeen Gill", // Only if her doctorate is confirmed
+      title: "Chief Guest of Honour",
+      designation: "Professor and Head (CSE), RIMT University",
+      organization: "RIMT University",
+      image: Jasmeen,
+      bio: "Distinguished academic leader contributing to computer science education and innovation.",
+    },
+    {
+      name: "Sanchit Gupta",
+      title: "Founder of Agriguru Techbologies",
+      designation: "Founder of Agriguru Techbologies",
+      organization: "Plaksha University",
+      image: Sanchit,
+      bio: "NA"
+    }
+  ];
 
   return (
     <section className="bg-none px-4 mb-5 overflow-hidden">
@@ -134,7 +143,7 @@ const JuryCards = () => {
               </div>
             </div>
 
-            
+
 
             {/* Guests Grid */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-16">

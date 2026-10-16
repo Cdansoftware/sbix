@@ -165,7 +165,8 @@ const Contact = () => {
                     className="mt-4 mb-2 font-black tracking-tight text-white"
                   >
                     <a
-                      href={`tel:${l.Contact}`}
+                
+              href={`tel:${l.Contact}`}
                       className="hover:text-red-500 transition-colors"
                     >
                       {l.Contact}

@@ -269,13 +269,13 @@ const Footer = () => {
                   Submission
                 </span>
                 <span className="text-xs font-bold text-red-400">
-                  Registration Open
+                  Registration Closed
                 </span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
                 <span className="text-[10px] text-slate-400 uppercase font-semibold">
-                  Results
+                  Result Declared On
                 </span>
                 <span className="text-xs font-bold text-amber-400">
                   13 OCT 2026
