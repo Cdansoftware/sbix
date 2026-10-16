@@ -72,32 +72,32 @@ const juryData = [
 ];
 
 const JuryCards = () => {
-  const ChiefGuestsData = [
-    {
-      name: "Deepak Garg",
-      title: "Chief Guest",
-      designation: "CEO of Innow8",
-      organization: "Innow8",
-      image: Depak, // Replace with actual image URL
-      bio: "Leading pioneer in emerging technologies, AI research, and fostering grassroots student innovation across national platforms.",
-    },
-    {
-      name: "Varun Batra",
-      title: "Chief Guest",
-      designation: "Manager of Makerspace At Plaksha University",
-      organization: "Global Robotics & Automation Ltd.",
-      image: Vrun, // Replace with actual image URL
-      bio: "Accomplished technologist and mentor dedicated to mentoring young minds in robotics, embedded systems, and automated design.",
-    },
-    {
-      name: "Jasmeen Gill",
-      title: "Chief Guest of Honor",
-       designation: "Professor and Head ( CSE ) at RIMT University",
-      organization: "Global Robotics & Automation Ltd.",
-      image: Jasmeen, // Replace with actual image URL
-      bio:"nothing"
-    }
-  ];
+ const ChiefGuestsData = [
+  {
+    name: "Mr. Deepak Garg",
+    title: "Chief Guest",
+    designation: "CEO of Innow8",
+    organization: "Innow8",
+    image: Depak,
+    bio: "Leading pioneer in emerging technologies, AI research, and fostering grassroots student innovation across national platforms.",
+  },
+  {
+    name: "Mr. Varun Batra",
+    title: "Chief Guest",
+    designation: "Manager of Makerspace at Plaksha University",
+    organization: "Plaksha University",
+    image: Vrun,
+    bio: "Accomplished technologist and mentor dedicated to mentoring young minds in robotics, embedded systems, and automated design.",
+  },
+  {
+    name: "Dr. Jasmeen Gill", // Only if her doctorate is confirmed
+    title: "Chief Guest of Honour",
+    designation: "Professor and Head (CSE), RIMT University",
+    organization: "RIMT University",
+    image: Jasmeen,
+    bio: "Distinguished academic leader contributing to computer science education and innovation.",
+  },
+];
 
   return (
     <section className="bg-none px-4 mb-5 overflow-hidden">
@@ -133,6 +133,8 @@ const JuryCards = () => {
                 <span className="absolute inset-0 -translate-x-full animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
               </div>
             </div>
+
+            
 
             {/* Guests Grid */}
             <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-16">
