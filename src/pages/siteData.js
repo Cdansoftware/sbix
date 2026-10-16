@@ -78,20 +78,20 @@ const juryData = [
 
 export const EventSchedule = [
   {
-    timing: "8:00–8:30 AM",
-    activity: "Welcome & Registration",
+    timing: "8:00 – 09:00 AM",
+    activity: "Welcome & Registration ( Simultaneously )",
     venue: "Registration Desk",
     type: "normal",
   },
   {
     timing: "8:30–9:00 AM",
-    activity: "Refreshments for Judges & PPT Presentation",
+    activity: "Refreshments for Judges & PPT Presentation ( Simultaneously )",
     venue: "ICR",
     type: "normal",
   },
   {
     timing: "8:30–9:00 AM",
-    activity: "Refreshments for Students",
+    activity: "Refreshments for Students ( Simultaneously )",
     venue: "MDM Hall",
     type: "normal",
   },
@@ -1508,85 +1508,85 @@ export const stats = [
 export const departmentData = [
   {
     department: "Overall",
-    student: "Vansh Verma",
-    teacher: "Chandan Prajapati",
+    student: "Vansh Verma and Ritika Modgill",
+    teacher: "Chandan Prajapati and Dhanjeet Kaur",
   },
-  {
-    department: "Discipline",
-    student: "Arshpreet Singh",
-    teacher: "P. E. Department",
-  },
+  // {
+  //   department: "Discipline",
+  //   student: "Arshpreet Singh",
+  //   teacher: "P. E. Department",
+  // },
   {
     department: "Technical",
-    student: "Jasmanpreet Singh",
+    student: "Jasmanpreet Singh and Amandeep Singh",
     teacher: "Amninder Singh",
   },
-  {
-    department: "Hosting Hub",
-    student: "Harnoor Kaur",
-    teacher: "Harpreet Kaur",
-  },
+  // {
+  //   department: "Hosting Hub",
+  //   student: "Harnoor Kaur",
+  //   teacher: "Harpreet Kaur",
+  // },
   {
     department: "Registration",
-    student: "Nimrat Kaur",
+    student: "Nimrat Kaur and Dilpreet Singh",
     teacher: "Dhanjeet Kaur",
   },
   {
     department: "Guidance & Queries",
-    student: "Ritika Modgill",
+    student: "Ritika Modgill and Vansh Verma",
     teacher: "Dhanjeet Kaur",
   },
-  {
-    department: "Decoration",
-    student: "Gitika Sharma",
-    teacher: "Sapreet Kaur",
-  },
-  {
-    department: "Design & Display",
-    student: "Amandeep Singh",
-    teacher: "Chandan Prajapati",
-  },
-  {
-    department: "Venue Management",
-    student: "Sidakpreet Kaur",
-    teacher: "Navdeep Kaur",
-  },
-  {
-    department: "Refreshment",
-    student: "Gurleen Kaur",
-    teacher: "Jaisleen Kaur",
-  },
-  {
-    department: "Cultural (Bhangra)",
-    student: "Aamin",
-    teacher: "Manjit Singh",
-  },
-  {
-    department: "Cultural (Music)",
-    student: "Armaan Singh",
-    teacher: "Jasroye",
-  },
-  {
-    department: "Cleanliness",
-    student: "Kirandeep",
-    teacher: "Meenu Agarwaal",
-  },
+  // {
+  //   department: "Decoration",
+  //   student: "Gitika Sharma",
+  //   teacher: "Sapreet Kaur",
+  // },
+  // {
+  //   department: "Design & Display",
+  //   student: "Amandeep Singh",
+  //   teacher: "Chandan Prajapati",
+  // },
+  // {
+  //   department: "Venue Management",
+  //   student: "Sidakpreet Kaur",
+  //   teacher: "Navdeep Kaur",
+  // },
+  // {
+  //   department: "Refreshment",
+  //   student: "Gurleen Kaur",
+  //   teacher: "Jaisleen Kaur",
+  // },
+  // {
+  //   department: "Cultural (Bhangra)",
+  //   student: "Aamin",
+  //   teacher: "Manjit Singh",
+  // },
+  // {
+  //   department: "Cultural (Music)",
+  //   student: "Armaan Singh",
+  //   teacher: "Jasroye",
+  // },
+  // {
+  //   department: "Cleanliness",
+  //   student: "Kirandeep",
+  //   teacher: "Meenu Agarwaal",
+  // },
   {
     department: "Hospitality",
-    student: "Tanish Verma",
-    teacher: "Kamaljeet Kaur",
+    student: "Tanish Verma and Harnoor Kaur Gill",
+    teacher: "Kamaljeet Kaur and Gagandeep Kaur",
   },
-  { department: "Finance", student: "Ritika Modgill", teacher: "Rajveer Kaur" },
-  {
-    department: "Photography",
-    student: "Dilpreet Singh",
-    teacher: "Gurpreet Singh",
-  },
-  {
-    department: "Documentation",
-    student: "Gurdev Singh",
-    teacher: "Kamaljeet Kaur",
-  },
+  // { department: "Finance", student: "Ritika Modgill", teacher: "Rajveer Kaur" },
+  // {
+  //   department: "Photography",
+  //   student: "Dilpreet Singh",
+  //   teacher: "Gurpreet Singh",
+  // },
+  // {
+  //   department: "Documentation",
+  //   student: "Gurdev Singh",
+  //   teacher: "Kamaljeet Kaur",
+  // },
 ];
 
 // General Competition Rules

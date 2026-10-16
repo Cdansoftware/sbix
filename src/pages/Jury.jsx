@@ -4,6 +4,7 @@ import Sanchit from "../assets/Sanchit.jpeg";
 import Hard from "../assets/Harsh.jpeg";
 import Vrun from "../assets/Vrun.png";
 import Depak from "../assets/Depak.jpeg";
+import Jasmeen from "../assets/jasmeen.png";
 import { FaGavel } from "react-icons/fa";
 
 const juryMembers = [
@@ -88,6 +89,14 @@ const JuryCards = () => {
       image: Vrun, // Replace with actual image URL
       bio: "Accomplished technologist and mentor dedicated to mentoring young minds in robotics, embedded systems, and automated design.",
     },
+    {
+      name: "Jasmeen Gill",
+      title: "Chief Guest of Honor",
+       designation: "Professor and Head ( CSE ) at RIMT University",
+      organization: "Global Robotics & Automation Ltd.",
+      image: Jasmeen, // Replace with actual image URL
+      bio:"nothing"
+    }
   ];
 
   return (
@@ -119,7 +128,7 @@ const JuryCards = () => {
 
               <div className="relative inline-block overflow-hidden bg-gradient-to-r from-red-600 to-rose-500 text-white font-bold text-xs sm:text-sm px-7 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-red-900/40 ring-1 ring-white/20">
                 <span className="relative z-10">
-                  Distinguished Chief Guests
+                  Guests of Honour
                 </span>
                 <span className="absolute inset-0 -translate-x-full animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
               </div>
@@ -144,7 +153,7 @@ const JuryCards = () => {
                         src={guest.image}
                         alt={guest.name}
                         loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full object-cover bg-slate-50 transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
                   </div>
