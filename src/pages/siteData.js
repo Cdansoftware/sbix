@@ -28,7 +28,7 @@ const juryMembers = [
   {
     id: 3,
     name: "Sanchit Gupta",
-    role: "Founder of Agriguru Techbologies",
+    role: "Founder of Agriguru Technologies",
     image: Sanchit,
   },
   {
