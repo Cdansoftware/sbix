@@ -25,6 +25,7 @@ const Contact = () => {
       role: "Event Head",
       name: "Chandan Prajapati",
       desc: "Lead Coordinator & Strategic Mentor",
+      Contact: "+91 84168-47643",
       aos: "fade-right",
       card: "from-red-500/20 hover:border-red-500/60 border-red-500/30 hover:shadow-red-900/40",
       ring: "from-red-500 via-rose-400 to-red-700",
@@ -38,6 +39,7 @@ const Contact = () => {
       role: "Event Co-Head",
       name: "Dhanjeet Kaur",
       desc: "Co-Coordinator & Guidance Lead",
+      Contact: "+91 98555-64456",
       aos: "fade-left",
       card: "from-amber-500/20 hover:border-amber-500/60 border-amber-500/30 hover:shadow-amber-900/40",
       ring: "from-amber-400 via-yellow-300 to-amber-600",
@@ -156,6 +158,19 @@ const Contact = () => {
                   >
                     {l.name}
                   </h3>
+
+                  <h5
+                    data-aos="fade-up"
+                    data-aos-delay={550 + i * 150}
+                    className="mt-4 mb-2 font-black tracking-tight text-white"
+                  >
+                    <a
+                      href={`tel:${l.Contact}`}
+                      className="hover:text-red-500 transition-colors"
+                    >
+                      {l.Contact}
+                    </a>
+                  </h5>
 
                   {/* Divider */}
                   <span
