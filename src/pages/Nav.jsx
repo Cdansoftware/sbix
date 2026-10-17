@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink, useNavigate , } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "../assets/logo_sbix.png";
 import { LuSchool } from "react-icons/lu";
@@ -16,6 +16,7 @@ export default function Navbar() {
     { name: "Results", href: "/results" },
     { name: "Contact Us", href: "/contact" },
     { name: "Participants", href: "/participants" },
+    { name: "AI-Quiz", href: "/ai-quix" }, // Corrected 'herf' to 'href'
   ];
 
   return (
@@ -29,7 +30,10 @@ export default function Navbar() {
           <Link to="/home" className="flex items-center gap-3 group">
             <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-red-600 to-amber-500 p-0.5 shadow-lg shadow-red-600/20 group-hover:scale-105 transition-transform duration-200">
               <div
-                onClick={() => navigate("/results")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/results");
+                }}
                 className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
               >
                 <img
@@ -87,11 +91,7 @@ export default function Navbar() {
               className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none transition-colors"
               aria-label="Toggle navigation menu"
             >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
