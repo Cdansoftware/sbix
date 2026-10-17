@@ -16,7 +16,7 @@ export default function Navbar() {
     { name: "Results", href: "/results" },
     { name: "Contact Us", href: "/contact" },
     { name: "Participants", href: "/participants" },
-    { name: "AI-Quiz", href: "/ai-quix" }, // Corrected 'herf' to 'href'
+    // { name: "AI-Quiz", href: "/ai-quix" }, // Corrected 'herf' to 'href'
   ];
 
   return (

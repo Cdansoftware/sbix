@@ -21,7 +21,7 @@ const Results = lazy(() => import("./pages/Result"));
 const Participants = lazy(() => import("./pages/Participants"));
 
 // Consistent naming: AiQuiz component
-const AiQuiz = lazy(() => import("./pages/Ai-quix"));
+// const AiQuiz = lazy(() => import("./pages/Ai-quix"));
 
 const App = () => {
   useEffect(() => {
@@ -60,7 +60,7 @@ const App = () => {
           <Route path="/participants" element={<Participants />} />
           
           {/* Updated route path matching lowercase standard */}
-          <Route path="/ai-quix" element={<AiQuiz />} />
+          {/* <Route path="/ai-quix" element={<AiQuiz />} /> */}
           
           <Route path="*" element={<NotFound />} />
         </Routes>
